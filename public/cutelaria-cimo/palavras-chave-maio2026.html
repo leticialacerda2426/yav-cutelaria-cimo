@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YAV Digital · Palavras-chave & Termos de Pesquisa · Maio 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --pur:#7B2FFF;--pur-light:#a67cff;--pur-dark:#4a0dcc;
+  --teal:#00C4A7;--teal-dark:#009a84;
+  --bg:#07070f;--bg2:#0d0b1e;
+  --border:rgba(123,47,255,0.15);
+  --text:#f0ede8;--muted:#666;--dim:#333;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;overflow-x:hidden;}
+
+.bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 55% at 5% 0%,rgba(123,47,255,0.28) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 40% at 95% 15%,rgba(0,196,167,0.18) 0%,transparent 50%),
+    radial-gradient(ellipse 60% 50% at 50% 105%,rgba(80,20,200,0.22) 0%,transparent 55%),
+    var(--bg);}
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(123,47,255,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(123,47,255,0.045) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,black 20%,transparent 100%);}
+
+.wrap{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 1.5rem;}
+
+nav{position:sticky;top:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(7,7,15,0.65);backdrop-filter:blur(16px);border-bottom:1px solid rgba(123,47,255,0.1);}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-sq{width:34px;height:34px;background:linear-gradient(135deg,var(--pur),var(--pur-dark));border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;
+  box-shadow:0 0 18px rgba(123,47,255,0.55);}
+.logo-txt{font-weight:700;font-size:16px;color:#fff;letter-spacing:0.04em;}
+.logo-txt span{color:var(--pur-light);}
+.nav-badge{background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.3);color:var(--pur-light);
+  font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;}
+
+/* HERO */
+.hero{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:5rem 1.5rem 3rem;position:relative;}
+.hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:300px;background:radial-gradient(ellipse,rgba(123,47,255,0.12) 0%,transparent 70%);pointer-events:none;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(0,196,167,0.08);border:1px solid rgba(0,196,167,0.22);
+  color:var(--teal);font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+  padding:7px 16px;border-radius:20px;margin-bottom:1.5rem;}
+.eyebrow-dot{width:7px;height:7px;background:var(--teal);border-radius:50%;box-shadow:0 0 10px var(--teal);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.8);}}
+.hero-title{font-size:clamp(30px,5vw,56px);font-weight:800;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.01em;
+  background:linear-gradient(140deg,#fff 0%,#d4c4ff 45%,var(--teal) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:clamp(13px,2vw,16px);color:var(--muted);line-height:1.75;max-width:520px;margin:0 auto;}
+
+section{padding:4rem 0;}
+.sep{height:1px;background:linear-gradient(90deg,transparent,rgba(123,47,255,0.2) 40%,rgba(0,196,167,0.15) 60%,transparent);}
+.section-eye{font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;}
+.section-title{font-size:clamp(18px,2.8vw,26px);font-weight:800;line-height:1.2;margin-bottom:1.5rem;color:#fff;letter-spacing:-0.01em;}
+.section-title span{background:linear-gradient(90deg,var(--pur-light),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* TERMOS TAGS */
+.tags-box{background:rgba(10,8,25,0.55);border:1px solid var(--border);border-radius:16px;padding:1.8rem;backdrop-filter:blur(8px);}
+.tags-wrap{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:1.2rem;}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;
+  padding:6px 14px;border-radius:20px;border:1px solid;cursor:default;transition:transform .2s;}
+.tag:hover{transform:translateY(-2px);}
+.tag.pur{background:rgba(123,47,255,0.1);border-color:rgba(123,47,255,0.25);color:var(--pur-light);}
+.tag.teal{background:rgba(0,196,167,0.08);border-color:rgba(0,196,167,0.2);color:var(--teal);}
+.tag.dim{background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.07);color:#555;}
+.tag-dot{width:5px;height:5px;border-radius:50%;}
+.tag.pur .tag-dot{background:var(--pur-light);}
+.tag.teal .tag-dot{background:var(--teal);}
+.tag.dim .tag-dot{background:#444;}
+.tags-legend{display:flex;gap:20px;flex-wrap:wrap;font-size:11px;color:var(--dim);}
+.tags-legend span{display:flex;align-items:center;gap:5px;}
+.tags-legend i{width:8px;height:8px;border-radius:50%;display:inline-block;}
+
+/* TABLES */
+.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid rgba(123,47,255,0.08);}
+table{width:100%;border-collapse:collapse;font-size:12px;min-width:520px;}
+th{text-align:left;font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);
+  padding:10px 14px;border-bottom:1px solid rgba(123,47,255,0.1);background:rgba(10,8,25,0.8);}
+td{padding:11px 14px;border-bottom:1px solid rgba(123,47,255,0.05);color:var(--muted);vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(123,47,255,0.03);}
+td.b{color:var(--text);font-weight:500;}
+td.pu{color:var(--pur-light);font-weight:600;}
+td.gn{color:var(--teal);font-weight:600;}
+tr.total-row td{border-top:1px solid rgba(123,47,255,0.15);color:var(--text);font-weight:600;background:rgba(123,47,255,0.05);}
+.pill{display:inline-block;font-size:10px;font-weight:500;padding:3px 9px;border-radius:20px;white-space:nowrap;}
+.pill-p{background:rgba(123,47,255,0.1);color:var(--pur-light);border:1px solid rgba(123,47,255,0.2);}
+.pill-g{background:rgba(0,196,167,0.07);color:var(--teal-dark);border:1px solid rgba(0,196,167,0.15);}
+.pill-ok{background:rgba(50,200,100,0.08);color:#32c864;border:1px solid rgba(50,200,100,0.2);}
+.pill-n{background:rgba(255,255,255,0.03);color:#444;border:1px solid rgba(255,255,255,0.06);}
+
+/* KPI MINI */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:1.5rem;}
+@media(max-width:600px){.kpi-row{grid-template-columns:repeat(2,1fr);}}
+.kpi-mini{background:rgba(10,8,25,0.55);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.2rem;backdrop-filter:blur(8px);}
+.kpi-mini.pur{border-color:rgba(123,47,255,0.3);background:rgba(40,10,100,0.3);}
+.kpi-mini.teal{border-color:rgba(0,196,167,0.25);background:rgba(0,50,42,0.3);}
+.kpi-mini-label{font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;}
+.kpi-mini.pur .kpi-mini-label{color:rgba(166,124,255,0.6);}
+.kpi-mini.teal .kpi-mini-label{color:rgba(0,196,167,0.6);}
+.kpi-mini-val{font-size:clamp(16px,2.5vw,22px);font-weight:800;color:var(--text);}
+.kpi-mini.pur .kpi-mini-val{color:#c8b5ff;}
+.kpi-mini.teal .kpi-mini-val{color:var(--teal);}
+.kpi-mini-sub{font-size:10px;color:var(--dim);margin-top:4px;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.1s;}.reveal-delay-2{transition-delay:.2s;}.reveal-delay-3{transition-delay:.3s;}
+.reveal-delay-4{transition-delay:.4s;}.reveal-delay-5{transition-delay:.5s;}
+
+.hero-title,.hero-sub,.eyebrow{opacity:0;transform:translateY(20px);animation:fadeUp .9s cubic-bezier(.22,1,.36,1) forwards;}
+.eyebrow{animation-delay:.1s;}.hero-title{animation-delay:.25s;}.hero-sub{animation-delay:.42s;}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+
+footer{background:rgba(5,4,15,0.9);backdrop-filter:blur(12px);padding:1.6rem 2rem;
+  border-top:1px solid rgba(123,47,255,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-logo{font-size:15px;font-weight:700;color:rgba(255,255,255,0.15);}
+.footer-logo span{color:rgba(123,47,255,0.4);}
+.footer-note{font-size:11px;color:rgba(255,255,255,0.1);}
+</style>
+</head>
+<body>
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
+
+<nav>
+  <a class="logo" href="/"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></a>
+  <span class="nav-badge">Palavras-chave · Maio 2026</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow"><span class="eyebrow-dot"></span>1 a 21 de maio de 2026</div>
+  <h1 class="hero-title">Palavras-chave &<br>Termos de Pesquisa</h1>
+  <p class="hero-sub">Análise completa dos termos que acionaram os anúncios da Cutelaria Cimo — volume, CTR, custo e conversões por palavra.</p>
+</div>
+
+<div class="sep"></div>
+
+<!-- TOTAIS -->
+<section>
+  <div class="wrap">
+    <p class="section-eye reveal">Visão geral</p>
+    <h2 class="section-title reveal reveal-delay-1">Totais dos <span>termos de pesquisa</span></h2>
+    <div class="kpi-row">
+      <div class="kpi-mini pur reveal reveal-delay-1">
+        <p class="kpi-mini-label">Cliques (termos)</p>
+        <p class="kpi-mini-val">2.782</p>
+        <p class="kpi-mini-sub">termos rastreados</p>
+      </div>
+      <div class="kpi-mini teal reveal reveal-delay-2">
+        <p class="kpi-mini-label">Conversões</p>
+        <p class="kpi-mini-val">49,33</p>
+        <p class="kpi-mini-sub">via termos de busca</p>
+      </div>
+      <div class="kpi-mini reveal reveal-delay-3">
+        <p class="kpi-mini-label">CTR médio</p>
+        <p class="kpi-mini-val">3,96%</p>
+        <p class="kpi-mini-sub">taxa de clique</p>
+      </div>
+      <div class="kpi-mini reveal reveal-delay-4">
+        <p class="kpi-mini-label">CPC médio</p>
+        <p class="kpi-mini-val">R$0,53</p>
+        <p class="kpi-mini-sub">custo por clique</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- TAGS DOS TERMOS PRINCIPAIS -->
+<section>
+  <div class="wrap">
+    <p class="section-eye reveal">Termos que acionaram os anúncios</p>
+    <h2 class="section-title reveal reveal-delay-1">Principais <span>pesquisas dos usuários</span></h2>
+    <div class="tags-box reveal reveal-delay-2">
+      <div class="tags-wrap">
+        <!-- Alta conversão -->
+        <span class="tag pur"><span class="tag-dot"></span>cimo</span>
+        <span class="tag pur"><span class="tag-dot"></span>cutelaria cimo</span>
+        <span class="tag pur"><span class="tag-dot"></span>cimo cutelaria</span>
+        <span class="tag pur"><span class="tag-dot"></span>canivete cimo</span>
+        <span class="tag pur"><span class="tag-dot"></span>faca cimo</span>
+        <span class="tag pur"><span class="tag-dot"></span>canivete cimo inox</span>
+        <span class="tag teal"><span class="tag-dot"></span>cimo canivete</span>
+        <span class="tag teal"><span class="tag-dot"></span>facão cimo</span>
+        <span class="tag teal"><span class="tag-dot"></span>canivetes cimo</span>
+        <span class="tag teal"><span class="tag-dot"></span>canivete cimo nexus</span>
+        <span class="tag teal"><span class="tag-dot"></span>cimo heeler</span>
+        <span class="tag teal"><span class="tag-dot"></span>canivete cimo heeler</span>
+        <span class="tag teal"><span class="tag-dot"></span>facão cimo 14 polegadas</span>
+        <span class="tag teal"><span class="tag-dot"></span>cutelaria cimo produtos</span>
+        <span class="tag dim"><span class="tag-dot"></span>canivete</span>
+        <span class="tag dim"><span class="tag-dot"></span>facao cimo</span>
+        <span class="tag dim"><span class="tag-dot"></span>facas cimo</span>
+        <span class="tag dim"><span class="tag-dot"></span>canivete de bolso</span>
+        <span class="tag dim"><span class="tag-dot"></span>loja cimo</span>
+        <span class="tag dim"><span class="tag-dot"></span>cimo facas</span>
+        <span class="tag dim"><span class="tag-dot"></span>canivete cimo tomahawk</span>
+      </div>
+      <div class="tags-legend">
+        <span><i style="background:var(--pur-light)"></i>Alta performance (marca exata)</span>
+        <span><i style="background:var(--teal)"></i>Conversão confirmada</span>
+        <span><i style="background:#444"></i>Alcance / tráfego</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- TABELA TERMOS TOP -->
+<section>
+  <div class="wrap">
+    <p class="section-eye reveal">Top termos de pesquisa</p>
+    <h2 class="section-title reveal reveal-delay-1">Desempenho por <span>termo buscado</span></h2>
+    <div class="table-wrap reveal reveal-delay-2">
+      <table>
+        <thead>
+          <tr>
+            <th>Termo de pesquisa</th>
+            <th>Campanha</th>
+            <th>Cliques</th>
+            <th>Impr.</th>
+            <th>CTR</th>
+            <th>CPC méd.</th>
+            <th>Custo</th>
+            <th>Conv.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="b">cimo</td>
+            <td><span class="pill pill-p">Marca Institucional</span></td>
+            <td class="b">420</td>
+            <td>2.269</td>
+            <td class="b">18,51%</td>
+            <td>R$0,75</td>
+            <td>R$316,94</td>
+            <td class="gn">8,00</td>
+          </tr>
+          <tr>
+            <td class="b">cutelaria cimo</td>
+            <td><span class="pill pill-p">Marca Institucional</span></td>
+            <td class="b">305</td>
+            <td>691</td>
+            <td class="b">44,14%</td>
+            <td>R$0,26</td>
+            <td>R$78,83</td>
+            <td class="gn">5,00</td>
+          </tr>
+          <tr>
+            <td class="b">cimo</td>
+            <td><span class="pill pill-p">Search Marca</span></td>
+            <td>210</td>
+            <td>872</td>
+            <td class="b">24,08%</td>
+            <td>R$0,60</td>
+            <td>R$125,29</td>
+            <td class="gn">5,33</td>
+          </tr>
+          <tr>
+            <td class="b">cutelaria cimo</td>
+            <td><span class="pill pill-p">Search Marca</span></td>
+            <td>195</td>
+            <td>412</td>
+            <td class="b">47,33%</td>
+            <td>R$0,28</td>
+            <td>R$54,29</td>
+            <td class="gn">4,00</td>
+          </tr>
+          <tr>
+            <td>cimo cutelaria</td>
+            <td><span class="pill pill-p">Marca Institucional</span></td>
+            <td>193</td>
+            <td>371</td>
+            <td class="b">52,02%</td>
+            <td>R$0,52</td>
+            <td>R$100,89</td>
+            <td class="gn">4,00</td>
+          </tr>
+          <tr>
+            <td>canivete cimo</td>
+            <td><span class="pill pill-p">Search Marca</span></td>
+            <td>155</td>
+            <td>541</td>
+            <td>28,65%</td>
+            <td>R$0,51</td>
+            <td>R$79,25</td>
+            <td class="gn">4,00</td>
+          </tr>
+          <tr>
+            <td>cimo cutelaria</td>
+            <td><span class="pill pill-p">Search Marca</span></td>
+            <td>144</td>
+            <td>268</td>
+            <td class="b">53,73%</td>
+            <td>R$0,18</td>
+            <td>R$26,40</td>
+            <td class="gn">3,00</td>
+          </tr>
+          <tr>
+            <td>faca cimo</td>
+            <td><span class="pill pill-p">Search Marca</span></td>
+            <td>49</td>
+            <td>149</td>
+            <td>32,89%</td>
+            <td>R$0,74</td>
+            <td>R$36,02</td>
+            <td class="gn">2,00</td>
+          </tr>
+          <tr>
+            <td>canivete</td>
+            <td><span class="pill pill-g">PMAX Geral BR</span></td>
+            <td>45</td>
+            <td>3.543</td>
+            <td>1,27%</td>
+            <td>R$0,48</td>
+            <td>R$21,55</td>
+            <td>0,50</td>
+          </tr>
+          <tr>
+            <td>cimo canivete</td>
+            <td><span class="pill pill-p">Search Marca</span></td>
+            <td>29</td>
+            <td>72</td>
+            <td class="b">40,28%</td>
+            <td>R$0,09</td>
+            <td>R$2,69</td>
+            <td>0,00</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total termos rastreados</td>
+            <td>—</td>
+            <td>2.782</td>
+            <td>70.224</td>
+            <td>3,96%</td>
+            <td>R$0,53</td>
+            <td>R$1.467,49</td>
+            <td class="pu">49,33</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- PALAVRAS-CHAVE -->
+<section>
+  <div class="wrap">
+    <p class="section-eye reveal">Palavras-chave da conta</p>
+    <h2 class="section-title reveal reveal-delay-1">Performance por <span>palavra-chave</span></h2>
+    <div class="table-wrap reveal reveal-delay-2">
+      <table>
+        <thead>
+          <tr>
+            <th>Palavra-chave</th>
+            <th>Tipo</th>
+            <th>Custo</th>
+            <th>Cliques</th>
+            <th>CTR</th>
+            <th>Conv.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="b">[cimo]</td>
+            <td><span class="pill pill-ok">Exata</span></td>
+            <td>R$317,49</td>
+            <td class="b">421</td>
+            <td class="b">18,54%</td>
+            <td class="gn">—</td>
+          </tr>
+          <tr>
+            <td class="b">"cimo"</td>
+            <td><span class="pill pill-p">Frase</span></td>
+            <td>R$278,41</td>
+            <td class="b">272</td>
+            <td>17,55%</td>
+            <td class="gn">—</td>
+          </tr>
+          <tr>
+            <td class="b">[cutelaria cimo]</td>
+            <td><span class="pill pill-ok">Exata</span></td>
+            <td>R$185,73</td>
+            <td>511</td>
+            <td class="b">46,58%</td>
+            <td class="gn">—</td>
+          </tr>
+          <tr>
+            <td>"cimo"</td>
+            <td><span class="pill pill-p">Frase</span></td>
+            <td>R$139,32</td>
+            <td>105</td>
+            <td>12,73%</td>
+            <td class="gn">—</td>
+          </tr>
+          <tr>
+            <td>[cimo]</td>
+            <td><span class="pill pill-ok">Exata</span></td>
+            <td>R$126,21</td>
+            <td>211</td>
+            <td>24,00%</td>
+            <td class="gn">—</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total conta (todas campan.)</td>
+            <td>—</td>
+            <td>R$2.114,45</td>
+            <td>3.820</td>
+            <td>3,32%</td>
+            <td class="pu">62,33</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- INSIGHTS -->
+<section>
+  <div class="wrap">
+    <p class="section-eye reveal">Análise estratégica</p>
+    <h2 class="section-title reveal reveal-delay-1">O que os dados <span>revelam</span></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div style="background:rgba(0,196,167,0.05);border:1px solid rgba(0,196,167,0.18);border-radius:14px;padding:1.2rem 1.3rem;" class="reveal reveal-delay-1">
+        <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:7px;">Destaque</p>
+        <p style="font-size:13px;color:var(--muted);line-height:1.6;">"cutelaria cimo" e "cimo cutelaria" têm CTR acima de 44–53% — usuários que pesquisam a marca convertem com altíssima intenção</p>
+      </div>
+      <div style="background:rgba(0,196,167,0.05);border:1px solid rgba(0,196,167,0.18);border-radius:14px;padding:1.2rem 1.3rem;" class="reveal reveal-delay-2">
+        <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:7px;">Destaque</p>
+        <p style="font-size:13px;color:var(--muted);line-height:1.6;">"cutelaria cimo" na Marca Institucional: 305 cliques a apenas R$0,26 CPC — o termo mais eficiente da conta</p>
+      </div>
+      <div style="background:rgba(123,47,255,0.05);border:1px solid rgba(123,47,255,0.18);border-radius:14px;padding:1.2rem 1.3rem;" class="reveal reveal-delay-3">
+        <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--pur-light);margin-bottom:7px;">Oportunidade</p>
+        <p style="font-size:13px;color:var(--muted);line-height:1.6;">"canivete" via PMAX gera 45 cliques em 3.543 impressões (CTR 1,27%) — explorar termos mais específicos de canivete para aumentar relevância</p>
+      </div>
+      <div style="background:rgba(245,160,50,0.04);border:1px solid rgba(245,160,50,0.18);border-radius:14px;padding:1.2rem 1.3rem;" class="reveal reveal-delay-4">
+        <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#f5a032;margin-bottom:7px;">Atenção</p>
+        <p style="font-size:13px;color:var(--muted);line-height:1.6;">388 categorias de termos rastreadas — grande parte do volume ainda não foi revisada para negativação de termos irrelevantes</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">YAV <span>Digital</span></span>
+  <span class="footer-note">Google Ads · Maio 2026 · Palavras-chave & Termos</span>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
