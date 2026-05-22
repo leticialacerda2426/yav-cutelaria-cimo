@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YAV Digital · Palavras-chave & Termos de Pesquisa · Maio 2026</title>
+<title>YAV Digital · Palavras-chave & Termos · Maio 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,8 +12,7 @@
 :root{
   --pur:#7B2FFF;--pur-light:#a67cff;--pur-dark:#4a0dcc;
   --teal:#00C4A7;--teal-dark:#009a84;
-  --bg:#07070f;--bg2:#0d0b1e;
-  --border:rgba(123,47,255,0.15);
+  --bg:#07070f;--border:rgba(123,47,255,0.15);
   --text:#f0ede8;--muted:#666;--dim:#333;
 }
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
@@ -22,14 +21,14 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;ove
 .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;
   background:radial-gradient(ellipse 70% 55% at 5% 0%,rgba(123,47,255,0.28) 0%,transparent 55%),
     radial-gradient(ellipse 50% 40% at 95% 15%,rgba(0,196,167,0.18) 0%,transparent 50%),
-    radial-gradient(ellipse 60% 50% at 50% 105%,rgba(80,20,200,0.22) 0%,transparent 55%),
-    var(--bg);}
+    radial-gradient(ellipse 60% 50% at 50% 105%,rgba(80,20,200,0.22) 0%,transparent 55%),var(--bg);}
 .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;
   background-image:linear-gradient(rgba(123,47,255,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(123,47,255,0.045) 1px,transparent 1px);
   background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,black 20%,transparent 100%);}
 
-.wrap{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 1.5rem;}
+.wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 1.5rem;}
 
+/* NAV */
 nav{position:sticky;top:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;
   background:rgba(7,7,15,0.65);backdrop-filter:blur(16px);border-bottom:1px solid rgba(123,47,255,0.1);}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
@@ -42,7 +41,7 @@ nav{position:sticky;top:0;z-index:100;padding:1rem 2rem;display:flex;align-items
   font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;}
 
 /* HERO */
-.hero{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+.hero{min-height:65vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;padding:5rem 1.5rem 3rem;position:relative;}
 .hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:600px;height:300px;background:radial-gradient(ellipse,rgba(123,47,255,0.12) 0%,transparent 70%);pointer-events:none;}
@@ -51,23 +50,98 @@ nav{position:sticky;top:0;z-index:100;padding:1rem 2rem;display:flex;align-items
   padding:7px 16px;border-radius:20px;margin-bottom:1.5rem;}
 .eyebrow-dot{width:7px;height:7px;background:var(--teal);border-radius:50%;box-shadow:0 0 10px var(--teal);animation:pulse 2s ease-in-out infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.8);}}
-.hero-title{font-size:clamp(30px,5vw,56px);font-weight:800;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.01em;
+.hero-title{font-size:clamp(28px,5vw,54px);font-weight:800;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.01em;
   background:linear-gradient(140deg,#fff 0%,#d4c4ff 45%,var(--teal) 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .hero-sub{font-size:clamp(13px,2vw,16px);color:var(--muted);line-height:1.75;max-width:520px;margin:0 auto;}
 
-section{padding:4rem 0;}
 .sep{height:1px;background:linear-gradient(90deg,transparent,rgba(123,47,255,0.2) 40%,rgba(0,196,167,0.15) 60%,transparent);}
+section{padding:4rem 0;}
 .section-eye{font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;}
 .section-title{font-size:clamp(18px,2.8vw,26px);font-weight:800;line-height:1.2;margin-bottom:1.5rem;color:#fff;letter-spacing:-0.01em;}
 .section-title span{background:linear-gradient(90deg,var(--pur-light),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
+/* CAMPANHA BLOCK */
+.camp-block{margin-bottom:3rem;}
+.camp-header{display:flex;align-items:center;gap:14px;margin-bottom:1.5rem;flex-wrap:wrap;}
+.camp-tag{font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;white-space:nowrap;}
+.camp-tag.pur{background:rgba(123,47,255,0.15);color:var(--pur-light);border:1px solid rgba(123,47,255,0.3);}
+.camp-tag.teal{background:rgba(0,196,167,0.1);color:var(--teal);border:1px solid rgba(0,196,167,0.25);}
+.camp-tag.green{background:rgba(50,200,100,0.1);color:#32c864;border:1px solid rgba(50,200,100,0.25);}
+.camp-title-block{}
+.camp-name{font-size:20px;font-weight:800;color:#fff;margin-bottom:2px;}
+.camp-desc{font-size:12px;color:var(--dim);}
+
+/* KPI ROW */
+.kpi-row{display:grid;gap:10px;margin-bottom:1.2rem;}
+.kpi-row-5{grid-template-columns:repeat(5,1fr);}
+.kpi-row-4{grid-template-columns:repeat(4,1fr);}
+.kpi-row-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:700px){.kpi-row-5,.kpi-row-4{grid-template-columns:repeat(2,1fr);}
+  .kpi-row-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:400px){.kpi-row-5,.kpi-row-4,.kpi-row-3{grid-template-columns:1fr;}}
+.kpi-card{border-radius:12px;padding:1rem 1.1rem;border:1px solid var(--border);background:rgba(10,8,25,0.55);backdrop-filter:blur(8px);}
+.kpi-card.pur{border-color:rgba(123,47,255,0.3);background:rgba(40,10,100,0.3);}
+.kpi-card.teal{border-color:rgba(0,196,167,0.25);background:rgba(0,50,42,0.25);}
+.kpi-card.green{border-color:rgba(50,200,100,0.25);background:rgba(0,50,20,0.25);}
+.kpi-card-label{font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);margin-bottom:5px;}
+.kpi-card.pur .kpi-card-label{color:rgba(166,124,255,0.6);}
+.kpi-card.teal .kpi-card-label{color:rgba(0,196,167,0.6);}
+.kpi-card.green .kpi-card-label{color:rgba(50,200,100,0.6);}
+.kpi-card-val{font-size:clamp(16px,2.5vw,22px);font-weight:800;color:var(--text);line-height:1;}
+.kpi-card.pur .kpi-card-val{color:#c8b5ff;}
+.kpi-card.teal .kpi-card-val{color:var(--teal);}
+.kpi-card.green .kpi-card-val{color:#32c864;}
+.kpi-card-sub{font-size:10px;color:var(--dim);margin-top:4px;}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid rgba(123,47,255,0.08);margin-bottom:1rem;}
+table{width:100%;border-collapse:collapse;font-size:12px;min-width:580px;}
+th{text-align:left;font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);
+  padding:9px 12px;border-bottom:1px solid rgba(123,47,255,0.1);background:rgba(10,8,25,0.85);white-space:nowrap;}
+td{padding:10px 12px;border-bottom:1px solid rgba(123,47,255,0.05);color:var(--muted);vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(123,47,255,0.025);}
+tr.total-row td{border-top:1px solid rgba(123,47,255,0.15);color:var(--text);font-weight:600;background:rgba(123,47,255,0.06);}
+td.b{color:var(--text);font-weight:500;}
+td.gn{color:#32c864;font-weight:600;}
+td.pu{color:var(--pur-light);font-weight:600;}
+td.tl{color:var(--teal);font-weight:600;}
+td.ye{color:#f5c842;font-weight:600;}
+td.dim{color:#2a2a3e;}
+.corr{display:inline-block;font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px;white-space:nowrap;}
+.corr-e{background:rgba(50,200,100,0.08);color:#32c864;border:1px solid rgba(50,200,100,0.2);}
+.corr-f{background:rgba(123,47,255,0.1);color:var(--pur-light);border:1px solid rgba(123,47,255,0.2);}
+.sim{color:#32c864;font-size:11px;font-weight:600;}
+.nao{color:var(--dim);font-size:11px;}
+.paused{color:#f5a032;font-size:11px;}
+
+/* INSIGHT BOX */
+.insight-box{border-radius:12px;padding:1.2rem 1.4rem;margin-top:1rem;}
+.insight-box.dark{background:rgba(10,8,25,0.8);border:1px solid rgba(123,47,255,0.15);}
+.insight-box.gold{background:rgba(245,200,66,0.05);border:1px solid rgba(245,200,66,0.2);}
+.ib-tag{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+.dark .ib-tag{color:var(--pur-light);}
+.gold .ib-tag{color:#f5c842;}
+.insight-box p{font-size:13px;color:var(--muted);line-height:1.65;}
+.insight-box strong{color:var(--text);}
+
+/* PMAX RESOURCES */
+.pmax-resource{background:rgba(10,8,25,0.55);border:1px solid var(--border);border-radius:12px;
+  padding:1rem 1.3rem;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.pmax-resource:hover{border-color:rgba(123,47,255,0.3);}
+.pr-left{}
+.pr-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.pr-desc{font-size:11px;color:var(--dim);}
+.pr-right{text-align:right;}
+.pr-conv{font-size:18px;font-weight:800;color:#32c864;}
+.pr-revenue{font-size:12px;color:var(--teal);margin-top:2px;}
+.pr-cost{font-size:11px;color:var(--dim);}
+
 /* TERMOS TAGS */
-.tags-box{background:rgba(10,8,25,0.55);border:1px solid var(--border);border-radius:16px;padding:1.8rem;backdrop-filter:blur(8px);}
-.tags-wrap{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:1.2rem;}
-.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;
-  padding:6px 14px;border-radius:20px;border:1px solid;cursor:default;transition:transform .2s;}
-.tag:hover{transform:translateY(-2px);}
+.tags-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem;}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;
+  padding:5px 12px;border-radius:20px;border:1px solid;}
 .tag.pur{background:rgba(123,47,255,0.1);border-color:rgba(123,47,255,0.25);color:var(--pur-light);}
 .tag.teal{background:rgba(0,196,167,0.08);border-color:rgba(0,196,167,0.2);color:var(--teal);}
 .tag.dim{background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.07);color:#555;}
@@ -75,48 +149,12 @@ section{padding:4rem 0;}
 .tag.pur .tag-dot{background:var(--pur-light);}
 .tag.teal .tag-dot{background:var(--teal);}
 .tag.dim .tag-dot{background:#444;}
-.tags-legend{display:flex;gap:20px;flex-wrap:wrap;font-size:11px;color:var(--dim);}
-.tags-legend span{display:flex;align-items:center;gap:5px;}
-.tags-legend i{width:8px;height:8px;border-radius:50%;display:inline-block;}
-
-/* TABLES */
-.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid rgba(123,47,255,0.08);}
-table{width:100%;border-collapse:collapse;font-size:12px;min-width:520px;}
-th{text-align:left;font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);
-  padding:10px 14px;border-bottom:1px solid rgba(123,47,255,0.1);background:rgba(10,8,25,0.8);}
-td{padding:11px 14px;border-bottom:1px solid rgba(123,47,255,0.05);color:var(--muted);vertical-align:middle;}
-tr:last-child td{border-bottom:none;}
-tr:hover td{background:rgba(123,47,255,0.03);}
-td.b{color:var(--text);font-weight:500;}
-td.pu{color:var(--pur-light);font-weight:600;}
-td.gn{color:var(--teal);font-weight:600;}
-tr.total-row td{border-top:1px solid rgba(123,47,255,0.15);color:var(--text);font-weight:600;background:rgba(123,47,255,0.05);}
-.pill{display:inline-block;font-size:10px;font-weight:500;padding:3px 9px;border-radius:20px;white-space:nowrap;}
-.pill-p{background:rgba(123,47,255,0.1);color:var(--pur-light);border:1px solid rgba(123,47,255,0.2);}
-.pill-g{background:rgba(0,196,167,0.07);color:var(--teal-dark);border:1px solid rgba(0,196,167,0.15);}
-.pill-ok{background:rgba(50,200,100,0.08);color:#32c864;border:1px solid rgba(50,200,100,0.2);}
-.pill-n{background:rgba(255,255,255,0.03);color:#444;border:1px solid rgba(255,255,255,0.06);}
-
-/* KPI MINI */
-.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:1.5rem;}
-@media(max-width:600px){.kpi-row{grid-template-columns:repeat(2,1fr);}}
-.kpi-mini{background:rgba(10,8,25,0.55);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.2rem;backdrop-filter:blur(8px);}
-.kpi-mini.pur{border-color:rgba(123,47,255,0.3);background:rgba(40,10,100,0.3);}
-.kpi-mini.teal{border-color:rgba(0,196,167,0.25);background:rgba(0,50,42,0.3);}
-.kpi-mini-label{font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;}
-.kpi-mini.pur .kpi-mini-label{color:rgba(166,124,255,0.6);}
-.kpi-mini.teal .kpi-mini-label{color:rgba(0,196,167,0.6);}
-.kpi-mini-val{font-size:clamp(16px,2.5vw,22px);font-weight:800;color:var(--text);}
-.kpi-mini.pur .kpi-mini-val{color:#c8b5ff;}
-.kpi-mini.teal .kpi-mini-val{color:var(--teal);}
-.kpi-mini-sub{font-size:10px;color:var(--dim);margin-top:4px;}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
 .reveal.in{opacity:1;transform:translateY(0);}
 .reveal-delay-1{transition-delay:.1s;}.reveal-delay-2{transition-delay:.2s;}.reveal-delay-3{transition-delay:.3s;}
 .reveal-delay-4{transition-delay:.4s;}.reveal-delay-5{transition-delay:.5s;}
-
 .hero-title,.hero-sub,.eyebrow{opacity:0;transform:translateY(20px);animation:fadeUp .9s cubic-bezier(.22,1,.36,1) forwards;}
 .eyebrow{animation-delay:.1s;}.hero-title{animation-delay:.25s;}.hero-sub{animation-delay:.42s;}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
@@ -141,36 +179,80 @@ footer{background:rgba(5,4,15,0.9);backdrop-filter:blur(12px);padding:1.6rem 2re
 <div class="hero">
   <div class="eyebrow"><span class="eyebrow-dot"></span>1 a 21 de maio de 2026</div>
   <h1 class="hero-title">Palavras-chave &<br>Termos de Pesquisa</h1>
-  <p class="hero-sub">Análise completa dos termos que acionaram os anúncios da Cutelaria Cimo — volume, CTR, custo e conversões por palavra.</p>
+  <p class="hero-sub">Análise completa por campanha — Search Marca, Marca Institucional e PMAX — com conversões, ROAS e eficiência de cada palavra.</p>
 </div>
 
 <div class="sep"></div>
 
-<!-- TOTAIS -->
+<!-- ══════════════════════════════════════
+     CAMPANHA 1 — SEARCH MARCA
+════════════════════════════════════════ -->
 <section>
   <div class="wrap">
-    <p class="section-eye reveal">Visão geral</p>
-    <h2 class="section-title reveal reveal-delay-1">Totais dos <span>termos de pesquisa</span></h2>
-    <div class="kpi-row">
-      <div class="kpi-mini pur reveal reveal-delay-1">
-        <p class="kpi-mini-label">Cliques (termos)</p>
-        <p class="kpi-mini-val">2.782</p>
-        <p class="kpi-mini-sub">termos rastreados</p>
+    <p class="section-eye reveal">Campanha 01</p>
+    <div class="camp-block">
+      <div class="camp-header reveal reveal-delay-1">
+        <span class="camp-tag pur">[YAV] Search — Marca</span>
+        <div class="camp-title-block">
+          <p class="camp-name">Campanha de Marca</p>
+          <p class="camp-desc">Palavras-chave de busca direta pela marca Cimo</p>
+        </div>
       </div>
-      <div class="kpi-mini teal reveal reveal-delay-2">
-        <p class="kpi-mini-label">Conversões</p>
-        <p class="kpi-mini-val">49,33</p>
-        <p class="kpi-mini-sub">via termos de busca</p>
+
+      <div class="kpi-row kpi-row-5 reveal reveal-delay-2">
+        <div class="kpi-card pur">
+          <p class="kpi-card-label">Conversões</p>
+          <p class="kpi-card-val">22,33</p>
+          <p class="kpi-card-sub">purchase · Shopify</p>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-card-label">CPA médio</p>
+          <p class="kpi-card-val">R$28,91</p>
+          <p class="kpi-card-sub">custo por conversão</p>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-card-label">Cliques</p>
+          <p class="kpi-card-val">1.041</p>
+          <p class="kpi-card-sub">CTR médio: 27,28%</p>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-card-label">Impressões</p>
+          <p class="kpi-card-val">3.816</p>
+          <p class="kpi-card-sub">CPC médio: R$0,62</p>
+        </div>
+        <div class="kpi-card teal">
+          <p class="kpi-card-label">Custo total</p>
+          <p class="kpi-card-val">R$645</p>
+          <p class="kpi-card-sub">período analisado</p>
+        </div>
       </div>
-      <div class="kpi-mini reveal reveal-delay-3">
-        <p class="kpi-mini-label">CTR médio</p>
-        <p class="kpi-mini-val">3,96%</p>
-        <p class="kpi-mini-sub">taxa de clique</p>
+
+      <div class="table-wrap reveal reveal-delay-3">
+        <table>
+          <thead>
+            <tr>
+              <th>Palavra-chave</th><th>Corresp.</th><th>Conv.</th><th>CPA</th>
+              <th>Cliques</th><th>Impr.</th><th>CTR</th><th>CPC</th><th>Custo</th><th>Converteu?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="b">[cutelaria cimo]</td><td><span class="corr corr-e">Exata</span></td><td class="gn">8,00</td><td class="ye">R$8,77</td><td class="b">297</td><td>590</td><td class="b">50,34%</td><td>R$0,24</td><td>R$70,15</td><td><span class="sim">✓ Sim</span></td></tr>
+            <tr><td class="b">[cimo]</td><td><span class="corr corr-e">Exata</span></td><td class="gn">5,33</td><td class="ye">R$22,36</td><td class="b">182</td><td>741</td><td class="b">24,56%</td><td>R$0,66</td><td>R$119,28</td><td><span class="sim">✓ Sim</span></td></tr>
+            <tr><td class="b">[canivete cimo]</td><td><span class="corr corr-e">Exata</span></td><td class="gn">4,00</td><td class="ye">R$20,77</td><td class="b">176</td><td>615</td><td class="b">28,62%</td><td>R$0,47</td><td>R$83,08</td><td><span class="sim">✓ Sim</span></td></tr>
+            <tr><td>"cimo"</td><td><span class="corr corr-f">Frase</span></td><td class="gn">3,00</td><td class="ye">R$84,62</td><td>237</td><td>1.309</td><td>18,11%</td><td>R$1,07</td><td>R$253,85</td><td><span class="sim">✓ Sim</span></td></tr>
+            <tr><td>[faca cimo]</td><td><span class="corr corr-e">Exata</span></td><td class="gn">2,00</td><td class="ye">R$19,34</td><td>44</td><td>137</td><td>32,12%</td><td>R$0,88</td><td>R$38,68</td><td><span class="sim">✓ Sim</span></td></tr>
+            <tr><td>"faca cimo"</td><td><span class="corr corr-f">Frase</span></td><td class="dim">0,00</td><td class="dim">—</td><td>49</td><td>229</td><td>21,40%</td><td>R$0,67</td><td>R$32,99</td><td><span class="nao">✗ Não</span></td></tr>
+            <tr><td>[cimo facas]</td><td><span class="corr corr-e">Exata</span></td><td class="dim">0,00</td><td class="dim">—</td><td>29</td><td>72</td><td>40,28%</td><td>R$0,62</td><td>R$18,12</td><td><span class="nao">✗ Não</span></td></tr>
+            <tr><td>"cutelaria cimo"</td><td><span class="corr corr-f">Frase</span></td><td class="dim">0,00</td><td class="dim">—</td><td>23</td><td>117</td><td>19,66%</td><td>R$1,16</td><td>R$26,65</td><td><span class="nao">✗ Não</span></td></tr>
+            <tr><td>[loja cimo]</td><td><span class="corr corr-e">Exata</span></td><td class="dim">0,00</td><td class="dim">—</td><td>4</td><td>6</td><td>66,67%</td><td>R$0,67</td><td>R$2,69</td><td><span class="nao">✗ Não</span></td></tr>
+            <tr class="total-row"><td>Total</td><td>—</td><td class="pu">22,33</td><td>R$28,91</td><td>1.041</td><td>3.816</td><td>27,28%</td><td>R$0,62</td><td>R$645,49</td><td>5 de 9</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="kpi-mini reveal reveal-delay-4">
-        <p class="kpi-mini-label">CPC médio</p>
-        <p class="kpi-mini-val">R$0,53</p>
-        <p class="kpi-mini-sub">custo por clique</p>
+
+      <div class="insight-box dark reveal reveal-delay-4">
+        <p class="ib-tag">💡 Destaque</p>
+        <p><strong>[cutelaria cimo]</strong> é a palavra mais eficiente: 8 conversões a <strong>R$8,77 de CPA</strong> com CTR de 50,34%. A correspondência de frase <strong>"cimo"</strong> gera volume alto mas CPA elevado (R$84,62) — vale monitorar e considerar ajuste de lance.</p>
       </div>
     </div>
   </div>
@@ -178,14 +260,179 @@ footer{background:rgba(5,4,15,0.9);backdrop-filter:blur(12px);padding:1.6rem 2re
 
 <div class="sep"></div>
 
-<!-- TAGS DOS TERMOS PRINCIPAIS -->
+<!-- ══════════════════════════════════════
+     CAMPANHA 2 — MARCA INSTITUCIONAL
+════════════════════════════════════════ -->
 <section>
   <div class="wrap">
-    <p class="section-eye reveal">Termos que acionaram os anúncios</p>
+    <p class="section-eye reveal">Campanha 02</p>
+    <div class="camp-block">
+      <div class="camp-header reveal reveal-delay-1">
+        <span class="camp-tag teal">[YAV] Search — Marca Institucional</span>
+        <div class="camp-title-block">
+          <p class="camp-name">Campanha de Marca Institucional</p>
+          <p class="camp-desc">Foco em valor de conversão (ROAS) — Shopify</p>
+        </div>
+      </div>
+
+      <div class="kpi-row kpi-row-5 reveal reveal-delay-2">
+        <div class="kpi-card teal">
+          <p class="kpi-card-label">Valor gerado</p>
+          <p class="kpi-card-val">R$6.279</p>
+          <p class="kpi-card-sub">valor conv. total</p>
+        </div>
+        <div class="kpi-card green">
+          <p class="kpi-card-label">ROAS médio</p>
+          <p class="kpi-card-val">9,23x</p>
+          <p class="kpi-card-sub">valor conv. / custo</p>
+        </div>
+        <div class="kpi-card pur">
+          <p class="kpi-card-label">Conversões</p>
+          <p class="kpi-card-val">21,00</p>
+          <p class="kpi-card-sub">CPA médio: R$32,40</p>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-card-label">Cliques</p>
+          <p class="kpi-card-val">1.022</p>
+          <p class="kpi-card-sub">CTR médio: 23,98%</p>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-card-label">Custo total</p>
+          <p class="kpi-card-val">R$680</p>
+          <p class="kpi-card-sub">CPC médio: R$0,67</p>
+        </div>
+      </div>
+
+      <div class="table-wrap reveal reveal-delay-3">
+        <table>
+          <thead>
+            <tr>
+              <th>Palavra-chave</th><th>Corresp.</th><th>Conv.</th><th>CPA</th>
+              <th>Valor conv.</th><th>ROAS</th><th>Cliques</th><th>CTR</th><th>CPC</th><th>Custo</th><th>Converteu?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="b">[cutelaria cimo]</td><td><span class="corr corr-e">Exata</span></td><td class="gn">8,00</td><td class="ye">R$20,62</td><td class="tl">R$2.640,65</td><td class="gn">16,01x</td><td class="b">451</td><td class="b">48,39%</td><td>R$0,37</td><td>R$164,92</td><td><span class="sim">✓ Sim</span></td></tr>
+            <tr><td class="b">[cimo]</td><td><span class="corr corr-e">Exata</span></td><td class="gn">7,00</td><td class="ye">R$39,67</td><td class="tl">R$1.942,71</td><td class="gn">7,00x</td><td class="b">344</td><td>17,79%</td><td>R$0,81</td><td>R$277,68</td><td><span class="sim">✓ Sim</span></td></tr>
+            <tr><td>"facas cimo"</td><td><span class="corr corr-f">Frase</span></td><td class="gn">2,00</td><td class="ye">R$17,16</td><td class="tl">R$972,36</td><td class="gn">28,33x</td><td>56</td><td>15,22%</td><td>R$0,61</td><td>R$34,33</td><td><span class="sim">✓ Sim</span></td></tr>
+            <tr><td>"cimo"</td><td><span class="corr corr-f">Frase</span></td><td class="gn">2,00</td><td class="ye">R$59,40</td><td class="tl">R$383,63</td><td>3,23x</td><td>88</td><td>12,36%</td><td>R$1,35</td><td>R$118,80</td><td><span class="sim">✓ Sim</span></td></tr>
+            <tr><td>[Facão Cimo]</td><td><span class="corr corr-e">Exata</span></td><td class="gn">1,00</td><td class="ye">R$21,52</td><td class="tl">R$281,20</td><td class="gn">13,07x</td><td>20</td><td>18,87%</td><td>R$1,08</td><td>R$21,52</td><td><span class="sim">✓ Sim</span></td></tr>
+            <tr><td>"cutelaria cimo"</td><td><span class="corr corr-f">Frase</span></td><td class="gn">1,00</td><td class="ye">R$46,50</td><td class="tl">R$58,84</td><td>1,27x</td><td>26</td><td>36,62%</td><td>R$1,79</td><td>R$46,50</td><td><span class="sim">✓ Sim</span></td></tr>
+            <tr><td>"canivetes cimo"</td><td><span class="corr corr-f">Frase</span></td><td class="dim">0,00</td><td class="dim">—</td><td class="dim">—</td><td class="dim">—</td><td>33</td><td>25,98%</td><td>R$0,49</td><td>R$16,06</td><td><span class="nao">✗ Não</span></td></tr>
+            <tr><td>[loja cimo]</td><td><span class="corr corr-e">Exata</span></td><td class="dim">0,00</td><td class="dim">—</td><td class="dim">—</td><td class="dim">—</td><td>4</td><td>40,00%</td><td>R$0,14</td><td>R$0,55</td><td><span class="nao">✗ Não</span></td></tr>
+            <tr><td>[Machados cimo]</td><td><span class="corr corr-e">Exata</span></td><td class="dim">0,00</td><td class="dim">—</td><td class="dim">—</td><td class="dim">—</td><td>0</td><td>—</td><td>—</td><td>R$0,00</td><td><span class="paused">⏸ Pausada</span></td></tr>
+            <tr><td>"cimo site"</td><td><span class="corr corr-f">Frase</span></td><td class="dim">0,00</td><td class="dim">—</td><td class="dim">—</td><td class="dim">—</td><td>0</td><td>—</td><td>—</td><td>R$0,00</td><td><span class="nao">✗ Não</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="insight-box dark reveal reveal-delay-4">
+        <p class="ib-tag">💡 Destaque</p>
+        <p><strong>"facas cimo"</strong> tem o melhor ROAS da campanha: <strong>28,33x</strong> com CPA de R$17,16. <strong>[cutelaria cimo]</strong> lidera em volume com 8 conversões e R$2.640 gerados (ROAS 16x).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ══════════════════════════════════════
+     CAMPANHA 3 — PMAX
+════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <p class="section-eye reveal">Campanha 03</p>
+    <div class="camp-block">
+      <div class="camp-header reveal reveal-delay-1">
+        <span class="camp-tag green">[YAV] PMAX Geral — BR</span>
+        <div class="camp-title-block">
+          <p class="camp-name">Performance Max — Geral Brasil</p>
+          <p class="camp-desc">Grupos de recursos · 1 a 19 de maio de 2026 · Orçamento: R$30/dia</p>
+        </div>
+      </div>
+
+      <div class="kpi-row kpi-row-4 reveal reveal-delay-2">
+        <div class="kpi-card">
+          <p class="kpi-card-label">Orçamento diário</p>
+          <p class="kpi-card-val">R$30</p>
+          <p class="kpi-card-sub">configurado</p>
+        </div>
+        <div class="kpi-card green">
+          <p class="kpi-card-label">Otimização</p>
+          <p class="kpi-card-val">83,1%</p>
+          <p class="kpi-card-sub">pontuação Google</p>
+        </div>
+        <div class="kpi-card teal">
+          <p class="kpi-card-label">Status</p>
+          <p class="kpi-card-val" style="font-size:16px;">✓ Ativa</p>
+          <p class="kpi-card-sub">qualidade: médio</p>
+        </div>
+        <div class="kpi-card pur">
+          <p class="kpi-card-label">Período</p>
+          <p class="kpi-card-val" style="font-size:16px;">19 dias</p>
+          <p class="kpi-card-sub">1–19 mai 2026</p>
+        </div>
+      </div>
+
+      <div class="insight-box dark reveal reveal-delay-2" style="margin-bottom:1rem;">
+        <p class="ib-tag">ℹ️ Como funciona a PMAX</p>
+        <p>A PMAX não usa palavras-chave tradicionais — opera com <strong>grupos de recursos</strong> (títulos, descrições, imagens, vídeos e sitelinks) que o Google combina automaticamente e distribui o budget onde encontra melhor resultado.</p>
+      </div>
+
+      <p style="font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:10px;" class="reveal reveal-delay-3">Recursos com conversões registradas no período</p>
+
+      <div class="reveal reveal-delay-3">
+        <div class="pmax-resource">
+          <div class="pr-left">
+            <p class="pr-name">🏢 Cutelaria Cimo — Nome da Empresa</p>
+            <p class="pr-desc">Tipo: Nome de empresa · Nível: Campanha · Status: Qualificada</p>
+          </div>
+          <div class="pr-right">
+            <p class="pr-conv">4 conv.</p>
+            <p class="pr-revenue">R$826,03 gerados</p>
+            <p class="pr-cost">R$113,80 custo</p>
+          </div>
+        </div>
+        <div class="pmax-resource">
+          <div class="pr-left">
+            <p class="pr-name">🖼️ Logotipo Cimo</p>
+            <p class="pr-desc">Tipo: Logotipo · Nível: Campanha · Status: Qualificada</p>
+          </div>
+          <div class="pr-right">
+            <p class="pr-conv">3 conv.</p>
+            <p class="pr-revenue">R$607,08 gerados</p>
+            <p class="pr-cost">R$110,09 custo</p>
+          </div>
+        </div>
+        <div class="pmax-resource">
+          <div class="pr-left">
+            <p class="pr-name">📝 Demais recursos — Títulos, Descrições, Imagens, Sitelinks</p>
+            <p class="pr-desc">Múltiplos grupos de recursos ativos no período</p>
+          </div>
+          <div class="pr-right">
+            <p class="pr-conv">7 conv.</p>
+            <p class="pr-revenue">R$1.392,30 gerados</p>
+            <p class="pr-cost">—</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ══════════════════════════════════════
+     TERMOS DE PESQUISA
+════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <p class="section-eye reveal">Termos acionados</p>
     <h2 class="section-title reveal reveal-delay-1">Principais <span>pesquisas dos usuários</span></h2>
-    <div class="tags-box reveal reveal-delay-2">
+
+    <div style="background:rgba(10,8,25,0.55);border:1px solid var(--border);border-radius:16px;padding:1.8rem;backdrop-filter:blur(8px);" class="reveal reveal-delay-2">
+      <p style="font-size:11px;color:var(--dim);margin-bottom:14px;">Termos que acionaram os anúncios — ordenados por volume de cliques</p>
       <div class="tags-wrap">
-        <!-- Alta conversão -->
         <span class="tag pur"><span class="tag-dot"></span>cimo</span>
         <span class="tag pur"><span class="tag-dot"></span>cutelaria cimo</span>
         <span class="tag pur"><span class="tag-dot"></span>cimo cutelaria</span>
@@ -204,255 +451,36 @@ footer{background:rgba(5,4,15,0.9);backdrop-filter:blur(12px);padding:1.6rem 2re
         <span class="tag dim"><span class="tag-dot"></span>facao cimo</span>
         <span class="tag dim"><span class="tag-dot"></span>facas cimo</span>
         <span class="tag dim"><span class="tag-dot"></span>canivete de bolso</span>
-        <span class="tag dim"><span class="tag-dot"></span>loja cimo</span>
         <span class="tag dim"><span class="tag-dot"></span>cimo facas</span>
         <span class="tag dim"><span class="tag-dot"></span>canivete cimo tomahawk</span>
+        <span class="tag dim"><span class="tag-dot"></span>loja cimo</span>
       </div>
-      <div class="tags-legend">
-        <span><i style="background:var(--pur-light)"></i>Alta performance (marca exata)</span>
-        <span><i style="background:var(--teal)"></i>Conversão confirmada</span>
-        <span><i style="background:#444"></i>Alcance / tráfego</span>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;font-size:11px;color:var(--dim);margin-top:4px;">
+        <span style="display:flex;align-items:center;gap:5px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--pur-light);display:inline-block;"></span>Alta performance (marca exata)</span>
+        <span style="display:flex;align-items:center;gap:5px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block;"></span>Conversão confirmada</span>
+        <span style="display:flex;align-items:center;gap:5px;"><span style="width:8px;height:8px;border-radius:50%;background:#444;display:inline-block;"></span>Alcance / tráfego</span>
       </div>
     </div>
-  </div>
-</section>
 
-<div class="sep"></div>
-
-<!-- TABELA TERMOS TOP -->
-<section>
-  <div class="wrap">
-    <p class="section-eye reveal">Top termos de pesquisa</p>
-    <h2 class="section-title reveal reveal-delay-1">Desempenho por <span>termo buscado</span></h2>
-    <div class="table-wrap reveal reveal-delay-2">
+    <div class="table-wrap reveal reveal-delay-3" style="margin-top:1.5rem;">
       <table>
         <thead>
-          <tr>
-            <th>Termo de pesquisa</th>
-            <th>Campanha</th>
-            <th>Cliques</th>
-            <th>Impr.</th>
-            <th>CTR</th>
-            <th>CPC méd.</th>
-            <th>Custo</th>
-            <th>Conv.</th>
-          </tr>
+          <tr><th>Termo de pesquisa</th><th>Campanha</th><th>Cliques</th><th>Impr.</th><th>CTR</th><th>CPC méd.</th><th>Custo</th><th>Conv.</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="b">cimo</td>
-            <td><span class="pill pill-p">Marca Institucional</span></td>
-            <td class="b">420</td>
-            <td>2.269</td>
-            <td class="b">18,51%</td>
-            <td>R$0,75</td>
-            <td>R$316,94</td>
-            <td class="gn">8,00</td>
-          </tr>
-          <tr>
-            <td class="b">cutelaria cimo</td>
-            <td><span class="pill pill-p">Marca Institucional</span></td>
-            <td class="b">305</td>
-            <td>691</td>
-            <td class="b">44,14%</td>
-            <td>R$0,26</td>
-            <td>R$78,83</td>
-            <td class="gn">5,00</td>
-          </tr>
-          <tr>
-            <td class="b">cimo</td>
-            <td><span class="pill pill-p">Search Marca</span></td>
-            <td>210</td>
-            <td>872</td>
-            <td class="b">24,08%</td>
-            <td>R$0,60</td>
-            <td>R$125,29</td>
-            <td class="gn">5,33</td>
-          </tr>
-          <tr>
-            <td class="b">cutelaria cimo</td>
-            <td><span class="pill pill-p">Search Marca</span></td>
-            <td>195</td>
-            <td>412</td>
-            <td class="b">47,33%</td>
-            <td>R$0,28</td>
-            <td>R$54,29</td>
-            <td class="gn">4,00</td>
-          </tr>
-          <tr>
-            <td>cimo cutelaria</td>
-            <td><span class="pill pill-p">Marca Institucional</span></td>
-            <td>193</td>
-            <td>371</td>
-            <td class="b">52,02%</td>
-            <td>R$0,52</td>
-            <td>R$100,89</td>
-            <td class="gn">4,00</td>
-          </tr>
-          <tr>
-            <td>canivete cimo</td>
-            <td><span class="pill pill-p">Search Marca</span></td>
-            <td>155</td>
-            <td>541</td>
-            <td>28,65%</td>
-            <td>R$0,51</td>
-            <td>R$79,25</td>
-            <td class="gn">4,00</td>
-          </tr>
-          <tr>
-            <td>cimo cutelaria</td>
-            <td><span class="pill pill-p">Search Marca</span></td>
-            <td>144</td>
-            <td>268</td>
-            <td class="b">53,73%</td>
-            <td>R$0,18</td>
-            <td>R$26,40</td>
-            <td class="gn">3,00</td>
-          </tr>
-          <tr>
-            <td>faca cimo</td>
-            <td><span class="pill pill-p">Search Marca</span></td>
-            <td>49</td>
-            <td>149</td>
-            <td>32,89%</td>
-            <td>R$0,74</td>
-            <td>R$36,02</td>
-            <td class="gn">2,00</td>
-          </tr>
-          <tr>
-            <td>canivete</td>
-            <td><span class="pill pill-g">PMAX Geral BR</span></td>
-            <td>45</td>
-            <td>3.543</td>
-            <td>1,27%</td>
-            <td>R$0,48</td>
-            <td>R$21,55</td>
-            <td>0,50</td>
-          </tr>
-          <tr>
-            <td>cimo canivete</td>
-            <td><span class="pill pill-p">Search Marca</span></td>
-            <td>29</td>
-            <td>72</td>
-            <td class="b">40,28%</td>
-            <td>R$0,09</td>
-            <td>R$2,69</td>
-            <td>0,00</td>
-          </tr>
-          <tr class="total-row">
-            <td>Total termos rastreados</td>
-            <td>—</td>
-            <td>2.782</td>
-            <td>70.224</td>
-            <td>3,96%</td>
-            <td>R$0,53</td>
-            <td>R$1.467,49</td>
-            <td class="pu">49,33</td>
-          </tr>
+          <tr><td class="b">cimo</td><td><span style="font-size:10px;color:var(--pur-light);">Marca Institucional</span></td><td class="b">420</td><td>2.269</td><td class="b">18,51%</td><td>R$0,75</td><td>R$316,94</td><td class="gn">8,00</td></tr>
+          <tr><td class="b">cutelaria cimo</td><td><span style="font-size:10px;color:var(--pur-light);">Marca Institucional</span></td><td class="b">305</td><td>691</td><td class="b">44,14%</td><td>R$0,26</td><td>R$78,83</td><td class="gn">5,00</td></tr>
+          <tr><td class="b">cimo</td><td><span style="font-size:10px;color:var(--pur-light);">Search Marca</span></td><td>210</td><td>872</td><td class="b">24,08%</td><td>R$0,60</td><td>R$125,29</td><td class="gn">5,33</td></tr>
+          <tr><td class="b">cutelaria cimo</td><td><span style="font-size:10px;color:var(--pur-light);">Search Marca</span></td><td>195</td><td>412</td><td class="b">47,33%</td><td>R$0,28</td><td>R$54,29</td><td class="gn">4,00</td></tr>
+          <tr><td>cimo cutelaria</td><td><span style="font-size:10px;color:var(--pur-light);">Marca Institucional</span></td><td>193</td><td>371</td><td class="b">52,02%</td><td>R$0,52</td><td>R$100,89</td><td class="gn">4,00</td></tr>
+          <tr><td>canivete cimo</td><td><span style="font-size:10px;color:var(--pur-light);">Search Marca</span></td><td>155</td><td>541</td><td>28,65%</td><td>R$0,51</td><td>R$79,25</td><td class="gn">4,00</td></tr>
+          <tr><td>cimo cutelaria</td><td><span style="font-size:10px;color:var(--pur-light);">Search Marca</span></td><td>144</td><td>268</td><td class="b">53,73%</td><td>R$0,18</td><td>R$26,40</td><td class="gn">3,00</td></tr>
+          <tr><td>faca cimo</td><td><span style="font-size:10px;color:var(--pur-light);">Search Marca</span></td><td>49</td><td>149</td><td>32,89%</td><td>R$0,74</td><td>R$36,02</td><td class="gn">2,00</td></tr>
+          <tr><td>canivete</td><td><span style="font-size:10px;color:#32c864;">PMAX Geral BR</span></td><td>45</td><td>3.543</td><td>1,27%</td><td>R$0,48</td><td>R$21,55</td><td>0,50</td></tr>
+          <tr><td>cimo canivete</td><td><span style="font-size:10px;color:var(--pur-light);">Search Marca</span></td><td>29</td><td>72</td><td class="b">40,28%</td><td>R$0,09</td><td>R$2,69</td><td class="dim">0,00</td></tr>
+          <tr class="total-row"><td>Total termos rastreados</td><td>—</td><td>2.782</td><td>70.224</td><td>3,96%</td><td>R$0,53</td><td>R$1.467,49</td><td class="pu">49,33</td></tr>
         </tbody>
       </table>
-    </div>
-  </div>
-</section>
-
-<div class="sep"></div>
-
-<!-- PALAVRAS-CHAVE -->
-<section>
-  <div class="wrap">
-    <p class="section-eye reveal">Palavras-chave da conta</p>
-    <h2 class="section-title reveal reveal-delay-1">Performance por <span>palavra-chave</span></h2>
-    <div class="table-wrap reveal reveal-delay-2">
-      <table>
-        <thead>
-          <tr>
-            <th>Palavra-chave</th>
-            <th>Tipo</th>
-            <th>Custo</th>
-            <th>Cliques</th>
-            <th>CTR</th>
-            <th>Conv.</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="b">[cimo]</td>
-            <td><span class="pill pill-ok">Exata</span></td>
-            <td>R$317,49</td>
-            <td class="b">421</td>
-            <td class="b">18,54%</td>
-            <td class="gn">—</td>
-          </tr>
-          <tr>
-            <td class="b">"cimo"</td>
-            <td><span class="pill pill-p">Frase</span></td>
-            <td>R$278,41</td>
-            <td class="b">272</td>
-            <td>17,55%</td>
-            <td class="gn">—</td>
-          </tr>
-          <tr>
-            <td class="b">[cutelaria cimo]</td>
-            <td><span class="pill pill-ok">Exata</span></td>
-            <td>R$185,73</td>
-            <td>511</td>
-            <td class="b">46,58%</td>
-            <td class="gn">—</td>
-          </tr>
-          <tr>
-            <td>"cimo"</td>
-            <td><span class="pill pill-p">Frase</span></td>
-            <td>R$139,32</td>
-            <td>105</td>
-            <td>12,73%</td>
-            <td class="gn">—</td>
-          </tr>
-          <tr>
-            <td>[cimo]</td>
-            <td><span class="pill pill-ok">Exata</span></td>
-            <td>R$126,21</td>
-            <td>211</td>
-            <td>24,00%</td>
-            <td class="gn">—</td>
-          </tr>
-          <tr class="total-row">
-            <td>Total conta (todas campan.)</td>
-            <td>—</td>
-            <td>R$2.114,45</td>
-            <td>3.820</td>
-            <td>3,32%</td>
-            <td class="pu">62,33</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<div class="sep"></div>
-
-<!-- INSIGHTS -->
-<section>
-  <div class="wrap">
-    <p class="section-eye reveal">Análise estratégica</p>
-    <h2 class="section-title reveal reveal-delay-1">O que os dados <span>revelam</span></h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-      <div style="background:rgba(0,196,167,0.05);border:1px solid rgba(0,196,167,0.18);border-radius:14px;padding:1.2rem 1.3rem;" class="reveal reveal-delay-1">
-        <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:7px;">Destaque</p>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;">"cutelaria cimo" e "cimo cutelaria" têm CTR acima de 44–53% — usuários que pesquisam a marca convertem com altíssima intenção</p>
-      </div>
-      <div style="background:rgba(0,196,167,0.05);border:1px solid rgba(0,196,167,0.18);border-radius:14px;padding:1.2rem 1.3rem;" class="reveal reveal-delay-2">
-        <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:7px;">Destaque</p>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;">"cutelaria cimo" na Marca Institucional: 305 cliques a apenas R$0,26 CPC — o termo mais eficiente da conta</p>
-      </div>
-      <div style="background:rgba(123,47,255,0.05);border:1px solid rgba(123,47,255,0.18);border-radius:14px;padding:1.2rem 1.3rem;" class="reveal reveal-delay-3">
-        <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--pur-light);margin-bottom:7px;">Oportunidade</p>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;">"canivete" via PMAX gera 45 cliques em 3.543 impressões (CTR 1,27%) — explorar termos mais específicos de canivete para aumentar relevância</p>
-      </div>
-      <div style="background:rgba(245,160,50,0.04);border:1px solid rgba(245,160,50,0.18);border-radius:14px;padding:1.2rem 1.3rem;" class="reveal reveal-delay-4">
-        <p style="font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#f5a032;margin-bottom:7px;">Atenção</p>
-        <p style="font-size:13px;color:var(--muted);line-height:1.6;">388 categorias de termos rastreadas — grande parte do volume ainda não foi revisada para negativação de termos irrelevantes</p>
-      </div>
     </div>
   </div>
 </section>
@@ -463,7 +491,7 @@ footer{background:rgba(5,4,15,0.9);backdrop-filter:blur(12px);padding:1.6rem 2re
 </footer>
 
 <script>
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}});},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
