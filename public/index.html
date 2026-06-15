@@ -10,7 +10,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:#07070f;color:#f0ede8;font-family:'Poppins',sans-serif;min-height:100vh;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2.5rem 1.5rem;
   -webkit-font-smoothing:antialiased;}
 .bg{position:fixed;inset:0;z-index:0;pointer-events:none;
   background:radial-gradient(ellipse 70% 55% at 5% 0%,rgba(123,47,255,0.28) 0%,transparent 55%),
@@ -19,39 +19,64 @@ body{background:#07070f;color:#f0ede8;font-family:'Poppins',sans-serif;min-heigh
 .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;
   background-image:linear-gradient(rgba(123,47,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(123,47,255,0.04) 1px,transparent 1px);
   background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%);}
-.wrap{position:relative;z-index:1;max-width:640px;width:100%;text-align:center;}
-.logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:2.5rem;text-decoration:none;}
+.wrap{position:relative;z-index:1;max-width:660px;width:100%;}
+
+/* HEADER */
+.logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:2rem;text-decoration:none;}
 .logo-sq{width:40px;height:40px;background:linear-gradient(135deg,#7B2FFF,#4a0dcc);border-radius:10px;
   display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff;
   box-shadow:0 0 20px rgba(123,47,255,0.55);}
 .logo-txt{font-size:20px;font-weight:700;color:#fff;letter-spacing:0.04em;}
 .logo-txt span{color:#a67cff;}
-h1{font-size:clamp(22px,4vw,32px);font-weight:800;margin-bottom:0.6rem;color:#fff;}
-p.sub{font-size:14px;color:#555;margin-bottom:2.5rem;}
-.client-card{background:rgba(10,8,25,0.6);border:1px solid rgba(123,47,255,0.18);border-radius:16px;
-  padding:1.8rem;text-align:left;backdrop-filter:blur(10px);}
-.client-name{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#a67cff;margin-bottom:0.5rem;}
-.client-title{font-size:18px;font-weight:700;color:#fff;margin-bottom:1.2rem;}
-.report-list{display:flex;flex-direction:column;gap:10px;}
-.report-link{display:flex;align-items:center;justify-content:space-between;
-  border-radius:10px;padding:0.9rem 1.2rem;text-decoration:none;transition:border-color .25s,transform .25s;}
+.page-title{font-size:clamp(22px,4vw,30px);font-weight:800;color:#fff;margin-bottom:0.4rem;}
+.page-sub{font-size:14px;color:#7a7090;margin-bottom:2.5rem;}
+
+/* CLIENT CARD */
+.client-card{background:rgba(10,8,25,0.6);border:1px solid rgba(123,47,255,0.18);border-radius:18px;
+  padding:1.8rem;backdrop-filter:blur(10px);margin-bottom:1.5rem;}
+.client-name{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#a67cff;margin-bottom:0.4rem;}
+.client-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:1.6rem;}
+
+/* MES SECTION */
+.mes-section{margin-bottom:1.4rem;}
+.mes-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:#7a7090;margin-bottom:8px;padding-left:2px;display:flex;align-items:center;gap:8px;}
+.mes-label::after{content:'';flex:1;height:1px;background:rgba(123,47,255,0.12);}
+.mes-label.abril::after{background:rgba(123,47,255,0.15);}
+.mes-label.maio::after{background:rgba(0,196,167,0.12);}
+.mes-label.junho::after{background:rgba(0,196,167,0.1);}
+
+/* REPORT LINKS */
+.report-list{display:flex;flex-direction:column;gap:8px;}
+.report-link{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  border-radius:12px;padding:0.85rem 1.1rem;text-decoration:none;transition:transform .25s,border-color .25s;}
 .report-link:hover{transform:translateX(4px);}
-.rl-v1{background:rgba(123,47,255,0.07);border:1px solid rgba(123,47,255,0.15);}
-.rl-v1:hover{border-color:rgba(123,47,255,0.4);}
-.rl-v2{background:rgba(0,196,167,0.04);border:1px solid rgba(0,196,167,0.12);}
-.rl-v2:hover{border-color:rgba(0,196,167,0.35);}
-.rl-v3{background:rgba(0,196,167,0.06);border:1px solid rgba(0,196,167,0.15);}
-.rl-v3:hover{border-color:rgba(0,196,167,0.4);}
-.rl-left{display:flex;flex-direction:column;gap:3px;}
-.rl-period{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;}
-.rl-v1 .rl-period{color:#7B2FFF;}
-.rl-v2 .rl-period{color:rgba(0,196,167,0.7);}
-.rl-v3 .rl-period{color:#00C4A7;}
-.rl-title{font-size:14px;font-weight:600;color:#f0ede8;}
-.rl-arrow{font-size:18px;color:#333;}
-.rl-v1 .rl-arrow{color:#a67cff;}
-.rl-v2 .rl-arrow,.rl-v3 .rl-arrow{color:#00C4A7;}
-.footer{margin-top:2rem;font-size:11px;color:#1e1a2e;}
+
+.rl-abril{background:rgba(123,47,255,0.07);border:1px solid rgba(123,47,255,0.15);}
+.rl-abril:hover{border-color:rgba(123,47,255,0.4);}
+
+.rl-maio-a{background:rgba(0,196,167,0.06);border:1px solid rgba(0,196,167,0.15);}
+.rl-maio-a:hover{border-color:rgba(0,196,167,0.4);}
+.rl-maio-b{background:rgba(0,196,167,0.04);border:1px solid rgba(0,196,167,0.12);}
+.rl-maio-b:hover{border-color:rgba(0,196,167,0.35);}
+.rl-maio-c{background:rgba(0,196,167,0.03);border:1px solid rgba(0,196,167,0.1);}
+.rl-maio-c:hover{border-color:rgba(0,196,167,0.3);}
+
+.rl-junho{background:rgba(92,255,160,0.04);border:1px solid rgba(92,255,160,0.15);}
+.rl-junho:hover{border-color:rgba(92,255,160,0.35);}
+
+.rl-left{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.rl-period{font-size:10px;font-weight:600;letter-spacing:0.09em;text-transform:uppercase;}
+.rl-abril .rl-period{color:#7B2FFF;}
+.rl-maio-a .rl-period,.rl-maio-b .rl-period,.rl-maio-c .rl-period{color:#00C4A7;}
+.rl-junho .rl-period{color:#5cffa0;}
+.rl-title{font-size:14px;font-weight:600;color:#f0ede8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rl-arrow{font-size:17px;flex-shrink:0;color:#2a2a3e;}
+.rl-abril .rl-arrow{color:rgba(123,47,255,0.5);}
+.rl-maio-a .rl-arrow,.rl-maio-b .rl-arrow,.rl-maio-c .rl-arrow{color:rgba(0,196,167,0.5);}
+.rl-junho .rl-arrow{color:rgba(92,255,160,0.5);}
+
+.footer{margin-top:1.5rem;font-size:11px;color:#1e1a2e;text-align:center;}
 </style>
 </head>
 <body>
@@ -62,48 +87,69 @@ p.sub{font-size:14px;color:#555;margin-bottom:2.5rem;}
     <div class="logo-sq">YAV</div>
     <span class="logo-txt">YAV <span>Digital</span></span>
   </a>
-  <h1>Portal de Relatórios</h1>
-  <p class="sub">Acesse os relatórios de performance das campanhas Google Ads</p>
+  <p class="page-title">Portal de Relatórios</p>
+  <p class="page-sub">Performance das campanhas Google Ads</p>
+
   <div class="client-card">
     <p class="client-name">Cliente</p>
     <p class="client-title">Cutelaria Cimo</p>
-    <div class="report-list">
-      <a class="report-link rl-v1" href="/cutelaria-cimo/semana1-abril2026.html">
-        <div class="rl-left">
-          <span class="rl-period">Abril 2026 · 23 a 30 abr</span>
-          <span class="rl-title">Resultados da primeira semana de gestão</span>
-        </div>
-        <span class="rl-arrow">→</span>
-      </a>
-      <a class="report-link rl-v3" href="/cutelaria-cimo/maio2026-completo.html">
-        <div class="rl-left">
-          <span class="rl-period">Maio 2026 · Mês completo</span>
-          <span class="rl-title">R$25.152 gerados — ROAS 8,26x vs. 2,33x em março</span>
-        </div>
-        <span class="rl-arrow">→</span>
-      </a>
-      <a class="report-link rl-v2" href="/cutelaria-cimo/palavras-chave-maio2026.html">
-        <div class="rl-left">
-          <span class="rl-period">Maio 2026 · Palavras-chave</span>
-          <span class="rl-title">Termos de pesquisa & palavras-chave da conta</span>
-        </div>
-        <span class="rl-arrow">→</span>
-      </a>
-      <a class="report-link rl-v3" href="/cutelaria-cimo/maio2026.html">
-        <div class="rl-left">
-          <span class="rl-period">Maio 2026 · 1 a 21 mai</span>
-          <span class="rl-title">Conversões em alta — +233% vs. período anterior</span>
-        </div>
-        <span class="rl-arrow">→</span>
-      </a>
-      <a class="report-link rl-v3" href="/cutelaria-cimo/junho2026-15dias.html">
-        <div class="rl-left">
-          <span class="rl-period" style="color:#00C4A7;">Junho 2026 · 1 a 15 jun</span>
-          <span class="rl-title">15 dias ja superam marco — ROAS 5,04x</span>
-        </div>
-        <span class="rl-arrow" style="color:#00C4A7;">→</span>
-      </a>
+
+    <!-- ABRIL -->
+    <div class="mes-section">
+      <p class="mes-label abril">Abril 2026</p>
+      <div class="report-list">
+        <a class="report-link rl-abril" href="/cutelaria-cimo/semana1-abril2026.html">
+          <div class="rl-left">
+            <span class="rl-period">23 a 30 abr · Semana 01</span>
+            <span class="rl-title">Resultados da primeira semana de gestão</span>
+          </div>
+          <span class="rl-arrow">→</span>
+        </a>
+      </div>
     </div>
+
+    <!-- MAIO -->
+    <div class="mes-section">
+      <p class="mes-label maio">Maio 2026</p>
+      <div class="report-list">
+        <a class="report-link rl-maio-a" href="/cutelaria-cimo/maio2026-completo.html">
+          <div class="rl-left">
+            <span class="rl-period">Mês completo</span>
+            <span class="rl-title">R$25.152 gerados — ROAS 8,26x vs. 2,33x em março</span>
+          </div>
+          <span class="rl-arrow">→</span>
+        </a>
+        <a class="report-link rl-maio-b" href="/cutelaria-cimo/palavras-chave-maio2026.html">
+          <div class="rl-left">
+            <span class="rl-period">Palavras-chave</span>
+            <span class="rl-title">Termos de pesquisa & palavras-chave da conta</span>
+          </div>
+          <span class="rl-arrow">→</span>
+        </a>
+        <a class="report-link rl-maio-c" href="/cutelaria-cimo/maio2026.html">
+          <div class="rl-left">
+            <span class="rl-period">1 a 21 mai · Parcial</span>
+            <span class="rl-title">Conversões em alta — +233% vs. período anterior</span>
+          </div>
+          <span class="rl-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- JUNHO -->
+    <div class="mes-section" style="margin-bottom:0;">
+      <p class="mes-label junho">Junho 2026</p>
+      <div class="report-list">
+        <a class="report-link rl-junho" href="/cutelaria-cimo/junho2026-15dias.html">
+          <div class="rl-left">
+            <span class="rl-period">1 a 15 jun · Parcial</span>
+            <span class="rl-title">15 dias já superam março — ROAS 5,02x</span>
+          </div>
+          <span class="rl-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
   </div>
   <p class="footer">YAV Digital · Google Ads · 2026</p>
 </div>
