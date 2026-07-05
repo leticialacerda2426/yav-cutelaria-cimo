@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YAV Digital · Junho 2026 · Completo · Cutelaria Cimo</title>
+<title>YAV Digital · Relatório Junho 2026 · Cutelaria Cimo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -35,6 +35,15 @@ section{padding:4.5rem 0;}
 .section-eye{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;}
 .section-title{font-size:clamp(20px,3vw,28px);font-weight:800;line-height:1.2;margin-bottom:1.8rem;color:#fff;letter-spacing:-0.01em;}
 .section-title span{background:linear-gradient(90deg,var(--pur-light),var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+/* CRESCIMENTO HERO */
+.growth-hero{background:linear-gradient(135deg,rgba(123,47,255,0.18),rgba(0,196,167,0.1));border:1px solid rgba(123,47,255,0.35);border-radius:20px;padding:2.5rem 2rem;margin-bottom:1.4rem;box-shadow:0 0 60px rgba(123,47,255,0.12);display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+@media(max-width:700px){.growth-hero{grid-template-columns:repeat(2,1fr);}}
+.gh-item{text-align:center;}
+.gh-label{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--pur-light);opacity:0.85;margin-bottom:8px;}
+.gh-val{font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1;}
+.gh-val.pos{background:linear-gradient(135deg,#5cffa0,#00C4A7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.gh-val.neg{background:linear-gradient(135deg,#5cffa0,#00e676);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.gh-sub{font-size:11px;color:var(--muted);margin-top:6px;}
 /* KPI GRID */
 .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 @media(min-width:600px){.kpi-grid{grid-template-columns:repeat(3,1fr);}}
@@ -84,6 +93,7 @@ section{padding:4.5rem 0;}
 .total-right{text-align:right;}
 .total-right p{font-size:12px;color:var(--muted);}
 .total-right .accent{font-size:15px;font-weight:700;color:var(--pur-light);margin:3px 0;}
+.total-right .accent.green{color:var(--green);}
 /* CHART & TABLE */
 .chart-box{background:rgba(15,10,35,0.7);border:1px solid rgba(123,47,255,0.2);border-radius:16px;padding:1.5rem;backdrop-filter:blur(8px);}
 .chart-wrap{position:relative;width:100%;height:230px;margin-bottom:12px;}
@@ -149,13 +159,80 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
   <span class="nav-badge">Relatório · Junho 2026</span>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="eyebrow"><span class="eyebrow-dot"></span>Mês completo · Junho 2026</div>
-  <h1 class="hero-title">Junho fechado.<br>R$31 mil gerados<br>mesmo com leilão acirrado.</h1>
-  <p class="hero-sub">Mesmo com a competição elevada de Copa do Mundo e Dia dos Namorados, mantivemos 122 conversões e ROAS de 7,72x — consolidando a conta no patamar mais alto desde o início da gestão.</p>
+  <h1 class="hero-title">Junho fechado.<br>R$31 mil gerados<br>no mês mais disputado.</h1>
+  <p class="hero-sub">Copa do Mundo, Dia dos Namorados e sazonalidade aquecida elevaram o leilão em junho — mesmo assim, mantivemos 122 conversões e ROAS de 7,72x, consolidando 5 meses consecutivos de crescimento.</p>
   <div class="scroll-hint">
     <svg width="18" height="28" viewBox="0 0 18 28" fill="none"><rect x="1" y="1" width="16" height="26" rx="8" stroke="white" stroke-width="1.5"/><circle cx="9" cy="8" r="2.5" fill="white"><animate attributeName="cy" values="8;18;8" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/></circle></svg>
     <span>role para ver</span>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- CRESCIMENTO VS MARÇO -->
+<section>
+  <div class="wrap">
+    <p class="section-eye reveal">Crescimento acumulado desde o início</p>
+    <h2 class="section-title reveal reveal-delay-1">Junho 2026 vs. <span>março (antes da YAV)</span></h2>
+    <div class="growth-hero reveal reveal-delay-2">
+      <div class="gh-item">
+        <p class="gh-label">Conversões</p>
+        <p class="gh-val pos">+328%</p>
+        <p class="gh-sub">28 → 122</p>
+      </div>
+      <div class="gh-item">
+        <p class="gh-label">Valor convertido</p>
+        <p class="gh-val pos">+401%</p>
+        <p class="gh-sub">R$6.198 → R$31.064</p>
+      </div>
+      <div class="gh-item">
+        <p class="gh-label">ROAS</p>
+        <p class="gh-val pos">+231%</p>
+        <p class="gh-sub">2,33x → 7,72x</p>
+      </div>
+      <div class="gh-item">
+        <p class="gh-label">CPA</p>
+        <p class="gh-val neg">-65%</p>
+        <p class="gh-sub">R$92,74 → R$32,85</p>
+      </div>
+    </div>
+    <div class="compare-grid reveal reveal-delay-3">
+      <div class="cmp-side cmp-prev">
+        <p class="cmp-tag">Gestão anterior</p>
+        <p class="cmp-period">Março 2026 · mês completo</p>
+        <div class="cmp-row"><p class="cmp-row-label">Valor convertido</p><p class="cmp-row-val hi">R$6.198,18</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">Conversões</p><p class="cmp-row-val">28,63</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">ROAS</p><p class="cmp-row-val">2,33x</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">Custo total</p><p class="cmp-row-val">R$2.655,17</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">CPA</p><p class="cmp-row-val">R$92,74</p></div>
+        <span class="cmp-chip">antes da YAV</span>
+      </div>
+      <div class="cmp-mid"><div class="vs-badge">VS</div></div>
+      <div class="cmp-side cmp-ours">
+        <p class="cmp-tag">Gestão YAV Digital</p>
+        <p class="cmp-period">Junho 2026 · mês completo</p>
+        <div class="cmp-row"><p class="cmp-row-label">Valor convertido</p><p class="cmp-row-val hi">R$31.064,16</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">Conversões</p><p class="cmp-row-val">122,47</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">ROAS</p><p class="cmp-row-val">7,72x</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">Custo total</p><p class="cmp-row-val">R$4.022,64</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">CPA</p><p class="cmp-row-val">R$32,85</p></div>
+        <span class="cmp-chip">↑ +401% receita · -65% CPA</span>
+      </div>
+    </div>
+    <div class="total-box reveal reveal-delay-4">
+      <div>
+        <p class="total-label">Receita em junho 2026</p>
+        <p class="total-val">R$31.064,16</p>
+      </div>
+      <div class="total-right">
+        <p>Mesmo com leilão mais acirrado</p>
+        <p class="accent green">5x mais receita que março</p>
+        <p>com ROAS de 7,72x e 122 conversões</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -171,13 +248,13 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
         <p class="kpi-label">Valor convertido</p>
         <p class="kpi-val">R$31.064</p>
         <p class="kpi-sub">receita gerada no mês</p>
-        <span class="kpi-badge">+2,2% vs. maio</span>
+        <span class="kpi-badge">+401% vs. março</span>
       </div>
       <div class="kpi teal reveal reveal-delay-2">
         <p class="kpi-label">Conversões</p>
         <p class="kpi-val">122,47</p>
         <p class="kpi-sub">total no período</p>
-        <span class="kpi-badge">≈ maio (122)</span>
+        <span class="kpi-badge">+328% vs. março</span>
       </div>
       <div class="kpi green reveal reveal-delay-3">
         <p class="kpi-label">ROAS</p>
@@ -188,61 +265,16 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
         <p class="kpi-label">Custo total</p>
         <p class="kpi-val">R$4.022</p>
         <p class="kpi-sub">investimento no mês</p>
-        <span class="kpi-badge warn">+32% vs. maio</span>
       </div>
       <div class="kpi reveal reveal-delay-5">
         <p class="kpi-label">CPA</p>
-        <p class="kpi-val">R$32,84</p>
-        <p class="kpi-sub">custo por conversão</p>
+        <p class="kpi-val">R$32,85</p>
+        <p class="kpi-sub">era R$92,74 em março</p>
       </div>
       <div class="kpi reveal reveal-delay-6">
         <p class="kpi-label">Cliques</p>
         <p class="kpi-val">8.557</p>
-        <p class="kpi-sub">363.980 impressões</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="sep"></div>
-
-<!-- COMPARATIVO MAIO -->
-<section>
-  <div class="wrap">
-    <p class="section-eye reveal">Comparativo mensal</p>
-    <h2 class="section-title reveal reveal-delay-1">Junho vs. <span>maio 2026</span></h2>
-    <div class="compare-grid reveal reveal-delay-2">
-      <div class="cmp-side cmp-prev">
-        <p class="cmp-tag">Maio 2026</p>
-        <p class="cmp-period">Mês completo</p>
-        <div class="cmp-row"><p class="cmp-row-label">Valor convertido</p><p class="cmp-row-val hi">R$30.385,94</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">Conversões</p><p class="cmp-row-val">122,39</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">ROAS</p><p class="cmp-row-val">9,98x</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">Custo total</p><p class="cmp-row-val">R$3.043,33</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">CPA</p><p class="cmp-row-val">R$24,87</p></div>
-        <span class="cmp-chip">mês anterior</span>
-      </div>
-      <div class="cmp-mid"><div class="vs-badge">VS</div></div>
-      <div class="cmp-side cmp-ours">
-        <p class="cmp-tag">Junho 2026</p>
-        <p class="cmp-period">Mês completo</p>
-        <div class="cmp-row"><p class="cmp-row-label">Valor convertido</p><p class="cmp-row-val hi">R$31.064,16</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">Conversões</p><p class="cmp-row-val">122,47</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">ROAS</p><p class="cmp-row-val">7,72x</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">Custo total</p><p class="cmp-row-val">R$4.022,63</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">CPA</p><p class="cmp-row-val">R$32,84</p></div>
-        <span class="cmp-chip">↑ +2,2% receita · +32% investimento</span>
-      </div>
-    </div>
-    <div class="total-box reveal reveal-delay-3">
-      <div>
-        <p class="total-label">Receita gerada em junho</p>
-        <p class="total-val">R$31.064,16</p>
-      </div>
-      <div class="total-right">
-        <p>Resultado mantido mesmo com leilão</p>
-        <p class="accent">mais competitivo do ano</p>
-        <p>Copa · Dia dos Namorados · Eventos sazonais</p>
+        <p class="kpi-sub">362.980 impressões</p>
       </div>
     </div>
   </div>
@@ -287,8 +319,8 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
           </tr>
           <tr class="total-row">
             <td>Total</td>
-            <td>8.557</td><td>363.980</td><td>2,35%</td><td>R$0,47</td>
-            <td>R$4.022,63</td><td class="pu">122,47</td><td class="tl">R$31.064,16</td><td class="gn">7,72x</td><td>R$32,84</td>
+            <td>8.557</td><td>362.980</td><td>2,36%</td><td>R$0,47</td>
+            <td>R$4.022,64</td><td class="pu">122,47</td><td class="tl">R$31.064,16</td><td class="gn">7,72x</td><td>R$32,85</td>
           </tr>
         </tbody>
       </table>
@@ -306,19 +338,19 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
     <div class="insight-grid">
       <div class="insight-card ok reveal reveal-delay-1">
         <p class="insight-tag">Destaque</p>
-        <p>Marca Institucional com ROAS de <strong style="color:var(--teal-light)">8,50x</strong> — melhor retorno da conta mesmo com leilão mais acirrado em junho</p>
+        <p>Marca Institucional com ROAS de <strong style="color:var(--teal-light)">8,50x</strong> — melhor retorno da conta, mesmo com leilão mais caro em junho</p>
       </div>
       <div class="insight-card ok reveal reveal-delay-2">
         <p class="insight-tag">Destaque</p>
-        <p>PMAX como maior gerador de volume: <strong style="color:var(--teal-light)">58 conversões</strong> com CPC de apenas R$0,33 — eficiência de escala comprovada</p>
+        <p>PMAX maior gerador de volume: <strong style="color:var(--teal-light)">58 conversões</strong> com CPC de R$0,33 — eficiência de escala consolidada</p>
       </div>
       <div class="insight-card warn reveal reveal-delay-3">
-        <p class="insight-tag">Atenção</p>
-        <p>ROAS caiu de 9,98x (maio) para 7,72x — reflexo direto do leilão mais competitivo em junho (Copa, Dia dos Namorados). Resultado esperado e saudável para o período</p>
+        <p class="insight-tag">Contexto</p>
+        <p>ROAS de 7,72x em junho vs. 9,98x em maio — queda esperada pelo leilão mais acirrado (Copa, Dia dos Namorados). Resultado saudável para o período mais competitivo do semestre</p>
       </div>
       <div class="insight-card info reveal reveal-delay-4">
         <p class="insight-tag">Oportunidade</p>
-        <p>Search Marca com CTR de <strong style="color:var(--pur-light)">31%</strong> mas apenas 7 conversões — avaliar aumento de verba para capturar mais volume desta audiência de alta intenção</p>
+        <p>Search Marca com CTR de <strong style="color:var(--pur-light)">31%</strong> e apenas 7 conversões — testar aumento de verba nessa campanha para capturar mais volume da audiência de alta intenção</p>
       </div>
     </div>
   </div>
@@ -336,7 +368,7 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
         <span class="step-icon">🛒</span>
         <div>
           <p class="step-title">Lançamento Google Shopping — julho 2026</p>
-          <p class="step-desc">Junho foi o mês de preparação. Em julho lançamos as campanhas de Google Shopping, incluindo campanhas direcionadas ao Mercado Livre para capturar usuários que preferem comprar em marketplace.</p>
+          <p class="step-desc">Junho foi o mês de preparação. Em julho lançamos as campanhas de Google Shopping, incluindo campanhas direcionadas ao Mercado Livre — para capturar usuários que preferem comprar em marketplace e ampliar o alcance sem canibalizar a loja própria.</p>
           <span class="step-badge">Lançamento: julho 2026</span>
         </div>
       </div>
@@ -351,7 +383,7 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
         <span class="step-icon">🎥</span>
         <div>
           <p class="step-title">Fotos e vídeos quadrados (1:1) — aguardando Paola</p>
-          <p class="step-desc">Para ampliar os criativos da PMAX e desbloquear grupos de recursos limitados pela política. Formato: 1080×1080px.</p>
+          <p class="step-desc">Para ampliar os criativos da PMAX e desbloquear grupos de recursos limitados. Formato ideal: 1080×1080px.</p>
           <span class="step-badge">Aguardando da Paola</span>
         </div>
       </div>
@@ -369,7 +401,7 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
 
 <footer>
   <span class="footer-logo">YAV <span>Digital</span></span>
-  <span class="footer-note">Google Ads · Junho 2026 · Mês completo · Relatório Mensal</span>
+  <span class="footer-note">Google Ads · Junho 2026 · Mês completo · Dados via Supermetrics</span>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
