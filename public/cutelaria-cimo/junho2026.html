@@ -35,15 +35,23 @@ section{padding:4.5rem 0;}
 .section-eye{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;}
 .section-title{font-size:clamp(20px,3vw,28px);font-weight:800;line-height:1.2;margin-bottom:1.8rem;color:#fff;letter-spacing:-0.01em;}
 .section-title span{background:linear-gradient(90deg,var(--pur-light),var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-/* CRESCIMENTO HERO */
-.growth-hero{background:linear-gradient(135deg,rgba(123,47,255,0.18),rgba(0,196,167,0.1));border:1px solid rgba(123,47,255,0.35);border-radius:20px;padding:2.5rem 2rem;margin-bottom:1.4rem;box-shadow:0 0 60px rgba(123,47,255,0.12);display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
-@media(max-width:700px){.growth-hero{grid-template-columns:repeat(2,1fr);}}
-.gh-item{text-align:center;}
-.gh-label{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--pur-light);opacity:0.85;margin-bottom:8px;}
-.gh-val{font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1;}
-.gh-val.pos{background:linear-gradient(135deg,#5cffa0,#00C4A7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.gh-val.neg{background:linear-gradient(135deg,#5cffa0,#00e676);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.gh-sub{font-size:11px;color:var(--muted);margin-top:6px;}
+
+/* CHART HISTÓRICO */
+.hist-box{background:rgba(15,10,35,0.7);border:1px solid rgba(123,47,255,0.2);border-radius:20px;padding:2rem 1.8rem;backdrop-filter:blur(10px);}
+.hist-header{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.8rem;}
+.hist-title{font-size:14px;font-weight:600;color:var(--text);}
+.hist-sub{font-size:12px;color:var(--dim);margin-top:3px;}
+.hist-legend{display:flex;gap:16px;flex-wrap:wrap;}
+.hist-legend span{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);}
+.hist-legend i{width:28px;height:3px;border-radius:2px;display:inline-block;}
+.hist-legend i.dot{width:10px;height:10px;border-radius:50%;}
+.hist-wrap{position:relative;width:100%;height:280px;margin-bottom:1.5rem;}
+
+/* YAV marker */
+.yav-marker{display:flex;align-items:center;gap:8px;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(123,47,255,0.12);}
+.yav-marker-line{width:28px;height:2px;background:var(--pur-light);border-style:dashed;border-width:1px 0 0;background:none;border-color:rgba(196,164,255,0.6);}
+.yav-marker-txt{font-size:11px;color:var(--pur-light);}
+
 /* KPI GRID */
 .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 @media(min-width:600px){.kpi-grid{grid-template-columns:repeat(3,1fr);}}
@@ -64,6 +72,7 @@ section{padding:4.5rem 0;}
 .kpi-sub{font-size:11px;color:var(--muted);margin-top:6px;}
 .kpi-badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:8px;background:rgba(0,196,167,0.15);color:var(--teal-light);border:1px solid rgba(0,196,167,0.3);}
 .kpi-badge.warn{background:rgba(255,192,110,0.12);color:var(--amber);border-color:rgba(255,192,110,0.25);}
+
 /* COMPARE */
 .compare-grid{display:grid;grid-template-columns:1fr auto 1fr;border-radius:16px;overflow:hidden;border:1px solid rgba(123,47,255,0.2);margin-bottom:14px;}
 @media(max-width:480px){.compare-grid{grid-template-columns:1fr;}.cmp-mid{display:none;}.cmp-ours{border-left:none;border-top:1px solid rgba(123,47,255,0.2);}}
@@ -94,12 +103,15 @@ section{padding:4.5rem 0;}
 .total-right p{font-size:12px;color:var(--muted);}
 .total-right .accent{font-size:15px;font-weight:700;color:var(--pur-light);margin:3px 0;}
 .total-right .accent.green{color:var(--green);}
-/* CHART & TABLE */
+
+/* CHART CAMPANHAS */
 .chart-box{background:rgba(15,10,35,0.7);border:1px solid rgba(123,47,255,0.2);border-radius:16px;padding:1.5rem;backdrop-filter:blur(8px);}
 .chart-wrap{position:relative;width:100%;height:230px;margin-bottom:12px;}
 .chart-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:11px;color:var(--muted);}
 .chart-legend span{display:flex;align-items:center;gap:6px;}
 .chart-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+/* TABLE */
 .table-wrap{overflow-x:auto;margin-top:1.5rem;border-radius:12px;border:1px solid rgba(123,47,255,0.12);}
 table{width:100%;border-collapse:collapse;font-size:12px;min-width:580px;}
 th{text-align:left;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid rgba(123,47,255,0.15);background:rgba(15,10,35,0.9);white-space:nowrap;}
@@ -114,6 +126,7 @@ td.tl{color:var(--teal-light);font-weight:600;}
 .pill{display:inline-block;font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;white-space:nowrap;}
 .pill-p{background:rgba(123,47,255,0.15);color:var(--pur-light);border:1px solid rgba(123,47,255,0.3);}
 .pill-g{background:rgba(0,196,167,0.1);color:var(--teal-light);border:1px solid rgba(0,196,167,0.25);}
+
 /* INSIGHTS */
 .insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 @media(max-width:500px){.insight-grid{grid-template-columns:1fr;}}
@@ -127,6 +140,7 @@ td.tl{color:var(--teal-light);font-weight:600;}
 .insight-card.warn .insight-tag{color:var(--amber);}
 .insight-card.info .insight-tag{color:var(--pur-light);}
 .insight-card p{font-size:13px;color:var(--muted);line-height:1.65;}
+
 /* STEPS */
 .steps-list{display:flex;flex-direction:column;gap:12px;}
 .step-item{background:rgba(15,10,35,0.7);border:1px solid rgba(123,47,255,0.2);border-radius:14px;padding:1.2rem 1.4rem;display:flex;align-items:flex-start;gap:14px;backdrop-filter:blur(8px);transition:border-color .3s;}
@@ -136,6 +150,7 @@ td.tl{color:var(--teal-light);font-weight:600;}
 .step-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;}
 .step-desc{font-size:12px;color:var(--muted);line-height:1.65;}
 .step-badge{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;margin-top:6px;background:rgba(0,196,167,0.15);color:var(--teal-light);border:1px solid rgba(0,196,167,0.25);}
+
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
 .reveal.in{opacity:1;transform:translateY(0);}
@@ -163,7 +178,7 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
 <section class="hero">
   <div class="eyebrow"><span class="eyebrow-dot"></span>Mês completo · Junho 2026</div>
   <h1 class="hero-title">Junho fechado.<br>R$31 mil gerados<br>no mês mais disputado.</h1>
-  <p class="hero-sub">Copa do Mundo, Dia dos Namorados e sazonalidade aquecida elevaram o leilão em junho — mesmo assim, mantivemos 122 conversões e ROAS de 7,72x, consolidando 5 meses consecutivos de crescimento.</p>
+  <p class="hero-sub">Copa do Mundo, Dia dos Namorados e sazonalidade aquecida elevaram o leilão em junho — mesmo assim, mantivemos 122 conversões e ROAS de 7,72x, consolidando o melhor semestre da conta.</p>
   <div class="scroll-hint">
     <svg width="18" height="28" viewBox="0 0 18 28" fill="none"><rect x="1" y="1" width="16" height="26" rx="8" stroke="white" stroke-width="1.5"/><circle cx="9" cy="8" r="2.5" fill="white"><animate attributeName="cy" values="8;18;8" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/></circle></svg>
     <span>role para ver</span>
@@ -172,65 +187,29 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
 
 <div class="sep"></div>
 
-<!-- CRESCIMENTO VS MARÇO -->
+<!-- GRÁFICO HISTÓRICO -->
 <section>
   <div class="wrap">
-    <p class="section-eye reveal">Crescimento acumulado desde o início</p>
-    <h2 class="section-title reveal reveal-delay-1">Junho 2026 vs. <span>março (antes da YAV)</span></h2>
-    <div class="growth-hero reveal reveal-delay-2">
-      <div class="gh-item">
-        <p class="gh-label">Conversões</p>
-        <p class="gh-val pos">+328%</p>
-        <p class="gh-sub">28 → 122</p>
+    <p class="section-eye reveal">Evolução histórica da conta</p>
+    <h2 class="section-title reveal reveal-delay-1">Investimento vs. receita <span>jan → jun 2026</span></h2>
+    <div class="hist-box reveal reveal-delay-2">
+      <div class="hist-header">
+        <div>
+          <p class="hist-title">Resultado mensal · Janeiro a Junho 2026</p>
+          <p class="hist-sub">YAV Digital assumiu a gestão em 23 de abril de 2026</p>
+        </div>
+        <div class="hist-legend">
+          <span><i style="background:rgba(123,47,255,0.8);border-radius:2px;width:10px;height:10px;"></i>Investimento</span>
+          <span><i style="background:var(--teal);border-radius:2px;width:10px;height:10px;"></i>Receita</span>
+          <span><i class="dot" style="background:var(--green);"></i>Conversões</span>
+        </div>
       </div>
-      <div class="gh-item">
-        <p class="gh-label">Valor convertido</p>
-        <p class="gh-val pos">+401%</p>
-        <p class="gh-sub">R$6.198 → R$31.064</p>
+      <div class="hist-wrap">
+        <canvas id="chartHistorico"></canvas>
       </div>
-      <div class="gh-item">
-        <p class="gh-label">ROAS</p>
-        <p class="gh-val pos">+231%</p>
-        <p class="gh-sub">2,33x → 7,72x</p>
-      </div>
-      <div class="gh-item">
-        <p class="gh-label">CPA</p>
-        <p class="gh-val neg">-65%</p>
-        <p class="gh-sub">R$92,74 → R$32,85</p>
-      </div>
-    </div>
-    <div class="compare-grid reveal reveal-delay-3">
-      <div class="cmp-side cmp-prev">
-        <p class="cmp-tag">Gestão anterior</p>
-        <p class="cmp-period">Março 2026 · mês completo</p>
-        <div class="cmp-row"><p class="cmp-row-label">Valor convertido</p><p class="cmp-row-val hi">R$6.198,18</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">Conversões</p><p class="cmp-row-val">28,63</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">ROAS</p><p class="cmp-row-val">2,33x</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">Custo total</p><p class="cmp-row-val">R$2.655,17</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">CPA</p><p class="cmp-row-val">R$92,74</p></div>
-        <span class="cmp-chip">antes da YAV</span>
-      </div>
-      <div class="cmp-mid"><div class="vs-badge">VS</div></div>
-      <div class="cmp-side cmp-ours">
-        <p class="cmp-tag">Gestão YAV Digital</p>
-        <p class="cmp-period">Junho 2026 · mês completo</p>
-        <div class="cmp-row"><p class="cmp-row-label">Valor convertido</p><p class="cmp-row-val hi">R$31.064,16</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">Conversões</p><p class="cmp-row-val">122,47</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">ROAS</p><p class="cmp-row-val">7,72x</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">Custo total</p><p class="cmp-row-val">R$4.022,64</p></div>
-        <div class="cmp-row"><p class="cmp-row-label">CPA</p><p class="cmp-row-val">R$32,85</p></div>
-        <span class="cmp-chip">↑ +401% receita · -65% CPA</span>
-      </div>
-    </div>
-    <div class="total-box reveal reveal-delay-4">
-      <div>
-        <p class="total-label">Receita em junho 2026</p>
-        <p class="total-val">R$31.064,16</p>
-      </div>
-      <div class="total-right">
-        <p>Mesmo com leilão mais acirrado</p>
-        <p class="accent green">5x mais receita que março</p>
-        <p>com ROAS de 7,72x e 122 conversões</p>
+      <div style="display:flex;align-items:center;gap:8px;padding-top:1rem;border-top:1px solid rgba(123,47,255,0.1);">
+        <div style="width:28px;height:0;border-top:2px dashed rgba(196,164,255,0.5);"></div>
+        <span style="font-size:11px;color:var(--pur-light);">▲ YAV Digital assume a gestão — abril/2026</span>
       </div>
     </div>
   </div>
@@ -282,6 +261,50 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
 
 <div class="sep"></div>
 
+<!-- COMPARATIVO MAIO vs JUNHO -->
+<section>
+  <div class="wrap">
+    <p class="section-eye reveal">Comparativo mensal</p>
+    <h2 class="section-title reveal reveal-delay-1">Junho vs. <span>maio 2026</span></h2>
+    <div class="compare-grid reveal reveal-delay-2">
+      <div class="cmp-side cmp-prev">
+        <p class="cmp-tag">Maio 2026</p>
+        <p class="cmp-period">Mês completo</p>
+        <div class="cmp-row"><p class="cmp-row-label">Valor convertido</p><p class="cmp-row-val hi">R$30.385,94</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">Conversões</p><p class="cmp-row-val">122,39</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">ROAS</p><p class="cmp-row-val">9,98x</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">Custo total</p><p class="cmp-row-val">R$3.043,33</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">CPA</p><p class="cmp-row-val">R$24,87</p></div>
+        <span class="cmp-chip">mês anterior</span>
+      </div>
+      <div class="cmp-mid"><div class="vs-badge">VS</div></div>
+      <div class="cmp-side cmp-ours">
+        <p class="cmp-tag">Junho 2026</p>
+        <p class="cmp-period">Mês completo</p>
+        <div class="cmp-row"><p class="cmp-row-label">Valor convertido</p><p class="cmp-row-val hi">R$31.064,16</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">Conversões</p><p class="cmp-row-val">122,47</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">ROAS</p><p class="cmp-row-val">7,72x</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">Custo total</p><p class="cmp-row-val">R$4.022,64</p></div>
+        <div class="cmp-row"><p class="cmp-row-label">CPA</p><p class="cmp-row-val">R$32,85</p></div>
+        <span class="cmp-chip">↑ +2,2% receita mantida</span>
+      </div>
+    </div>
+    <div class="total-box reveal reveal-delay-3">
+      <div>
+        <p class="total-label">Receita gerada em junho</p>
+        <p class="total-val">R$31.064,16</p>
+      </div>
+      <div class="total-right">
+        <p>Resultado mantido mesmo com leilão</p>
+        <p class="accent green">mais competitivo do semestre</p>
+        <p>Copa · Dia dos Namorados · Sazonalidade</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
 <!-- CAMPANHAS -->
 <section>
   <div class="wrap">
@@ -289,7 +312,7 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
     <h2 class="section-title reveal reveal-delay-1">Custo vs. valor convertido por <span>campanha</span></h2>
     <div class="chart-box reveal reveal-delay-2">
       <div class="chart-wrap">
-        <canvas id="chart" role="img" aria-label="Custo vs valor convertido por campanha junho 2026"></canvas>
+        <canvas id="chartCampanhas"></canvas>
       </div>
       <div class="chart-legend">
         <span><i style="background:#7B2FFF;"></i>Custo (R$)</span>
@@ -318,8 +341,7 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
             <td>R$367,97</td><td class="pu">7,15</td><td class="tl">R$1.705,33</td><td class="gn">4,63x</td><td>R$51,47</td>
           </tr>
           <tr class="total-row">
-            <td>Total</td>
-            <td>8.557</td><td>362.980</td><td>2,36%</td><td>R$0,47</td>
+            <td>Total</td><td>8.557</td><td>362.980</td><td>2,36%</td><td>R$0,47</td>
             <td>R$4.022,64</td><td class="pu">122,47</td><td class="tl">R$31.064,16</td><td class="gn">7,72x</td><td>R$32,85</td>
           </tr>
         </tbody>
@@ -342,7 +364,7 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
       </div>
       <div class="insight-card ok reveal reveal-delay-2">
         <p class="insight-tag">Destaque</p>
-        <p>PMAX maior gerador de volume: <strong style="color:var(--teal-light)">58 conversões</strong> com CPC de R$0,33 — eficiência de escala consolidada</p>
+        <p>PMAX maior gerador de volume: <strong style="color:var(--teal-light)">58 conversões</strong> com CPC de R$0,33 — menor custo por clique da conta</p>
       </div>
       <div class="insight-card warn reveal reveal-delay-3">
         <p class="insight-tag">Contexto</p>
@@ -350,7 +372,7 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
       </div>
       <div class="insight-card info reveal reveal-delay-4">
         <p class="insight-tag">Oportunidade</p>
-        <p>Search Marca com CTR de <strong style="color:var(--pur-light)">31%</strong> e apenas 7 conversões — testar aumento de verba nessa campanha para capturar mais volume da audiência de alta intenção</p>
+        <p>Search Marca com CTR de <strong style="color:var(--pur-light)">31%</strong> e apenas 7 conversões — testar aumento de verba para capturar mais volume desta audiência de alta intenção</p>
       </div>
     </div>
   </div>
@@ -376,7 +398,7 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
         <span class="step-icon">🔍</span>
         <div>
           <p class="step-title">Análise competitiva — MercadoLivre e Elmo Cutelaria</p>
-          <p class="step-desc">Levantamento de palavras-chave, volume de investimento e parcela de impressões dos dois principais concorrentes — com estimativa de quanto investir para ultrapassá-los.</p>
+          <p class="step-desc">Levantamento de palavras-chave, volume de investimento e parcela de impressões dos dois principais concorrentes — com estimativa de quanto precisaríamos investir para ultrapassá-los.</p>
         </div>
       </div>
       <div class="step-item reveal reveal-delay-3">
@@ -406,7 +428,102 @@ footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2r
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-new Chart(document.getElementById('chart').getContext('2d'),{
+// ── GRÁFICO HISTÓRICO ──
+const meses = ['Jan','Fev','Mar','Abr','Mai','Jun'];
+const investimento = [4020.85, 3582.31, 2655.17, 3264.53, 3043.33, 4022.64];
+const receita      = [11703.28, 8701.24, 6198.18, 10935.78, 30385.94, 31064.16];
+const conversoes   = [44.14, 35.90, 28.63, 40.86, 122.39, 122.47];
+
+// Annotation: linha vertical após abr (índice 3 → 3.5)
+Chart.register({
+  id:'yavLine',
+  afterDraw(chart){
+    const {ctx,chartArea:{top,bottom},scales:{x}}=chart;
+    // Entre abr (3) e mai (4) → x = media das posições
+    const xAbr = x.getPixelForValue(3);
+    const xMai = x.getPixelForValue(4);
+    const xLine = (xAbr+xMai)/2;
+    ctx.save();
+    ctx.setLineDash([5,4]);
+    ctx.strokeStyle='rgba(196,164,255,0.45)';
+    ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(xLine,top);ctx.lineTo(xLine,bottom);ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='rgba(196,164,255,0.75)';
+    ctx.font='600 10px Poppins,sans-serif';
+    ctx.textAlign='center';
+    ctx.fillText('YAV inicia',xLine,top+14);
+    ctx.restore();
+  }
+});
+
+new Chart(document.getElementById('chartHistorico').getContext('2d'),{
+  type:'bar',
+  data:{
+    labels:meses,
+    datasets:[
+      {
+        label:'Investimento (R$)',
+        data:investimento,
+        backgroundColor:ctx=>ctx.dataIndex>=3?'rgba(123,47,255,0.75)':'rgba(123,47,255,0.25)',
+        borderColor:ctx=>ctx.dataIndex>=3?'#9B5FFF':'rgba(123,47,255,0.4)',
+        borderWidth:1,borderRadius:5,yAxisID:'y',order:2
+      },
+      {
+        label:'Receita (R$)',
+        data:receita,
+        backgroundColor:ctx=>ctx.dataIndex>=3?'rgba(0,196,167,0.7)':'rgba(0,196,167,0.2)',
+        borderColor:ctx=>ctx.dataIndex>=3?'#00C4A7':'rgba(0,196,167,0.35)',
+        borderWidth:1,borderRadius:5,yAxisID:'y',order:2
+      },
+      {
+        label:'Conversões',
+        data:conversoes,
+        type:'line',
+        borderColor:'#5cffa0',
+        backgroundColor:'rgba(92,255,160,0.1)',
+        borderWidth:2.5,
+        pointBackgroundColor:ctx=>ctx.dataIndex>=3?'#5cffa0':'rgba(92,255,160,0.4)',
+        pointRadius:5,pointHoverRadius:7,
+        fill:false,tension:0.35,yAxisID:'y2',order:1
+      }
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    interaction:{mode:'index',intersect:false},
+    plugins:{
+      legend:{display:false},
+      tooltip:{
+        backgroundColor:'rgba(10,5,25,0.97)',
+        borderColor:'rgba(123,47,255,0.4)',borderWidth:1,
+        titleColor:'#f5f2ee',bodyColor:'#b0a8c0',padding:12,
+        callbacks:{
+          label:ctx=>{
+            if(ctx.dataset.label==='Conversões') return ` Conversões: ${ctx.parsed.y.toFixed(0)}`;
+            return ` ${ctx.dataset.label}: R$${ctx.parsed.y.toLocaleString('pt-BR',{minimumFractionDigits:0})}`;
+          }
+        }
+      }
+    },
+    scales:{
+      y:{
+        type:'linear',position:'left',
+        ticks:{color:'#7a7090',font:{size:11},callback:v=>'R$'+v.toLocaleString('pt-BR')},
+        grid:{color:'rgba(123,47,255,0.07)'},border:{display:false}
+      },
+      y2:{
+        type:'linear',position:'right',
+        ticks:{color:'rgba(92,255,160,0.6)',font:{size:11}},
+        grid:{display:false},border:{display:false}
+      },
+      x:{ticks:{color:'#7a7090',font:{size:12,weight:'500'}},grid:{display:false},border:{display:false}}
+    }
+  }
+});
+
+// ── GRÁFICO CAMPANHAS ──
+new Chart(document.getElementById('chartCampanhas').getContext('2d'),{
   type:'bar',
   data:{
     labels:['Marca Institucional','PMAX Geral BR','Search Marca'],
@@ -424,6 +541,8 @@ new Chart(document.getElementById('chart').getContext('2d'),{
     }
   }
 });
+
+// REVEAL
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
