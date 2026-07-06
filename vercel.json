@@ -1,7 +1,6 @@
 {
   "version": 2,
   "name": "yav-cutelaria-cimo",
-  "public": true,
   "rewrites": [
     { "source": "/(.*)", "destination": "/public/$1" }
   ],
