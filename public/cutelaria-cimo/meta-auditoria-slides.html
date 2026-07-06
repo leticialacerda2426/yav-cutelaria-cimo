@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YAV Digital · Meta Ads · Auditoria Cutelaria Cimo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --pur:#7B2FFF;--pur-light:#c4a4ff;--pur-dark:#4a0dcc;
+  --teal:#00C4A7;--teal-light:#4ddfc8;
+  --green:#5cffa0;--amber:#ffc06e;--red:#ff6b6b;
+  --bg:#07070f;--text:#f5f2ee;--muted:#b0a8c0;--dim:#7a7090;
+}
+html,body{height:100%;overflow:hidden;-webkit-font-smoothing:antialiased;}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;}
+.bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 55% at 5% 0%,rgba(123,47,255,0.22) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 40% at 95% 15%,rgba(0,196,167,0.14) 0%,transparent 50%),
+    radial-gradient(ellipse 60% 50% at 50% 105%,rgba(80,20,200,0.18) 0%,transparent 55%),var(--bg);}
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(123,47,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(123,47,255,0.04) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%);}
+
+/* SLIDES */
+.slides{position:relative;z-index:1;width:100%;height:100vh;overflow:hidden;}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:2.5rem 3.5rem;opacity:0;transform:translateY(40px);
+  transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1);pointer-events:none;}
+.slide.active{opacity:1;transform:translateY(0);pointer-events:all;}
+.slide.exit-up{opacity:0;transform:translateY(-40px);}
+.slide.exit-down{opacity:0;transform:translateY(40px);}
+
+/* HEADER */
+.slide-logo{position:absolute;top:1.4rem;left:2rem;display:flex;align-items:center;gap:8px;}
+.logo-sq{width:30px;height:30px;background:linear-gradient(135deg,var(--pur),#4a0dcc);border-radius:7px;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff;box-shadow:0 0 14px rgba(123,47,255,0.5);}
+.logo-txt{font-weight:700;font-size:14px;color:rgba(255,255,255,0.5);}
+.logo-txt span{color:var(--pur-light);}
+.slide-num{position:absolute;top:1.4rem;right:2rem;font-size:11px;color:var(--dim);font-weight:500;}
+.slide-tag{position:absolute;top:1.4rem;left:50%;transform:translateX(-50%);
+  font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);}
+
+/* TYPO */
+.eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(0,196,167,0.1);border:1px solid rgba(0,196,167,0.28);
+  color:var(--teal-light);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  padding:5px 14px;border-radius:20px;margin-bottom:1.4rem;}
+.eyebrow-dot{width:6px;height:6px;background:var(--teal);border-radius:50%;box-shadow:0 0 8px var(--teal);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.slide-title{font-size:clamp(26px,4.2vw,54px);font-weight:800;line-height:1.05;text-align:center;letter-spacing:-0.02em;
+  background:linear-gradient(140deg,#fff 0%,#d4c4ff 45%,var(--teal-light) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.9rem;}
+.slide-sub{font-size:clamp(13px,1.5vw,16px);color:var(--muted);line-height:1.7;text-align:center;max-width:600px;}
+.divider{width:50px;height:2px;background:linear-gradient(90deg,var(--pur),var(--teal));border-radius:2px;margin:1rem auto;}
+.section-label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);margin-bottom:0.5rem;text-align:center;}
+
+/* KPI ROW */
+.kpi-row{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;width:100%;max-width:900px;}
+.kpi-card{flex:1;min-width:130px;max-width:180px;background:rgba(15,10,35,0.8);border:1px solid rgba(123,47,255,0.22);
+  border-radius:14px;padding:1.2rem 1rem;text-align:center;backdrop-filter:blur(10px);}
+.kpi-card.pur{border-color:rgba(123,47,255,0.4);background:rgba(40,10,100,0.45);}
+.kpi-card.teal{border-color:rgba(0,196,167,0.32);background:rgba(0,50,42,0.4);}
+.kpi-card.green{border-color:rgba(92,255,160,0.28);background:rgba(0,50,20,0.35);}
+.kpi-card.amber{border-color:rgba(255,192,110,0.28);background:rgba(50,30,0,0.35);}
+.kpi-card.red{border-color:rgba(255,107,107,0.28);background:rgba(50,0,0,0.35);}
+.kc-label{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:7px;}
+.kpi-card.pur .kc-label{color:rgba(196,164,255,0.7);}
+.kpi-card.teal .kc-label{color:rgba(77,223,200,0.7);}
+.kpi-card.green .kc-label{color:rgba(92,255,160,0.65);}
+.kpi-card.amber .kc-label{color:rgba(255,192,110,0.65);}
+.kpi-card.red .kc-label{color:rgba(255,107,107,0.65);}
+.kc-val{font-size:clamp(18px,2.5vw,28px);font-weight:800;line-height:1;color:var(--text);}
+.kpi-card.pur .kc-val{color:#d8c4ff;}
+.kpi-card.teal .kc-val{color:var(--teal-light);}
+.kpi-card.green .kc-val{color:var(--green);}
+.kpi-card.amber .kc-val{color:var(--amber);}
+.kpi-card.red .kc-val{color:#ff8f8f;}
+.kc-sub{font-size:10px;color:var(--muted);margin-top:5px;}
+
+/* GROWTH GRID */
+.growth-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;width:100%;max-width:900px;}
+@media(max-width:700px){.growth-grid{grid-template-columns:repeat(2,1fr);}}
+.g-item{background:linear-gradient(135deg,rgba(123,47,255,0.16),rgba(0,196,167,0.08));
+  border:1px solid rgba(123,47,255,0.28);border-radius:14px;padding:1.3rem 1rem;text-align:center;}
+.g-label{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--pur-light);opacity:0.8;margin-bottom:8px;}
+.g-val{font-size:clamp(22px,3.2vw,36px);font-weight:800;line-height:1;}
+.g-val.pos{background:linear-gradient(135deg,#5cffa0,#00C4A7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.g-val.neg{background:linear-gradient(135deg,#ff8f8f,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.g-sub{font-size:11px;color:var(--muted);margin-top:5px;}
+
+/* CARDS GRID */
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:900px;}
+.card{border-radius:14px;padding:1.2rem 1.4rem;backdrop-filter:blur(6px);}
+.card.ok{background:rgba(0,196,167,0.07);border:1px solid rgba(0,196,167,0.22);}
+.card.warn{background:rgba(255,192,110,0.05);border:1px solid rgba(255,192,110,0.2);}
+.card.danger{background:rgba(255,107,107,0.06);border:1px solid rgba(255,107,107,0.22);}
+.card.info{background:rgba(123,47,255,0.06);border:1px solid rgba(123,47,255,0.2);}
+.card-tag{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;}
+.card.ok .card-tag{color:var(--teal-light);}
+.card.warn .card-tag{color:var(--amber);}
+.card.danger .card-tag{color:#ff8f8f;}
+.card.info .card-tag{color:var(--pur-light);}
+.card p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.card strong{color:var(--text);}
+
+/* TABLE */
+.slide-table{width:100%;max-width:900px;border-collapse:collapse;font-size:12px;}
+.slide-table th{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);
+  padding:8px 10px;border-bottom:1px solid rgba(123,47,255,0.18);text-align:left;background:rgba(15,10,35,0.8);}
+.slide-table td{padding:9px 10px;border-bottom:1px solid rgba(123,47,255,0.07);color:var(--muted);vertical-align:middle;}
+.slide-table tr:last-child td{border-bottom:none;}
+.slide-table tr.hi td{background:rgba(123,47,255,0.06);}
+.slide-table tr:hover td{background:rgba(123,47,255,0.04);}
+.slide-table td.b{color:var(--text);font-weight:500;}
+.slide-table td.gn{color:var(--green);font-weight:600;}
+.slide-table td.tl{color:var(--teal-light);font-weight:600;}
+.slide-table td.am{color:var(--amber);font-weight:600;}
+.slide-table td.rd{color:#ff8f8f;font-weight:600;}
+.pill{display:inline-block;font-size:10px;font-weight:500;padding:2px 8px;border-radius:10px;white-space:nowrap;}
+.pill-ok{background:rgba(0,196,167,0.1);color:var(--teal-light);border:1px solid rgba(0,196,167,0.22);}
+.pill-warn{background:rgba(255,192,110,0.1);color:var(--amber);border:1px solid rgba(255,192,110,0.22);}
+.pill-rd{background:rgba(255,107,107,0.1);color:#ff8f8f;border:1px solid rgba(255,107,107,0.22);}
+.pill-pur{background:rgba(123,47,255,0.12);color:var(--pur-light);border:1px solid rgba(123,47,255,0.25);}
+
+/* COMPARE */
+.cmp-row-slide{display:grid;grid-template-columns:1fr auto 1fr;border-radius:14px;overflow:hidden;
+  border:1px solid rgba(123,47,255,0.2);width:100%;max-width:860px;}
+.cs-prev{background:rgba(15,10,30,0.85);padding:1.4rem 1.6rem;}
+.cs-ours{background:linear-gradient(135deg,rgba(60,10,160,0.38),rgba(20,5,70,0.48));border-left:1px solid rgba(123,47,255,0.2);padding:1.4rem 1.6rem;}
+.cs-mid{width:1px;background:linear-gradient(180deg,transparent,rgba(123,47,255,0.28) 30%,rgba(123,47,255,0.28) 70%,transparent);
+  display:flex;align-items:center;justify-content:center;position:relative;}
+.vs-b{position:absolute;background:#0d0b1e;border:1px solid rgba(123,47,255,0.35);border-radius:50%;
+  width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:var(--muted);}
+.cs-tag{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;}
+.cs-prev .cs-tag{color:var(--dim);}
+.cs-ours .cs-tag{color:var(--pur-light);}
+.cs-period{font-size:11px;color:var(--dim);margin-bottom:12px;}
+.cs-ours .cs-period{color:rgba(196,164,255,0.45);}
+.cs-item{margin-bottom:8px;}
+.cs-item-l{font-size:10px;color:var(--dim);margin-bottom:1px;}
+.cs-ours .cs-item-l{color:rgba(196,164,255,0.5);}
+.cs-item-v{font-size:clamp(13px,1.9vw,17px);font-weight:700;color:var(--muted);}
+.cs-item-v.hi{color:#e8e0ff;}
+.cs-ours .cs-item-v{color:var(--pur-light);}
+.cs-ours .cs-item-v.hi{color:#fff;}
+.cs-chip{display:inline-block;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:6px;
+  background:rgba(0,196,167,0.14);color:var(--teal-light);border:1px solid rgba(0,196,167,0.28);}
+
+/* STEPS */
+.steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:900px;}
+.step-item{background:rgba(15,10,35,0.7);border:1px solid rgba(123,47,255,0.18);border-radius:12px;
+  padding:1rem 1.2rem;display:flex;gap:12px;align-items:flex-start;}
+.step-item.hl{border-color:rgba(0,196,167,0.28);background:rgba(0,196,167,0.04);}
+.step-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.step-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;}
+.step-desc{font-size:11px;color:var(--muted);line-height:1.55;}
+.step-badge{display:inline-block;font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;margin-top:5px;
+  background:rgba(255,192,110,0.12);color:var(--amber);border:1px solid rgba(255,192,110,0.22);}
+.step-badge.green{background:rgba(92,255,160,0.1);color:var(--green);border-color:rgba(92,255,160,0.22);}
+.step-badge.pur{background:rgba(123,47,255,0.12);color:var(--pur-light);border-color:rgba(123,47,255,0.25);}
+
+/* PRIORITY TABLE */
+.ptable{width:100%;max-width:900px;border-collapse:collapse;font-size:12px;}
+.ptable th{font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);
+  padding:7px 10px;border-bottom:1px solid rgba(123,47,255,0.18);text-align:left;background:rgba(15,10,35,0.85);}
+.ptable td{padding:9px 10px;border-bottom:1px solid rgba(123,47,255,0.07);color:var(--muted);vertical-align:middle;}
+.ptable tr:hover td{background:rgba(123,47,255,0.04);}
+.ptable td.b{color:var(--text);font-weight:500;}
+
+/* NAV */
+.nav-bar{position:fixed;bottom:1.8rem;left:50%;transform:translateX(-50%);z-index:100;
+  display:flex;align-items:center;gap:0.9rem;background:rgba(7,7,15,0.85);backdrop-filter:blur(16px);
+  border:1px solid rgba(123,47,255,0.18);border-radius:50px;padding:0.5rem 1.1rem;}
+.nav-btn{width:34px;height:34px;border-radius:50%;border:1px solid rgba(123,47,255,0.28);
+  background:rgba(123,47,255,0.08);color:var(--pur-light);font-size:15px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.nav-btn:hover{background:rgba(123,47,255,0.22);}
+.nav-btn:disabled{opacity:0.22;cursor:not-allowed;}
+.nav-dots{display:flex;gap:5px;align-items:center;}
+.nav-dot{width:5px;height:5px;border-radius:50%;background:rgba(123,47,255,0.3);transition:all .3s;cursor:pointer;}
+.nav-dot.active{width:18px;border-radius:3px;background:var(--pur-light);}
+.nav-label{font-size:11px;color:var(--dim);min-width:50px;text-align:center;}
+.progress-bar{position:fixed;top:0;left:0;z-index:200;height:2px;background:linear-gradient(90deg,var(--pur),var(--teal));transition:width .5s ease;border-radius:0 2px 2px 0;}
+.key-hint{position:fixed;bottom:0.8rem;right:1.8rem;font-size:10px;color:rgba(255,255,255,0.1);letter-spacing:0.07em;}
+</style>
+</head>
+<body>
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
+<div class="progress-bar" id="progress"></div>
+
+<div class="slides" id="slides">
+
+<!-- ① CAPA -->
+<div class="slide active" data-slide="1">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">1 / 14</div>
+  <div class="eyebrow"><span class="eyebrow-dot"></span>Meta Ads · Cutelaria Cimo · 2026</div>
+  <h1 class="slide-title">Auditoria completa.<br>O que foi feito,<br>o que fazer agora.</h1>
+  <div class="divider"></div>
+  <p class="slide-sub">Análise de Jan–Jun 2026 · Criativos · Restrições · Junho em destaque · Plano de ação com prioridades</p>
+</div>
+
+<!-- ② VISÃO GERAL JAN-JUN -->
+<div class="slide" data-slide="2">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">2 / 14</div>
+  <div class="slide-tag">Visão geral · Jan–Jun 2026</div>
+  <h2 class="slide-title" style="font-size:clamp(22px,3.5vw,42px);margin-bottom:1.2rem;">6 meses de conta.<br>O panorama completo.</h2>
+  <div class="kpi-row" style="margin-bottom:1rem;">
+    <div class="kpi-card pur"><p class="kc-label">Investimento</p><p class="kc-val">R$39.352</p><p class="kc-sub">jan a jun 2026</p></div>
+    <div class="kpi-card teal"><p class="kc-label">Melhor ROAS</p><p class="kc-val">6,32x</p><p class="kc-sub">junho 2026</p></div>
+    <div class="kpi-card green"><p class="kc-label">ROAS médio</p><p class="kc-val">4,41x</p><p class="kc-sub">jan–jun</p></div>
+    <div class="kpi-card"><p class="kc-label">Criativos testados</p><p class="kc-val">120+</p><p class="kc-sub">anúncios únicos</p></div>
+    <div class="kpi-card amber"><p class="kc-label">Reprovados</p><p class="kc-val">14</p><p class="kc-sub">DISAPPROVED ativos</p></div>
+  </div>
+  <div class="cards-grid" style="grid-template-columns:repeat(3,1fr);max-width:900px;">
+    <div class="card ok"><p class="card-tag">Tendência</p><p>ROAS crescendo consistentemente desde abril — de 3,02x (fev) para 6,32x (jun)</p></div>
+    <div class="card warn"><p class="card-tag">Atenção</p><p>Campanhas com objetivo errado (Leads/Tráfego) consumindo budget sem retorno</p></div>
+    <div class="card danger"><p class="card-tag">Urgente</p><p>Anúncios com texto em cirílico disfarçado — risco real de banimento da conta</p></div>
+  </div>
+</div>
+
+<!-- ③ EVOLUÇÃO MENSAL -->
+<div class="slide" data-slide="3">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">3 / 14</div>
+  <div class="slide-tag">Evolução mensal</div>
+  <h2 class="slide-title" style="font-size:clamp(22px,3.5vw,42px);margin-bottom:1.2rem;">ROAS crescendo.<br>Junho é o pico.</h2>
+  <div style="width:100%;max-width:900px;overflow:hidden;border-radius:14px;border:1px solid rgba(123,47,255,0.18);background:rgba(15,10,35,0.7);">
+    <table class="slide-table" style="min-width:0;">
+      <thead><tr><th>Mês</th><th>Investimento</th><th>ROAS</th><th>Tendência</th><th>Observação</th></tr></thead>
+      <tbody>
+        <tr><td class="b">Janeiro</td><td>R$6.495</td><td>4,28x</td><td>—</td><td style="color:var(--dim);">Maior gasto do semestre</td></tr>
+        <tr><td class="b">Fevereiro</td><td>R$7.671</td><td class="rd">3,02x</td><td>↓</td><td style="color:var(--dim);">Pior ROAS do semestre</td></tr>
+        <tr><td class="b">Março</td><td>R$6.375</td><td>4,04x</td><td>↑</td><td style="color:var(--dim);">Recuperação</td></tr>
+        <tr><td class="b">Abril</td><td>R$5.624</td><td>4,22x</td><td>↑</td><td style="color:var(--dim);">Menor gasto, estável</td></tr>
+        <tr><td class="b">Maio</td><td>R$6.828</td><td class="tl">4,73x</td><td>↑</td><td style="color:var(--dim);">Crescimento com mais conjuntos</td></tr>
+        <tr class="hi"><td class="b">Junho ⭐</td><td>R$6.360</td><td class="gn">6,32x</td><td class="gn">↑↑</td><td class="gn">Melhor mês — concentração de budget</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ④ AUDITORIA PÚBLICOS -->
+<div class="slide" data-slide="4">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">4 / 14</div>
+  <div class="slide-tag">Auditoria de públicos</div>
+  <h2 class="slide-title" style="font-size:clamp(20px,3.2vw,40px);margin-bottom:1.2rem;">O que funciona e<br>o que queima dinheiro.</h2>
+  <div style="width:100%;max-width:900px;overflow:hidden;border-radius:14px;border:1px solid rgba(123,47,255,0.18);background:rgba(15,10,35,0.7);">
+    <table class="slide-table" style="min-width:0;">
+      <thead><tr><th>Conjunto</th><th>Gasto</th><th>ROAS</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td class="b">Interesses + Segmento 1</td><td>R$2.950</td><td class="gn">7,98x</td><td><span class="pill pill-ok">✓ Escalar</span></td></tr>
+        <tr><td class="b">Engajamento exceto compradores 30d</td><td>R$694</td><td class="gn">7,47x</td><td><span class="pill pill-ok">✓ Sub-investido</span></td></tr>
+        <tr><td class="b">Semelhantes (Sales)</td><td>R$844</td><td class="tl">5,78x</td><td><span class="pill pill-ok">✓ Escalar</span></td></tr>
+        <tr><td class="b">Lista Forja exceto compradores</td><td>R$18</td><td class="gn">52,46x</td><td><span class="pill pill-ok">✓ Urgente escalar</span></td></tr>
+        <tr><td class="b">Interesses + Engajamento</td><td>R$10.002</td><td class="tl">5,09x</td><td><span class="pill pill-pur">Manter</span></td></tr>
+        <tr><td class="b">Remarketing Carrinho 180d</td><td>R$2.859</td><td class="rd">1,94x</td><td><span class="pill pill-rd">⚠ Freq. 43x</span></td></tr>
+        <tr><td class="b">Purchase 30d (objetivo Leads)</td><td>R$629</td><td class="rd">0,31x</td><td><span class="pill pill-rd">✗ Pausar</span></td></tr>
+        <tr><td class="b">Interesses - camping (Tráfego)</td><td>R$389</td><td class="rd">0x</td><td><span class="pill pill-rd">✗ Pausar</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ⑤ RESTRIÇÕES E BANS -->
+<div class="slide" data-slide="5">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">5 / 14</div>
+  <div class="slide-tag">Restrições e reprovações</div>
+  <h2 class="slide-title" style="font-size:clamp(20px,3.2vw,40px);margin-bottom:1.2rem;">14 anúncios reprovados.<br>Um padrão claro.</h2>
+  <div class="cards-grid">
+    <div class="card danger">
+      <p class="card-tag">🚨 Risco máximo — Agir hoje</p>
+      <p>Anúncios "Ad 1", "Ad 2", "Ad 3" e "Ad 2 — Canivete" usam <strong>caracteres cirílicos disfarçados de letras latinas</strong> para burlar filtros do Meta. Isso viola a política de anúncios enganosos e pode resultar em <strong>banimento da conta inteira</strong>. Remover imediatamente.</p>
+    </div>
+    <div class="card warn">
+      <p class="card-tag">⚠ Padrão de reprovações</p>
+      <p>O produto <strong>Tomahawk</strong> teve 3 criativos diferentes reprovados. Linguagem tática — "abertura rápida", "aço 420C", "serrilhado", "sobrevivência" — trigga as políticas de armas do Meta. Qualquer criativo do Tomahawk precisa focar em contexto (camping, EDC, outdoor), nunca na lâmina.</p>
+    </div>
+    <div class="card warn">
+      <p class="card-tag">Série inteira barrada</p>
+      <p>Segmento 1 teve 8 vídeos reprovados em sequência (Ad 05 a 12). Quando o Meta reprova um conjunto, criativos subsequentes com conteúdo similar são barrados automaticamente. A série toda precisa de reaprovação com copy reformulado.</p>
+    </div>
+    <div class="card ok">
+      <p class="card-tag">✓ Copy que nunca tomou ban</p>
+      <p>Criativos com foco em <strong>presente, tradição da marca, culinária, churrasco e aventura</strong> — sem detalhe técnico de lâmina — nunca foram reprovados. Esse é o caminho seguro: contexto de uso, não especificação técnica.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ⑥ CRIATIVOS — FOTO vs VÍDEO -->
+<div class="slide" data-slide="6">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">6 / 14</div>
+  <div class="slide-tag">Análise de criativos</div>
+  <h2 class="slide-title" style="font-size:clamp(20px,3.2vw,40px);margin-bottom:1.2rem;">Foto vs. vídeo.<br>Copy que converte.</h2>
+  <div class="cards-grid">
+    <div class="card info">
+      <p class="card-tag">🎬 Vídeo — 60% do investimento</p>
+      <p>Maior CTR médio da conta (4,2–6,6%). São os que mais escalam mas também os que mais tomam ban. Melhores performers: Brown Horse, BH85, Segmento 1 Vídeo. <strong>Vídeos de comparação técnica são os mais reprovados.</strong></p>
+    </div>
+    <div class="card ok">
+      <p class="card-tag">🖼 Estático — Melhor ROAS geral</p>
+      <p>"Engenharia Forjada em Aço" com <strong>ROAS 8,02x e 9,94x</strong>. Imagens estáticas com copy técnico-aspiracional têm o melhor retorno da conta com menor risco de reprovação. O formato mais confiável.</p>
+    </div>
+    <div class="card warn">
+      <p class="card-tag">📦 Catálogo dinâmico — Inconsistente</p>
+      <p>ROAS de 3,75x a 5x dependendo do público. Funciona bem em públicos quentes mas perde eficiência com frequência alta. Precisa de rotação de criativos para evitar fadiga.</p>
+    </div>
+    <div class="card warn">
+      <p class="card-tag">🃏 Carrossel — Subutilizado</p>
+      <p>Poucos testes, resultados medianos (ROAS ~4x). Há potencial para carrosseis de produto comparativo (ex: linha de canivetes por uso), mas nunca foi testado de forma séria.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ COPY — O QUE FUNCIONA -->
+<div class="slide" data-slide="7">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">7 / 14</div>
+  <div class="slide-tag">Análise de copy</div>
+  <h2 class="slide-title" style="font-size:clamp(20px,3.2vw,40px);margin-bottom:1.2rem;">O copy que vende<br>não é o que desconta.</h2>
+  <div style="width:100%;max-width:900px;overflow:hidden;border-radius:14px;border:1px solid rgba(123,47,255,0.18);background:rgba(15,10,35,0.7);">
+    <table class="slide-table" style="min-width:0;">
+      <thead><tr><th>Abordagem</th><th>Exemplo de título</th><th>ROAS</th><th>Avaliação</th></tr></thead>
+      <tbody>
+        <tr><td class="b">Técnico-aspiracional</td><td style="color:var(--muted);">"Engenharia Forjada em Aço"</td><td class="gn">8–9,9x</td><td><span class="pill pill-ok">Melhor da conta</span></td></tr>
+        <tr><td class="b">Educativo / Quiz</td><td style="color:var(--muted);">"3 perguntas. Uma escolha certa."</td><td class="gn">6,5–11x</td><td><span class="pill pill-ok">Alto potencial</span></td></tr>
+        <tr><td class="b">Urgência + Cupom</td><td style="color:var(--muted);">"Últimas horas: 20% OFF 🔥"</td><td class="tl">3–9x*</td><td><span class="pill pill-warn">Depende do público</span></td></tr>
+        <tr><td class="b">Identidade / Tradição</td><td style="color:var(--muted);">"Tradição que transcende gerações"</td><td class="tl">5–7x</td><td><span class="pill pill-ok">Funciona em frio</span></td></tr>
+        <tr><td class="b">Clube VIP / Programa</td><td style="color:var(--muted);">"5% → 8% → 12% OFF automático"</td><td class="rd">0–1x</td><td><span class="pill pill-rd">Não funciona em anúncio</span></td></tr>
+        <tr><td class="b">CTA genérico</td><td style="color:var(--muted);">"Acesse o Site"</td><td class="rd">0–1,6x</td><td><span class="pill pill-rd">Evitar</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:11px;color:var(--dim);margin-top:0.8rem;text-align:center;">*Urgência funciona bem em públicos quentes (remarketing, engajamento). Em público frio, não converte.</p>
+</div>
+
+<!-- ⑧ JUNHO vs MAIO -->
+<div class="slide" data-slide="8">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">8 / 14</div>
+  <div class="slide-tag">Maio vs. Junho 2026</div>
+  <h2 class="slide-title" style="font-size:clamp(22px,3.5vw,42px);margin-bottom:1.2rem;">Junho foi o melhor mês.<br>Por que?</h2>
+  <div class="growth-grid" style="grid-template-columns:repeat(4,1fr);">
+    <div class="g-item"><p class="g-label">ROAS</p><p class="g-val pos">+34%</p><p class="g-sub">4,73x → 6,32x</p></div>
+    <div class="g-item"><p class="g-label">Conversões</p><p class="g-val pos">+23%</p><p class="g-sub">331k → 407k ações</p></div>
+    <div class="g-item"><p class="g-label">Investimento</p><p class="g-val" style="color:var(--teal-light);">-7%</p><p class="g-sub">R$6.828 → R$6.360</p></div>
+    <div class="g-item"><p class="g-label">Impressões</p><p class="g-val neg">-28%</p><p class="g-sub">Menos alcance, mais conversão</p></div>
+  </div>
+</div>
+
+<!-- ⑨ O QUE MUDOU EM JUNHO -->
+<div class="slide" data-slide="9">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">9 / 14</div>
+  <div class="slide-tag">O que mudou em junho</div>
+  <h2 class="slide-title" style="font-size:clamp(20px,3.2vw,40px);margin-bottom:1.2rem;">Menos conjuntos.<br>Mais verba no que funciona.</h2>
+  <div class="cmp-row-slide">
+    <div class="cs-prev">
+      <p class="cs-tag">Maio 2026</p>
+      <p class="cs-period">6 conjuntos ativos</p>
+      <div class="cs-item"><p class="cs-item-l">Principal (Interesses + Engajamento)</p><p class="cs-item-v hi">R$2.788 · ROAS 5,57x</p></div>
+      <div class="cs-item"><p class="cs-item-l">Segmento 1 (subutilizado)</p><p class="cs-item-v">R$512 · ROAS 7,17x</p></div>
+      <div class="cs-item"><p class="cs-item-l">AddToCart 30D</p><p class="cs-item-v">R$1.676 · ROAS 3,30x</p></div>
+      <div class="cs-item"><p class="cs-item-l">Lista Forja</p><p class="cs-item-v">R$1.231 · ROAS 3,70x</p></div>
+      <p class="cs-item-v" style="font-size:13px;margin-top:8px;">ROAS geral: 4,73x</p>
+    </div>
+    <div class="cs-mid"><div class="vs-b">VS</div></div>
+    <div class="cs-ours">
+      <p class="cs-tag">Junho 2026</p>
+      <p class="cs-period">2 conjuntos dominantes</p>
+      <div class="cs-item"><p class="cs-item-l">Interesses + Engajamento</p><p class="cs-item-v hi">R$3.922 · ROAS 5,18x</p></div>
+      <div class="cs-item"><p class="cs-item-l">Segmento 1 — +376% de verba!</p><p class="cs-item-v hi">R$2.438 · ROAS 8,15x</p></div>
+      <div class="cs-item"><p class="cs-item-l">Demais conjuntos</p><p class="cs-item-v">pausados ou residuais</p></div>
+      <span class="cs-chip">↑ Concentração = ROAS 6,32x</span>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--dim);margin-top:0.9rem;text-align:center;">A lição: o Segmento 1 tinha ROAS de 7x com R$512 em maio. Com R$2.438 em junho manteve 8,15x. <strong style="color:var(--teal-light);">O budget certo no conjunto certo é o que faz a diferença.</strong></p>
+</div>
+
+<!-- ⑩ PLANO DE AÇÃO — URGÊNCIAS -->
+<div class="slide" data-slide="10">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">10 / 14</div>
+  <div class="slide-tag">Plano de ação · Prioridades</div>
+  <h2 class="slide-title" style="font-size:clamp(20px,3.2vw,40px);margin-bottom:1.2rem;">O que fazer.<br>Em qual ordem.</h2>
+  <div style="width:100%;max-width:900px;overflow:hidden;border-radius:14px;border:1px solid rgba(123,47,255,0.18);background:rgba(15,10,35,0.7);">
+    <table class="ptable">
+      <thead><tr><th>#</th><th>Ação</th><th>Prioridade</th><th>Impacto esperado</th></tr></thead>
+      <tbody>
+        <tr><td class="b">1</td><td class="b">Instalar e validar rastreio (Pixel + API de Conversões)</td><td><span class="pill pill-rd">🔴 Urgente</span></td><td style="color:var(--muted);">Base de tudo — sem rastreio, sem otimização</td></tr>
+        <tr><td class="b">2</td><td class="b">Remover anúncios com texto cirílico disfarçado</td><td><span class="pill pill-rd">🔴 Urgente</span></td><td style="color:var(--muted);">Evitar banimento da conta</td></tr>
+        <tr><td class="b">3</td><td class="b">Pausar Carrinho Abandonado 180d (freq. 43x)</td><td><span class="pill pill-rd">🔴 Urgente</span></td><td style="color:var(--muted);">Economia de ~R$480/mês sem resultado</td></tr>
+        <tr><td class="b">4</td><td class="b">Pausar campanhas Leads e Tráfego sem conversão</td><td><span class="pill pill-rd">🔴 Urgente</span></td><td style="color:var(--muted);">Liberação de ~R$700/mês de budget</td></tr>
+        <tr><td class="b">5</td><td class="b">Escalar Segmento 1 (ROAS 8,15x) — dobrar budget</td><td><span class="pill pill-ok">🟢 Alta</span></td><td style="color:var(--muted);">Potencial de +R$8k/mês em receita</td></tr>
+        <tr><td class="b">6</td><td class="b">Reativar Lista Forja exceto compradores (ROAS 52x)</td><td><span class="pill pill-ok">🟢 Alta</span></td><td style="color:var(--muted);">Público mais quente da conta, sub-investido</td></tr>
+        <tr><td class="b">7</td><td class="b">Corrigir objetivos — tudo para OUTCOME_SALES</td><td><span class="pill pill-warn">🟡 Média</span></td><td style="color:var(--muted);">Otimização alinhada ao e-commerce</td></tr>
+        <tr><td class="b">8</td><td class="b">Criar Advantage+ Shopping com catálogo</td><td><span class="pill pill-warn">🟡 Média</span></td><td style="color:var(--muted);">Novo canal de escala com IA do Meta</td></tr>
+        <tr><td class="b">9</td><td class="b">Reformular Remarketing com janela 30d + novos criativos</td><td><span class="pill pill-warn">🟡 Média</span></td><td style="color:var(--muted);">Recuperar conversões de abandono de carrinho</td></tr>
+        <tr><td class="b">10</td><td class="b">Lançar campanha Quiz como topo de funil</td><td><span class="pill pill-pur">🔵 Baixa</span></td><td style="color:var(--muted);">Educação + captação — Quiz tem ROAS 10–16x</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ⑪ PASSO 1 — RASTREIO -->
+<div class="slide" data-slide="11">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">11 / 14</div>
+  <div class="slide-tag">Passo 1 · Fundação</div>
+  <h2 class="slide-title" style="font-size:clamp(22px,3.5vw,44px);margin-bottom:1.2rem;">Rastreio primeiro.<br>Sem isso, nada funciona.</h2>
+  <div class="cards-grid">
+    <div class="card danger">
+      <p class="card-tag">Por que é o passo 1</p>
+      <p>Sem rastreio correto, o Meta está otimizando no escuro. Cada R$1 investido sem Pixel + API de Conversões bem configurados significa lances baseados em dados incompletos — o algoritmo não sabe quem realmente comprou.</p>
+    </div>
+    <div class="card info">
+      <p class="card-tag">Pixel Meta (navegador)</p>
+      <p>Instalar via Shopify app ou GTM. Validar eventos: <strong>ViewContent, AddToCart, InitiateCheckout, Purchase</strong>. Verificar com Meta Pixel Helper se todos os eventos disparam corretamente em cada página.</p>
+    </div>
+    <div class="card ok">
+      <p class="card-tag">API de Conversões (servidor)</p>
+      <p>A API server-side captura o que o Pixel perde (iOS 14+, bloqueadores de anúncio). No Shopify: ativar "Meta Conversions API" nas configurações do app Meta. Isso pode recuperar <strong>20–40% de conversões não rastreadas.</strong></p>
+    </div>
+    <div class="card info">
+      <p class="card-tag">Validação e diagnóstico</p>
+      <p>No Gerenciador de Eventos do Meta: confirmar <strong>taxa de correspondência de evento acima de 85%</strong>, deduplicação ativa entre Pixel e API, e que o evento de Purchase está enviando o valor correto da compra.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ⑫ PASSO 2-3 — ESTRUTURA DE CAMPANHAS -->
+<div class="slide" data-slide="12">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">12 / 14</div>
+  <div class="slide-tag">Passos 2–3 · Estrutura</div>
+  <h2 class="slide-title" style="font-size:clamp(20px,3.2vw,40px);margin-bottom:1.2rem;">Limpar, concentrar<br>e escalar o que funciona.</h2>
+  <div class="steps-grid">
+    <div class="step-item">
+      <span class="step-icon">🗑</span>
+      <div>
+        <p class="step-title">Passo 2 · Limpeza da conta</p>
+        <p class="step-desc">Remover anúncios com cirílico. Pausar campanhas Leads/Tráfego. Pausar Remarketing 180d. Resultado: ~R$1.200/mês liberados para redistribuição.</p>
+        <span class="step-badge">🔴 Urgente</span>
+      </div>
+    </div>
+    <div class="step-item hl">
+      <span class="step-icon">🎯</span>
+      <div>
+        <p class="step-title">Passo 3 · Concentração de budget</p>
+        <p class="step-desc">Dobrar Segmento 1 (ROAS 8,15x). Ativar Lista Forja exceto compradores com R$50/dia. Manter Interesses + Engajamento como base de volume.</p>
+        <span class="step-badge green">🟢 Alta prioridade</span>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-icon">🛒</span>
+      <div>
+        <p class="step-title">Passo 4 · Advantage+ Shopping</p>
+        <p class="step-desc">Criar campanha Advantage+ com catálogo do Shopify. Objetivo: Sales. Deixar o algoritmo do Meta testar criativos automaticamente com 5+ variações de imagem e texto.</p>
+        <span class="step-badge pur">🟡 Média</span>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-icon">🔄</span>
+      <div>
+        <p class="step-title">Passo 5 · Remarketing reformulado</p>
+        <p class="step-desc">Novo conjunto de Carrinho Abandonado com janela de 30d (não 180d), frequência limitada a 3x/semana, criativos novos com copy de urgência real + cupom exclusivo.</p>
+        <span class="step-badge pur">🟡 Média</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑬ PASSO 4-5 — CRIATIVOS E COPY -->
+<div class="slide" data-slide="13">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">13 / 14</div>
+  <div class="slide-tag">Passos 4–5 · Criativos</div>
+  <h2 class="slide-title" style="font-size:clamp(20px,3.2vw,40px);margin-bottom:1.2rem;">Novos criativos.<br>Baseados no que já provou.</h2>
+  <div class="cards-grid">
+    <div class="card ok">
+      <p class="card-tag">✓ Replicar o vencedor</p>
+      <p>"Engenharia Forjada em Aço" teve ROAS 8–9,9x em múltiplos conjuntos. Criar <strong>3–4 variações</strong> desse mesmo conceito com produtos diferentes: BH85, Verso, Nexus. Mesmo título, mesma copy técnica, produto diferente.</p>
+    </div>
+    <div class="card ok">
+      <p class="card-tag">✓ Escalar o Quiz</p>
+      <p>O Quiz CIMO tem ROAS de 10–16x em alguns conjuntos com investimento mínimo. Criar uma campanha dedicada para público frio com o Quiz como único ativo — é o melhor funil educativo da conta.</p>
+    </div>
+    <div class="card info">
+      <p class="card-tag">Criativos anti-ban para Tomahawk</p>
+      <p>Para anunciar o Tomahawk com segurança: foco total em <strong>contexto de uso</strong> (camping, trilha, EDC). Copy: "Para quem vive em aventura" — nunca mencionar "lâmina tática", "serrilhado" ou especificações técnicas de corte.</p>
+    </div>
+    <div class="card info">
+      <p class="card-tag">Materiais pedidos à Paola</p>
+      <p>Para criar os novos criativos precisamos de: <strong>fotos de produto lifestyle</strong> (produto em uso real), <strong>vídeos curtos 15–30s</strong> em formato vertical (Reels/Stories), e se possível <strong>depoimentos em vídeo</strong> de clientes — prova social converte muito em Meta.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ⑭ RESUMO FINAL -->
+<div class="slide" data-slide="14">
+  <div class="slide-logo"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></div>
+  <div class="slide-num">14 / 14</div>
+  <div class="slide-tag">Resumo executivo</div>
+  <h2 class="slide-title" style="font-size:clamp(22px,3.5vw,44px);margin-bottom:1.2rem;">Conta com potencial.<br>Próximos 30 dias definem o rumo.</h2>
+  <div class="kpi-row" style="margin-bottom:1rem;">
+    <div class="kpi-card red"><p class="kc-label">Remover hoje</p><p class="kc-val">4</p><p class="kc-sub">conjuntos/anúncios críticos</p></div>
+    <div class="kpi-card amber"><p class="kc-label">Liberar</p><p class="kc-val">~R$1.200</p><p class="kc-sub">/mês desperdiçado</p></div>
+    <div class="kpi-card teal"><p class="kc-label">Escalar</p><p class="kc-val">3</p><p class="kc-sub">conjuntos sub-investidos</p></div>
+    <div class="kpi-card green"><p class="kc-label">ROAS alvo</p><p class="kc-val">7–8x</p><p class="kc-sub">com rastreio + estrutura certa</p></div>
+  </div>
+  <div class="cards-grid" style="grid-template-columns:repeat(3,1fr);max-width:900px;">
+    <div class="card danger"><p class="card-tag">Semana 1</p><p>Rastreio · Limpeza de anúncios perigosos · Pausar campanhas sem retorno</p></div>
+    <div class="card info"><p class="card-tag">Semana 2–3</p><p>Concentrar budget · Escalar Segmento 1 · Reativar Lista Forja · Advantage+</p></div>
+    <div class="card ok"><p class="card-tag">Semana 4+</p><p>Novos criativos · Quiz dedicado · Remarketing reformulado · Medir e escalar</p></div>
+  </div>
+</div>
+
+</div><!-- /slides -->
+
+<div class="nav-bar">
+  <button class="nav-btn" id="prev" onclick="changeSlide(-1)">←</button>
+  <div class="nav-dots" id="dots"></div>
+  <button class="nav-btn" id="next" onclick="changeSlide(1)">→</button>
+  <span class="nav-label" id="navLabel">1 / 14</span>
+</div>
+<p class="key-hint">← → teclado</p>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+const total=slides.length;
+let cur=0;
+const dotsEl=document.getElementById('dots');
+for(let i=0;i<total;i++){
+  const d=document.createElement('div');
+  d.className='nav-dot'+(i===0?' active':'');
+  d.onclick=()=>goTo(i);
+  dotsEl.appendChild(d);
+}
+function goTo(n,dir=1){
+  if(n<0||n>=total)return;
+  const prev=slides[cur];
+  prev.classList.remove('active');
+  prev.classList.add(dir>0?'exit-up':'exit-down');
+  setTimeout(()=>prev.classList.remove('exit-up','exit-down'),600);
+  cur=n;
+  slides[cur].classList.add('active');
+  document.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+  document.getElementById('progress').style.width=((cur+1)/total*100)+'%';
+  document.getElementById('navLabel').textContent=(cur+1)+' / '+total;
+  document.getElementById('prev').disabled=cur===0;
+  document.getElementById('next').disabled=cur===total-1;
+}
+function changeSlide(d){goTo(cur+d,d);}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown')changeSlide(1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')changeSlide(-1);
+});
+document.getElementById('prev').disabled=true;
+document.getElementById('progress').style.width=(1/total*100)+'%';
+</script>
+</body>
+</html>
