@@ -435,43 +435,69 @@ const receita      = [11703.28, 8701.24, 6198.18, 10935.78, 30385.94, 31064.16];
 const conversoes   = [44.14, 35.90, 28.63, 40.86, 122.39, 122.47];
 const roas         = [2.91, 2.43, 2.33, 3.35, 9.98, 7.72];
 
-// Plugin: linha vertical YAV + labels nos pontos de conversões e ROAS
+// Plugin: linha vertical YAV + labels de ROAS em destaque nos pontos
 Chart.register({
   id:'yavLine',
   afterDraw(chart){
-    const {ctx,chartArea:{top,bottom},scales:{x,y2}}=chart;
+    const {ctx, chartArea:{top,bottom}, scales:{x}} = chart;
 
     // Linha vertical entre abr e mai
     const xAbr = x.getPixelForValue(3);
     const xMai = x.getPixelForValue(4);
-    const xLine = (xAbr+xMai)/2;
+    const xLine = (xAbr + xMai) / 2;
     ctx.save();
     ctx.setLineDash([5,4]);
-    ctx.strokeStyle='rgba(196,164,255,0.45)';
-    ctx.lineWidth=1.5;
-    ctx.beginPath();ctx.moveTo(xLine,top);ctx.lineTo(xLine,bottom);ctx.stroke();
+    ctx.strokeStyle = 'rgba(196,164,255,0.45)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(xLine,top); ctx.lineTo(xLine,bottom); ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle='rgba(196,164,255,0.75)';
-    ctx.font='600 10px Poppins,sans-serif';
-    ctx.textAlign='center';
-    ctx.fillText('YAV inicia',xLine,top+14);
+    ctx.fillStyle = 'rgba(196,164,255,0.75)';
+    ctx.font = '600 10px Poppins,sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('YAV inicia', xLine, top + 14);
 
-    // Labels em cima dos pontos de conversões (dataset índice 2)
-    const convDs = chart.getDatasetMeta(2);
-    convDs.data.forEach((pt,i)=>{
-      ctx.fillStyle = i>=3 ? '#5cffa0' : 'rgba(92,255,160,0.45)';
-      ctx.font = `600 11px Poppins,sans-serif`;
-      ctx.textAlign='center';
-      ctx.fillText(conversoes[i].toFixed(0), pt.x, pt.y - 10);
-    });
+    // Labels ROAS em destaque acima de cada ponto
+    const roasDs = chart.getDatasetMeta(2); // dataset ROAS é índice 2
+    roasDs.data.forEach((pt, i) => {
+      const isYAV = i >= 3;
+      const label = roas[i].toFixed(2) + 'x';
+      const px = pt.x;
+      const py = pt.y;
 
-    // Labels em cima dos pontos de ROAS (dataset índice 3)
-    const roasDs = chart.getDatasetMeta(3);
-    roasDs.data.forEach((pt,i)=>{
-      ctx.fillStyle = i>=3 ? '#ffc06e' : 'rgba(255,192,110,0.45)';
-      ctx.font = `700 11px Poppins,sans-serif`;
-      ctx.textAlign='center';
-      ctx.fillText(roas[i].toFixed(2)+'x', pt.x, pt.y - 10);
+      if (isYAV) {
+        // Pill de fundo colorido para meses da YAV
+        const tw = ctx.measureText(label).width + 16;
+        const th = 20;
+        const tx = px - tw / 2;
+        const ty = py - th - 10;
+
+        ctx.beginPath();
+        ctx.roundRect(tx, ty, tw, th, 6);
+        ctx.fillStyle = 'rgba(255,192,110,0.18)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255,192,110,0.55)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffc06e';
+        ctx.font = '700 12px Poppins,sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(label, px, ty + 14);
+
+        // Pequena linha conectando pill ao ponto
+        ctx.beginPath();
+        ctx.moveTo(px, ty + th);
+        ctx.lineTo(px, py - 6);
+        ctx.strokeStyle = 'rgba(255,192,110,0.3)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      } else {
+        // Meses antes da YAV: só o número discreto
+        ctx.fillStyle = 'rgba(255,192,110,0.35)';
+        ctx.font = '500 10px Poppins,sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(label, px, py - 10);
+      }
     });
 
     ctx.restore();
@@ -481,61 +507,49 @@ Chart.register({
 new Chart(document.getElementById('chartHistorico').getContext('2d'),{
   type:'bar',
   data:{
-    labels:meses,
+    labels: meses,
     datasets:[
       {
         label:'Investimento (R$)',
-        data:investimento,
-        backgroundColor:ctx=>ctx.dataIndex>=3?'rgba(123,47,255,0.75)':'rgba(123,47,255,0.25)',
-        borderColor:ctx=>ctx.dataIndex>=3?'#9B5FFF':'rgba(123,47,255,0.4)',
-        borderWidth:1,borderRadius:5,yAxisID:'y',order:3
+        data: investimento,
+        backgroundColor: ctx => ctx.dataIndex>=3 ? 'rgba(123,47,255,0.75)' : 'rgba(123,47,255,0.25)',
+        borderColor:     ctx => ctx.dataIndex>=3 ? '#9B5FFF' : 'rgba(123,47,255,0.4)',
+        borderWidth:1, borderRadius:5, yAxisID:'y', order:3
       },
       {
         label:'Receita (R$)',
-        data:receita,
-        backgroundColor:ctx=>ctx.dataIndex>=3?'rgba(0,196,167,0.7)':'rgba(0,196,167,0.2)',
-        borderColor:ctx=>ctx.dataIndex>=3?'#00C4A7':'rgba(0,196,167,0.35)',
-        borderWidth:1,borderRadius:5,yAxisID:'y',order:3
-      },
-      {
-        label:'Conversões',
-        data:conversoes,
-        type:'line',
-        borderColor:'#5cffa0',
-        backgroundColor:'rgba(92,255,160,0.08)',
-        borderWidth:2.5,
-        pointBackgroundColor:ctx=>ctx.dataIndex>=3?'#5cffa0':'rgba(92,255,160,0.4)',
-        pointRadius:5,pointHoverRadius:7,
-        fill:false,tension:0.35,yAxisID:'y2',order:1
+        data: receita,
+        backgroundColor: ctx => ctx.dataIndex>=3 ? 'rgba(0,196,167,0.7)' : 'rgba(0,196,167,0.2)',
+        borderColor:     ctx => ctx.dataIndex>=3 ? '#00C4A7' : 'rgba(0,196,167,0.35)',
+        borderWidth:1, borderRadius:5, yAxisID:'y', order:3
       },
       {
         label:'ROAS',
-        data:roas,
+        data: roas,
         type:'line',
-        borderColor:'#ffc06e',
-        backgroundColor:'rgba(255,192,110,0.08)',
-        borderWidth:2,
-        borderDash:[4,3],
-        pointBackgroundColor:ctx=>ctx.dataIndex>=3?'#ffc06e':'rgba(255,192,110,0.4)',
-        pointStyle:'rectRot',
-        pointRadius:5,pointHoverRadius:7,
-        fill:false,tension:0.35,yAxisID:'y3',order:2
+        borderColor: ctx => ctx.dataIndex>=3 ? '#ffc06e' : 'rgba(255,192,110,0.35)',
+        segment:{ borderColor: ctx => ctx.p0DataIndex>=3 ? '#ffc06e' : 'rgba(255,192,110,0.35)' },
+        backgroundColor:'rgba(255,192,110,0.06)',
+        borderWidth:2.5,
+        pointBackgroundColor: ctx => ctx.dataIndex>=3 ? '#ffc06e' : 'rgba(255,192,110,0.3)',
+        pointBorderColor:     ctx => ctx.dataIndex>=3 ? '#ffc06e' : 'rgba(255,192,110,0.3)',
+        pointRadius:5, pointHoverRadius:7,
+        fill:false, tension:0.35, yAxisID:'y2', order:1
       }
     ]
   },
   options:{
-    responsive:true,maintainAspectRatio:false,
-    interaction:{mode:'index',intersect:false},
-    layout:{padding:{top:28}},
+    responsive:true, maintainAspectRatio:false,
+    interaction:{mode:'index', intersect:false},
+    layout:{padding:{top:46}},
     plugins:{
       legend:{display:false},
       tooltip:{
         backgroundColor:'rgba(10,5,25,0.97)',
-        borderColor:'rgba(123,47,255,0.4)',borderWidth:1,
-        titleColor:'#f5f2ee',bodyColor:'#b0a8c0',padding:12,
+        borderColor:'rgba(123,47,255,0.4)', borderWidth:1,
+        titleColor:'#f5f2ee', bodyColor:'#b0a8c0', padding:12,
         callbacks:{
-          label:ctx=>{
-            if(ctx.dataset.label==='Conversões') return ` Conversões: ${ctx.parsed.y.toFixed(0)}`;
+          label: ctx => {
             if(ctx.dataset.label==='ROAS') return ` ROAS: ${ctx.parsed.y.toFixed(2)}x`;
             return ` ${ctx.dataset.label}: R$${ctx.parsed.y.toLocaleString('pt-BR',{minimumFractionDigits:0})}`;
           }
@@ -544,21 +558,16 @@ new Chart(document.getElementById('chartHistorico').getContext('2d'),{
     },
     scales:{
       y:{
-        type:'linear',position:'left',
-        ticks:{color:'#7a7090',font:{size:11},callback:v=>'R$'+v.toLocaleString('pt-BR')},
-        grid:{color:'rgba(123,47,255,0.07)'},border:{display:false}
+        type:'linear', position:'left',
+        ticks:{color:'#7a7090', font:{size:11}, callback:v=>'R$'+v.toLocaleString('pt-BR')},
+        grid:{color:'rgba(123,47,255,0.07)'}, border:{display:false}
       },
       y2:{
-        type:'linear',position:'right',
-        ticks:{color:'rgba(92,255,160,0.6)',font:{size:11}},
-        grid:{display:false},border:{display:false}
-      },
-      y3:{
-        type:'linear',position:'right',
+        type:'linear', position:'right',
         display:false,
-        min:0,max:15
+        min:0, max:14
       },
-      x:{ticks:{color:'#7a7090',font:{size:12,weight:'500'}},grid:{display:false},border:{display:false}}
+      x:{ticks:{color:'#7a7090', font:{size:12, weight:'500'}}, grid:{display:false}, border:{display:false}}
     }
   }
 });
