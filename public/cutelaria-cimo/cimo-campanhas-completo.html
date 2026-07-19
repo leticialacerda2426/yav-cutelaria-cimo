@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YAV · Cutelaria Cimo · Campanhas Completas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--pur:#7B2FFF;--pur-light:#c4a4ff;--teal:#00C4A7;--teal-light:#4ddfc8;--green:#5cffa0;--amber:#ffc06e;--red:#ff6b6b;--bg:#07070f;--text:#f5f2ee;--muted:#b0a8c0;--dim:#7a7090;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;}
+.bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 55% at 5% 0%,rgba(123,47,255,0.18) 0%,transparent 55%),radial-gradient(ellipse 50% 40% at 95% 15%,rgba(0,196,167,0.1) 0%,transparent 50%),var(--bg);}
+
+.page{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:2.5rem 1.5rem 4rem;}
+
+/* HEADER */
+.page-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(123,47,255,0.15);}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-sq{width:36px;height:36px;background:linear-gradient(135deg,var(--pur),#4a0dcc);border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;box-shadow:0 0 16px rgba(123,47,255,0.5);}
+.logo-txt{font-weight:700;font-size:16px;color:#fff;}
+.logo-txt span{color:var(--pur-light);}
+.page-meta{font-size:11px;color:var(--dim);}
+
+/* CAMPANHA BLOCK */
+.campanha{margin-bottom:3rem;}
+.campanha-header{background:linear-gradient(135deg,rgba(123,47,255,0.18),rgba(0,196,167,0.08));border:1px solid rgba(123,47,255,0.3);border-radius:16px;padding:1.4rem 1.6rem;margin-bottom:1.2rem;}
+.campanha-badge{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--pur-light);margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.campanha-badge span{display:inline-block;background:rgba(123,47,255,0.2);border:1px solid rgba(123,47,255,0.35);padding:2px 10px;border-radius:20px;}
+.campanha-nome{font-size:clamp(16px,2.5vw,22px);font-weight:800;color:#fff;margin-bottom:10px;}
+.campanha-meta{display:flex;flex-wrap:wrap;gap:1rem;}
+.meta-item{font-size:11px;color:var(--muted);}
+.meta-item strong{color:var(--teal-light);}
+
+/* CONJUNTO BLOCK */
+.conjunto{background:rgba(15,10,35,0.7);border:1px solid rgba(123,47,255,0.15);border-radius:14px;padding:1.3rem 1.5rem;margin-bottom:1rem;}
+.conjunto-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;padding-bottom:0.9rem;border-bottom:1px solid rgba(123,47,255,0.1);}
+.conjunto-nome{font-size:14px;font-weight:700;color:var(--text);}
+.conjunto-budget{font-size:13px;font-weight:700;color:var(--amber);white-space:nowrap;}
+.conjunto-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.tag{display:inline-block;font-size:10px;font-weight:500;padding:2px 9px;border-radius:10px;white-space:nowrap;}
+.tag-pur{background:rgba(123,47,255,0.12);color:var(--pur-light);border:1px solid rgba(123,47,255,0.25);}
+.tag-teal{background:rgba(0,196,167,0.1);color:var(--teal-light);border:1px solid rgba(0,196,167,0.22);}
+.tag-green{background:rgba(92,255,160,0.1);color:var(--green);border:1px solid rgba(92,255,160,0.2);}
+.tag-amber{background:rgba(255,192,110,0.1);color:var(--amber);border:1px solid rgba(255,192,110,0.2);}
+.tag-red{background:rgba(255,107,107,0.1);color:#ff8f8f;border:1px solid rgba(255,107,107,0.2);}
+
+/* PÚBLICO */
+.publico-section{margin-bottom:1rem;}
+.section-label{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;}
+.publico-box{background:rgba(123,47,255,0.06);border:1px solid rgba(123,47,255,0.12);border-radius:10px;padding:0.8rem 1rem;font-size:12.5px;color:var(--muted);line-height:1.65;}
+.publico-box strong{color:var(--text);}
+.exclusao{background:rgba(255,107,107,0.05);border:1px solid rgba(255,107,107,0.12);border-radius:10px;padding:0.6rem 1rem;font-size:12px;color:var(--muted);margin-top:6px;}
+.exclusao::before{content:"⊘ Excluir: ";color:#ff8f8f;font-weight:600;}
+
+/* CRIATIVOS */
+.criativos-grid{display:grid;grid-template-columns:1fr;gap:10px;}
+.criativo{background:rgba(10,7,28,0.8);border:1px solid rgba(123,47,255,0.12);border-radius:12px;padding:1.1rem 1.3rem;}
+.criativo-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.criativo-num{width:22px;height:22px;border-radius:50%;background:rgba(123,47,255,0.2);border:1px solid rgba(123,47,255,0.35);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--pur-light);flex-shrink:0;}
+.criativo-nome{font-size:13px;font-weight:600;color:var(--text);}
+.criativo-format{margin-left:auto;}
+.copy-block{margin-top:8px;}
+.copy-label{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);margin-bottom:4px;}
+.copy-text{background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.05);border-radius:8px;padding:0.7rem 0.9rem;font-size:12.5px;color:var(--muted);line-height:1.7;white-space:pre-wrap;position:relative;}
+.copy-text .cta{display:inline-block;margin-top:6px;font-size:11px;font-weight:600;color:var(--teal-light);}
+.copy-tip{font-size:11px;color:var(--dim);margin-top:5px;padding-left:4px;font-style:italic;}
+
+/* COPY SECTIONS */
+.copy-sections{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
+@media(max-width:600px){.copy-sections{grid-template-columns:1fr;}}
+.copy-section{background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.05);border-radius:8px;padding:0.7rem 0.9rem;}
+.copy-section-label{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:5px;}
+.copy-section-text{font-size:12.5px;color:var(--muted);line-height:1.65;}
+
+/* SEPARADOR */
+.sep{height:1px;background:linear-gradient(90deg,transparent,rgba(123,47,255,0.2) 40%,rgba(0,196,167,0.15) 60%,transparent);margin:2.5rem 0;}
+
+/* AVISO */
+.aviso{background:rgba(255,107,107,0.06);border:1px solid rgba(255,107,107,0.2);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.5rem;font-size:12.5px;color:var(--muted);line-height:1.65;}
+.aviso strong{color:#ff8f8f;}
+</style>
+</head>
+<body>
+<div class="bg-mesh"></div>
+<div class="page">
+
+<div class="page-header">
+  <div class="logo">
+    <div class="logo-sq">YAV</div>
+    <span class="logo-txt">YAV <span>Digital</span></span>
+  </div>
+  <div class="page-meta">Cutelaria Cimo · Meta Ads · Estrutura de campanhas · Julho 2026<br>Uso interno — não compartilhar com cliente</div>
+</div>
+
+<div class="aviso">
+  <strong>⚠ Antes de subir qualquer campanha:</strong> validar Pixel + API de Conversões no Gerenciador de Eventos. Taxa de correspondência precisa estar acima de 7,0. Remover os anúncios com texto cirílico disfarçado (Ad 1, Ad 2, Ad 3, Ad 2 — Canivete). Desativar todos os 14 DISAPPROVED da conta.
+</div>
+
+<!-- ══════════════════════════════════════════════
+     CAMPANHA 1 — PROSPECÇÃO · TOPO DE FUNIL
+══════════════════════════════════════════════ -->
+<div class="campanha">
+  <div class="campanha-header">
+    <p class="campanha-badge"><span>Campanha 1</span> Topo de Funil · Público Frio</p>
+    <p class="campanha-nome">[CS] Prospecção | Público Frio</p>
+    <div class="campanha-meta">
+      <div class="meta-item">Objetivo: <strong>Outcome Sales → Compras no site (Purchase)</strong></div>
+      <div class="meta-item">Orçamento: <strong>ABO — definir por conjunto abaixo</strong></div>
+      <div class="meta-item">Estratégia de lance: <strong>Maior volume de conversões</strong></div>
+      <div class="meta-item">Posicionamentos: <strong>Advantage+ (automático)</strong></div>
+      <div class="meta-item">Pixel: <strong>Evento Purchase</strong></div>
+    </div>
+  </div>
+
+  <!-- Conjunto 1.1 -->
+  <div class="conjunto">
+    <div class="conjunto-header">
+      <div>
+        <p class="conjunto-nome">Conjunto 1.1 — Interesses | Segmento 1</p>
+        <div class="conjunto-tags">
+          <span class="tag tag-green">ROAS histórico: 8,15x</span>
+          <span class="tag tag-teal">Público frio</span>
+          <span class="tag tag-amber">Prioridade máxima</span>
+        </div>
+      </div>
+      <p class="conjunto-budget">R$80/dia</p>
+    </div>
+    <div class="publico-section">
+      <p class="section-label">Público</p>
+      <div class="publico-box">
+        <strong>Interesses:</strong> Cutelaria · Facas artesanais · Churrasco · Camping · Aventura ao ar livre · Caça e pesca · Equipamentos EDC (Everyday Carry) · Presente masculino · Colecionismo<br><br>
+        <strong>Localização:</strong> Brasil<br>
+        <strong>Idade:</strong> 25–55 anos<br>
+        <strong>Gênero:</strong> Todos (testar separado M/F se volume permitir)<br>
+        <strong>Idioma:</strong> Português
+      </div>
+      <div class="exclusao">compradores dos últimos 30 dias · visitantes do site dos últimos 3 dias</div>
+    </div>
+    <p class="section-label">Criativos (máx. 3)</p>
+    <div class="criativos-grid">
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">1</div>
+          <p class="criativo-nome">Engenharia Forjada em Aço — Estático</p>
+          <span class="tag tag-teal criativo-format">Imagem 1:1 ou 4:5</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal (legenda)</p>
+            <p class="copy-section-text">Engenharia Forjada em Aço.<br><br>A precisão que você exige. Lâminas com tratamento térmico ideal para retenção de fio e performance técnica superior.<br><br>Mais de 25 peças montadas com exatidão milimétrica. Uma cutelaria que vai com você para sempre.<br><br>→ Escolha a sua em cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título do anúncio</p>
+            <p class="copy-section-text">A arte da cutelaria em cada detalhe.</p>
+            <br>
+            <p class="copy-section-label">Descrição (texto abaixo do link)</p>
+            <p class="copy-section-text">Qualidade que você sente na primeira empunhadura.</p>
+            <br>
+            <p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Comprar agora</p>
+          </div>
+        </div>
+        <p class="copy-tip">💡 Visual: produto em fundo escuro ou textura de madeira. Sem texto na imagem além do logo. Mostrar a faca na mão, nunca só a lâmina flutuando.</p>
+      </div>
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">2</div>
+          <p class="criativo-nome">Segmento 1 — Vídeo curto</p>
+          <span class="tag tag-green criativo-format">Vídeo 9:16 · 15–30s</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal (legenda)</p>
+            <p class="copy-section-text">Tradição que transcende gerações.<br><br>Cada detalhe pensado para quem entende de qualidade — do cabo ao fio da lâmina. A Cutelaria Cimo nasceu para durar.<br><br>Encontre a peça que conta a sua história.<br>cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título do anúncio</p>
+            <p class="copy-section-text">Cutelaria Cimo — feita para durar.</p>
+            <br>
+            <p class="copy-section-label">Descrição</p>
+            <p class="copy-section-text">Qualidade que você sente na primeira empunhadura.</p>
+            <br>
+            <p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Ver mais</p>
+          </div>
+        </div>
+        <p class="copy-tip">💡 Vídeo: mostrar o produto sendo usado em contexto real (churrasco, camping, cozinha). Primeiros 3 segundos com o produto em destaque. Sem música agressiva.</p>
+      </div>
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">3</div>
+          <p class="criativo-nome">Brown Horse — Vídeo lifestyle</p>
+          <span class="tag tag-green criativo-format">Vídeo 9:16 · 15–20s</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal (legenda)</p>
+            <p class="copy-section-text">Para quem vive a aventura de verdade.<br><br>A Brown Horse foi criada para os momentos que importam — trilha, acampamento, vida ao ar livre. Robusta, equilibrada e construída para durar tanto quanto as histórias que você vai contar.<br><br>cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título</p>
+            <p class="copy-section-text">Brown Horse. Feita para suas aventuras.</p>
+            <br>
+            <p class="copy-section-label">Descrição</p>
+            <p class="copy-section-text">Robustez e equilíbrio para cada trilha.</p>
+            <br>
+            <p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Comprar agora</p>
+          </div>
+        </div>
+        <p class="copy-tip">💡 ROAS de 24,48x em julho com pouco gasto — prioridade para aumentar budget nesse criativo. Contexto outdoor obrigatório, nunca detalhe técnico de lâmina.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conjunto 1.2 -->
+  <div class="conjunto">
+    <div class="conjunto-header">
+      <div>
+        <p class="conjunto-nome">Conjunto 1.2 — Semelhantes | Sales 1–3%</p>
+        <div class="conjunto-tags">
+          <span class="tag tag-green">ROAS histórico: 5,78x</span>
+          <span class="tag tag-teal">Lookalike de compradores reais</span>
+        </div>
+      </div>
+      <p class="conjunto-budget">R$40/dia</p>
+    </div>
+    <div class="publico-section">
+      <p class="section-label">Público</p>
+      <div class="publico-box">
+        <strong>Público semelhante:</strong> 1–3% de semelhantes baseado na lista de clientes do Shopify (compradores reais) — ou, se a lista não estiver disponível, semelhantes dos eventos de Purchase do Pixel dos últimos 180 dias.<br><br>
+        <strong>Localização:</strong> Brasil · <strong>Idade:</strong> 25–55 · <strong>Gênero:</strong> Todos
+      </div>
+      <div class="exclusao">compradores dos últimos 30 dias · público do Conjunto 1.1 (para evitar sobreposição)</div>
+    </div>
+    <p class="section-label">Criativos</p>
+    <div class="criativos-grid">
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">1</div>
+          <p class="criativo-nome">Prova Social — Estático</p>
+          <span class="tag tag-teal criativo-format">Imagem 1:1</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">Mais de [X] clientes que escolheram qualidade.<br><br>Quem já tem uma Cimo sabe: é a última faca que você vai precisar comprar. Feita para durar, para presentear, para passar de geração em geração.<br><br>Descubra qual é a sua. cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título</p>
+            <p class="copy-section-text">A faca que você vai querer para sempre.</p>
+            <br>
+            <p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Comprar agora</p>
+          </div>
+        </div>
+        <p class="copy-tip">💡 Substituir [X] pelo número real de clientes da Cimo — pede para a Paola. Quanto maior o número, maior a prova social.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conjunto 1.3 -->
+  <div class="conjunto">
+    <div class="conjunto-header">
+      <div>
+        <p class="conjunto-nome">Conjunto 1.3 — Quiz "Qual é a sua faca?"</p>
+        <div class="conjunto-tags">
+          <span class="tag tag-green">ROAS histórico: 10–16x</span>
+          <span class="tag tag-pur">Funil educativo</span>
+          <span class="tag tag-amber">Sub-investido — prioridade</span>
+        </div>
+      </div>
+      <p class="conjunto-budget">R$30/dia</p>
+    </div>
+    <div class="publico-section">
+      <p class="section-label">Público</p>
+      <div class="publico-box">
+        <strong>Interesses amplos:</strong> Presente masculino · Dia dos Pais · Artigos de colecionador · Aventura · Gastronomia · Churrasco<br><br>
+        <strong>Localização:</strong> Brasil · <strong>Idade:</strong> 28–60 · <strong>Gênero:</strong> Todos (testar versão focada em mulheres comprando presente para homem)
+      </div>
+      <div class="exclusao">compradores dos últimos 30 dias</div>
+    </div>
+    <p class="section-label">Criativos</p>
+    <div class="criativos-grid">
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">1</div>
+          <p class="criativo-nome">Quiz — Estático</p>
+          <span class="tag tag-teal criativo-format">Imagem 1:1 ou 9:16</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">3 perguntas. Uma escolha certa. Simples assim.<br><br>Não precisa ser especialista em cutelaria para escolher a faca perfeita. Responda 3 perguntas rápidas e descubra qual peça da Cimo foi feita para você — ou para presentear.<br><br>Fazer o quiz → cutelariacimo.com.br/quiz</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título</p>
+            <p class="copy-section-text">Qual faca Cimo é a sua?</p>
+            <br>
+            <p class="copy-section-label">Descrição</p>
+            <p class="copy-section-text">Descubra em 1 minuto.</p>
+            <br>
+            <p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Saiba mais</p>
+          </div>
+        </div>
+        <p class="copy-tip">💡 Se não tiver página de quiz no site, criar um Typeform ou enquete simples que redireciona para o produto recomendado. O conceito de "educação antes da venda" é o que faz esse anúncio converter em 10–16x.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════════════════════════════════════════════
+     CAMPANHA 2 — ENGAJAMENTO · MEIO DE FUNIL
+══════════════════════════════════════════════ -->
+<div class="campanha">
+  <div class="campanha-header">
+    <p class="campanha-badge"><span>Campanha 2</span> Meio de Funil · Público Morno</p>
+    <p class="campanha-nome">[CS] Conversão | Regular | Meio e Fundo</p>
+    <div class="campanha-meta">
+      <div class="meta-item">Objetivo: <strong>Outcome Sales → Compras no site (Purchase)</strong></div>
+      <div class="meta-item">Orçamento: <strong>ABO — definir por conjunto abaixo</strong></div>
+      <div class="meta-item">Estratégia de lance: <strong>Maior volume de conversões</strong></div>
+      <div class="meta-item">Posicionamentos: <strong>Advantage+ (automático)</strong></div>
+    </div>
+  </div>
+
+  <!-- Conjunto 2.1 -->
+  <div class="conjunto">
+    <div class="conjunto-header">
+      <div>
+        <p class="conjunto-nome">Conjunto 2.1 — Engajamento | Excluindo compradores</p>
+        <div class="conjunto-tags">
+          <span class="tag tag-green">ROAS histórico: 7,47x</span>
+          <span class="tag tag-teal">Já conhece a marca</span>
+        </div>
+      </div>
+      <p class="conjunto-budget">R$40/dia</p>
+    </div>
+    <div class="publico-section">
+      <p class="section-label">Público</p>
+      <div class="publico-box">
+        <strong>Engajamento personalizado:</strong> Pessoas que interagiram com o perfil do Instagram ou página do Facebook da Cimo nos últimos <strong>365 dias</strong> (curtidas, comentários, salvamentos, cliques no perfil, mensagens)<br><br>
+        <strong>+</strong> Visitantes do site nos últimos <strong>60 dias</strong>
+      </div>
+      <div class="exclusao">compradores dos últimos 30 dias · pessoas que compraram nos últimos 7 dias (para não sobrepor com remarketing)</div>
+    </div>
+    <p class="section-label">Criativos</p>
+    <div class="criativos-grid">
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">1</div>
+          <p class="criativo-nome">Você já nos conhece — Oferta</p>
+          <span class="tag tag-teal criativo-format">Imagem 1:1</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">Você já conhece a Cimo. Aqui está o motivo de comprar agora.<br><br>Frete grátis para compras acima de R$[valor] + embalagem especial para presente incluída.<br><br>A sua próxima faca está esperando.<br>→ cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título</p>
+            <p class="copy-section-text">Frete grátis + embalagem de presente.</p>
+            <br>
+            <p class="copy-section-label">Descrição</p>
+            <p class="copy-section-text">Oferta válida por tempo limitado.</p>
+            <br>
+            <p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Comprar agora</p>
+          </div>
+        </div>
+        <p class="copy-tip">💡 Substituir [valor] pelo mínimo real da promoção de frete grátis. Esse público já foi exposto à marca — não precisa de apresentação, precisa de razão concreta para comprar agora.</p>
+      </div>
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">2</div>
+          <p class="criativo-nome">Pica Fumo — Produto específico</p>
+          <span class="tag tag-green criativo-format">Vídeo 9:16 · 15–20s</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">Para o churrasco perfeito, começa com a faca certa.<br><br>A Pica Fumo foi desenvolvida especificamente para quem leva o churrasco a sério. Equilíbrio ideal, corte preciso e acabamento que impressiona antes mesmo de servir.<br><br>Garanta a sua → cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título</p>
+            <p class="copy-section-text">Pica Fumo. O corte do churrasco perfeito.</p>
+            <br>
+            <p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Comprar agora</p>
+          </div>
+        </div>
+        <p class="copy-tip">💡 ROAS de 4,25x em julho — estável. Manter esse criativo neste conjunto.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conjunto 2.2 -->
+  <div class="conjunto">
+    <div class="conjunto-header">
+      <div>
+        <p class="conjunto-nome">Conjunto 2.2 — Lista Forja | Excluindo compradores 30d</p>
+        <div class="conjunto-tags">
+          <span class="tag tag-green">ROAS histórico: 52x 🔥</span>
+          <span class="tag tag-amber">Urgente ativar — sub-investido</span>
+        </div>
+      </div>
+      <p class="conjunto-budget">R$25/dia</p>
+    </div>
+    <div class="publico-section">
+      <p class="section-label">Público</p>
+      <div class="publico-box">
+        <strong>Lista de clientes:</strong> Exportar base de clientes do Shopify (e-mails + telefones) e fazer upload como Público Personalizado no Meta → "Lista de clientes". Usar a lista completa da Cimo.<br><br>
+        <strong>Importante:</strong> quanto mais dados de matching (e-mail + telefone + nome + CEP), melhor a taxa de correspondência.
+      </div>
+      <div class="exclusao">compradores dos últimos 30 dias (para não desperdiçar verba em quem já comprou recentemente)</div>
+    </div>
+    <p class="section-label">Criativos</p>
+    <div class="criativos-grid">
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">1</div>
+          <p class="criativo-nome">Oferta Exclusiva para Clientes</p>
+          <span class="tag tag-teal criativo-format">Imagem 1:1 ou vídeo curto</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">Você já faz parte da família Cimo.<br><br>Como cliente especial, preparamos algo exclusivo para você. [Oferta: desconto X% OU frete grátis OU brinde na compra — definir com a Paola]<br><br>Válido até [data]. Não compartilhe — é só para quem já escolheu qualidade.<br>→ cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título</p>
+            <p class="copy-section-text">Exclusivo para clientes Cimo.</p>
+            <br>
+            <p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Resgatar oferta</p>
+          </div>
+        </div>
+        <p class="copy-tip">💡 ROAS de 52x com R$18 gastos — o público mais quente da conta. Com R$25/dia pode gerar R$300–400/dia em receita. Definir a oferta com a Paola antes de subir.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conjunto 2.3 — AddToCart -->
+  <div class="conjunto">
+    <div class="conjunto-header">
+      <div>
+        <p class="conjunto-nome">Conjunto 2.3 — AddToCart | 30 dias</p>
+        <div class="conjunto-tags">
+          <span class="tag tag-teal">Quase compradores</span>
+          <span class="tag tag-pur">Remarketing suave</span>
+        </div>
+      </div>
+      <p class="conjunto-budget">R$15/dia</p>
+    </div>
+    <div class="publico-section">
+      <p class="section-label">Público</p>
+      <div class="publico-box">
+        <strong>Evento do Pixel:</strong> Pessoas que dispararam o evento <strong>AddToCart</strong> nos últimos <strong>30 dias</strong> no site da Cimo
+      </div>
+      <div class="exclusao">compradores dos últimos 14 dias</div>
+    </div>
+    <p class="section-label">Criativos</p>
+    <div class="criativos-grid">
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">1</div>
+          <p class="criativo-nome">Catálogo Dinâmico</p>
+          <span class="tag tag-pur criativo-format">Catálogo</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">Você deixou algo especial para trás.<br><br>Sua escolha ainda está disponível — mas o estoque não é infinito. Finalize sua compra e garanta a peça que você separou.<br><br>cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título dinâmico</p>
+            <p class="copy-section-text">{{product.name}} — ainda no seu carrinho.</p>
+            <br>
+            <p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Finalizar compra</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════════════════════════════════════════════
+     CAMPANHA 3 — REMARKETING · FUNDO DE FUNIL
+══════════════════════════════════════════════ -->
+<div class="campanha">
+  <div class="campanha-header">
+    <p class="campanha-badge"><span>Campanha 3</span> Fundo de Funil · Remarketing</p>
+    <p class="campanha-nome">[CS] Remarketing | Carrinho e Produto</p>
+    <div class="campanha-meta">
+      <div class="meta-item">Objetivo: <strong>Outcome Sales → Compras no site (Purchase)</strong></div>
+      <div class="meta-item">Orçamento: <strong>ABO</strong></div>
+      <div class="meta-item">Frequência: <strong>Máx. 3x/semana por pessoa</strong></div>
+    </div>
+  </div>
+
+  <!-- Conjunto 3.1 -->
+  <div class="conjunto">
+    <div class="conjunto-header">
+      <div>
+        <p class="conjunto-nome">Conjunto 3.1 — Carrinho Abandonado | 14 dias</p>
+        <div class="conjunto-tags">
+          <span class="tag tag-red">Antiga versão 180d: frequência 43x ⚠</span>
+          <span class="tag tag-green">Nova versão: 14d + frequência limitada</span>
+        </div>
+      </div>
+      <p class="conjunto-budget">R$30/dia</p>
+    </div>
+    <div class="publico-section">
+      <p class="section-label">Público</p>
+      <div class="publico-box">
+        <strong>Evento do Pixel:</strong> Pessoas que dispararam <strong>InitiateCheckout</strong> OU <strong>AddToCart</strong> nos últimos <strong>14 dias</strong> sem completar a compra<br><br>
+        <strong>Limite de frequência:</strong> 3 impressões por semana (configurar em "Controle de frequência" no conjunto)
+      </div>
+      <div class="exclusao">compradores dos últimos 7 dias</div>
+    </div>
+    <p class="section-label">Criativos — Teste A/B obrigatório</p>
+    <div class="criativos-grid">
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">A</div>
+          <p class="criativo-nome">Urgência real com cupom</p>
+          <span class="tag tag-green criativo-format">Imagem 1:1</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">Últimas horas com 15% OFF na Cutelaria Cimo 🔥<br><br>Você chegou perto. Use o cupom VOLTA15 e finalize com desconto exclusivo — válido só até [data/hora real].<br><br>→ cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título</p>
+            <p class="copy-section-text">15% OFF só até hoje.</p>
+            <br>
+            <p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Finalizar compra</p>
+          </div>
+        </div>
+        <p class="copy-tip">💡 ROAS histórico de 9,34x com urgência real. A data/hora precisa ser real — se for mentira o cliente percebe e perde confiança na marca.</p>
+      </div>
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">B</div>
+          <p class="criativo-nome">Reserva de produto</p>
+          <span class="tag tag-teal criativo-format">Imagem 1:1 ou Catálogo</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">Reservamos sua faca por mais 24h.<br><br>O produto que você separou ainda está disponível. Mas não garantimos por quanto tempo — as peças da Cimo têm estoque limitado.<br><br>Finalize agora → cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título</p>
+            <p class="copy-section-text">Seu produto está esperando.</p>
+            <br>
+            <p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Finalizar compra</p>
+          </div>
+        </div>
+        <p class="copy-tip">💡 Abordagem positiva — "reservamos para você" ao invés de pressionar. Testar qual converte melhor nesse público específico da Cimo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conjunto 3.2 -->
+  <div class="conjunto">
+    <div class="conjunto-header">
+      <div>
+        <p class="conjunto-nome">Conjunto 3.2 — Visitantes de Produto | 7 dias</p>
+        <div class="conjunto-tags">
+          <span class="tag tag-teal">Catálogo dinâmico</span>
+          <span class="tag tag-pur">Produto exato que visitou</span>
+        </div>
+      </div>
+      <p class="conjunto-budget">R$15/dia</p>
+    </div>
+    <div class="publico-section">
+      <p class="section-label">Público</p>
+      <div class="publico-box">
+        <strong>Evento do Pixel:</strong> Pessoas que dispararam <strong>ViewContent</strong> (visitaram página de produto) nos últimos <strong>7 dias</strong> sem adicionar ao carrinho
+      </div>
+      <div class="exclusao">quem fez AddToCart ou comprou nos últimos 7 dias</div>
+    </div>
+    <p class="section-label">Criativos</p>
+    <div class="criativos-grid">
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">1</div>
+          <p class="criativo-nome">Catálogo Dinâmico — Viu mas não adicionou</p>
+          <span class="tag tag-pur criativo-format">Catálogo</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">Viu isso aqui? 👀<br><br>Você passou por uma peça especial e foi embora. Volta dar uma segunda olhada — às vezes a escolha certa só precisa de mais um momento.<br><br>cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título dinâmico</p>
+            <p class="copy-section-text">{{product.name}} — você viu isso.</p>
+            <br>
+            <p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Ver produto</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════════════════════════════════════════════
+     CAMPANHA 4 — ADVANTAGE+ SHOPPING
+══════════════════════════════════════════════ -->
+<div class="campanha">
+  <div class="campanha-header">
+    <p class="campanha-badge"><span>Campanha 4</span> Advantage+ Shopping · IA do Meta</p>
+    <p class="campanha-nome">[CS] Advantage+ Shopping | Catálogo Cimo</p>
+    <div class="campanha-meta">
+      <div class="meta-item">Tipo: <strong>Advantage+ Shopping Campaign (ASC)</strong></div>
+      <div class="meta-item">Orçamento: <strong>CBO — R$50/dia (único budget para a campanha)</strong></div>
+      <div class="meta-item">Catálogo: <strong>Integração Shopify → Meta</strong></div>
+      <div class="meta-item">Regra: <strong>Não editar por mínimo 7 dias após subir</strong></div>
+    </div>
+  </div>
+
+  <div class="conjunto">
+    <div class="conjunto-header">
+      <div>
+        <p class="conjunto-nome">Sem conjuntos manuais — a ASC gerencia automaticamente</p>
+        <div class="conjunto-tags">
+          <span class="tag tag-teal">IA escolhe público e posicionamento</span>
+          <span class="tag tag-amber">Mínimo 5 criativos variados</span>
+        </div>
+      </div>
+      <p class="conjunto-budget">R$50/dia</p>
+    </div>
+    <p class="section-label">Criativos para a Advantage+ (subir todos de uma vez)</p>
+    <div class="criativos-grid">
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">1</div>
+          <p class="criativo-nome">Produto fundo branco — Estático</p>
+          <span class="tag tag-teal criativo-format">Imagem 1:1</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">Cutelaria de qualidade para todos os momentos. Linha completa de facas, canivetes e acessórios — feitos para durar.<br>cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título</p>
+            <p class="copy-section-text">Cutelaria Cimo — qualidade que dura.</p>
+            <br><p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Comprar agora</p>
+          </div>
+        </div>
+      </div>
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">2</div>
+          <p class="criativo-nome">Lifestyle outdoor — Vídeo</p>
+          <span class="tag tag-green criativo-format">Vídeo 9:16 · 15s</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">Para os momentos que você vai querer lembrar. A Cimo está pronta para cada aventura, cada refeição, cada história.<br>cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título</p>
+            <p class="copy-section-text">Sua próxima aventura começa aqui.</p>
+            <br><p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Ver mais</p>
+          </div>
+        </div>
+      </div>
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">3</div>
+          <p class="criativo-nome">Linha de produtos — Carrossel</p>
+          <span class="tag tag-pur criativo-format">Carrossel</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">Cada momento pede a faca certa.<br>Para o churrasco. Para a trilha. Para a cozinha. Para presentear. A Cimo tem a peça perfeita para cada história.<br>cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título de cada card</p>
+            <p class="copy-section-text">Card 1: "Para o churrasco" — produto Pica Fumo<br>Card 2: "Para a aventura" — Brown Horse<br>Card 3: "Para a cozinha" — linha culinária<br>Card 4: "Para presentear" — produto mais vendido<br>Card 5: "Ver coleção completa"</p>
+          </div>
+        </div>
+      </div>
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">4</div>
+          <p class="criativo-nome">Engenharia Forjada — Estático dark</p>
+          <span class="tag tag-teal criativo-format">Imagem 4:5</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">Engenharia Forjada em Aço. A precisão que você exige, em cada detalhe. Cutelaria Cimo.<br>cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título</p>
+            <p class="copy-section-text">Feita para durar uma vida.</p>
+            <br><p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Comprar agora</p>
+          </div>
+        </div>
+      </div>
+      <div class="criativo">
+        <div class="criativo-header">
+          <div class="criativo-num">5</div>
+          <p class="criativo-nome">Catálogo Dinâmico — ASC</p>
+          <span class="tag tag-amber criativo-format">Catálogo</span>
+        </div>
+        <div class="copy-sections">
+          <div class="copy-section">
+            <p class="copy-section-label">Texto principal</p>
+            <p class="copy-section-text">{{product.name}} — qualidade que você sente na primeira empunhadura. Cutelaria Cimo.<br>cutelariacimo.com.br</p>
+          </div>
+          <div class="copy-section">
+            <p class="copy-section-label">Título dinâmico</p>
+            <p class="copy-section-text">{{product.name}} — Cutelaria Cimo</p>
+            <br><p class="copy-section-label">CTA</p>
+            <p class="copy-section-text">Comprar agora</p>
+          </div>
+        </div>
+        <p class="copy-tip">💡 O catálogo dinâmico dentro da ASC é o criativo mais poderoso — o Meta vai mostrar o produto certo para a pessoa certa. Garantir que o feed do catálogo Shopify está atualizado com preços, fotos e estoque corretos.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- RESUMO -->
+<div style="background:rgba(15,10,35,0.8);border:1px solid rgba(123,47,255,0.2);border-radius:16px;padding:1.6rem 1.8rem;">
+  <p style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);margin-bottom:1rem;">Resumo · Budget total</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+    <div style="text-align:center;padding:1rem;background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.2);border-radius:12px;">
+      <p style="font-size:11px;color:var(--pur-light);margin-bottom:5px;font-weight:600;">Camp. 1 · Prospecção</p>
+      <p style="font-size:22px;font-weight:800;color:#d8c4ff;">R$150/dia</p>
+      <p style="font-size:11px;color:var(--dim);">3 conjuntos</p>
+    </div>
+    <div style="text-align:center;padding:1rem;background:rgba(0,196,167,0.06);border:1px solid rgba(0,196,167,0.2);border-radius:12px;">
+      <p style="font-size:11px;color:var(--teal-light);margin-bottom:5px;font-weight:600;">Camp. 2 · Engajamento</p>
+      <p style="font-size:22px;font-weight:800;color:var(--teal-light);">R$80/dia</p>
+      <p style="font-size:11px;color:var(--dim);">3 conjuntos</p>
+    </div>
+    <div style="text-align:center;padding:1rem;background:rgba(92,255,160,0.05);border:1px solid rgba(92,255,160,0.15);border-radius:12px;">
+      <p style="font-size:11px;color:var(--green);margin-bottom:5px;font-weight:600;">Camp. 3 · Remarketing</p>
+      <p style="font-size:22px;font-weight:800;color:var(--green);">R$45/dia</p>
+      <p style="font-size:11px;color:var(--dim);">2 conjuntos</p>
+    </div>
+    <div style="text-align:center;padding:1rem;background:rgba(255,192,110,0.05);border:1px solid rgba(255,192,110,0.15);border-radius:12px;">
+      <p style="font-size:11px;color:var(--amber);margin-bottom:5px;font-weight:600;">Camp. 4 · Advantage+</p>
+      <p style="font-size:22px;font-weight:800;color:var(--amber);">R$50/dia</p>
+      <p style="font-size:11px;color:var(--dim);">automático</p>
+    </div>
+    <div style="text-align:center;padding:1rem;background:linear-gradient(135deg,rgba(123,47,255,0.15),rgba(0,196,167,0.08));border:1px solid rgba(123,47,255,0.3);border-radius:12px;">
+      <p style="font-size:11px;color:#fff;margin-bottom:5px;font-weight:600;">TOTAL</p>
+      <p style="font-size:22px;font-weight:800;color:#fff;">R$325/dia</p>
+      <p style="font-size:11px;color:var(--muted);">~R$9.750/mês</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /page -->
+</body>
+</html>
