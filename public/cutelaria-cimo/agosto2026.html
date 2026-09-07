@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YAV Digital · Relatório Agosto 2026 · Cutelaria Cimo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--pur:#7B2FFF;--pur-light:#c4a4ff;--pur-dark:#4a0dcc;--teal:#00C4A7;--teal-light:#4ddfc8;--green:#5cffa0;--amber:#ffc06e;--bg:#07070f;--border:rgba(123,47,255,0.2);--text:#f5f2ee;--muted:#b0a8c0;--dim:#7a7090;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;overflow-x:hidden;min-height:100vh;}
+.bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 55% at 5% 0%,rgba(123,47,255,0.22) 0%,transparent 55%),radial-gradient(ellipse 50% 40% at 95% 15%,rgba(0,196,167,0.14) 0%,transparent 50%),radial-gradient(ellipse 60% 50% at 50% 105%,rgba(80,20,200,0.18) 0%,transparent 55%),var(--bg);}
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(123,47,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(123,47,255,0.04) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,black 20%,transparent 100%);}
+.wrap{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 1.5rem;}
+nav{position:sticky;top:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(7,7,15,0.75);backdrop-filter:blur(16px);border-bottom:1px solid rgba(123,47,255,0.15);}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-sq{width:34px;height:34px;background:linear-gradient(135deg,var(--pur),var(--pur-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;box-shadow:0 0 18px rgba(123,47,255,0.55);}
+.logo-txt{font-weight:700;font-size:16px;color:#fff;letter-spacing:0.04em;}
+.logo-txt span{color:var(--pur-light);}
+.nav-badge{background:rgba(123,47,255,0.15);border:1px solid rgba(123,47,255,0.35);color:var(--pur-light);font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 1.5rem 4rem;position:relative;}
+.hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(123,47,255,0.12) 0%,transparent 70%);pointer-events:none;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(0,196,167,0.1);border:1px solid rgba(0,196,167,0.3);color:var(--teal-light);font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:7px 16px;border-radius:20px;margin-bottom:1.8rem;}
+.eyebrow-dot{width:7px;height:7px;background:var(--teal);border-radius:50%;box-shadow:0 0 10px var(--teal);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.8);}}
+.hero-title{font-size:clamp(34px,5.5vw,64px);font-weight:800;line-height:1.08;margin-bottom:1.2rem;letter-spacing:-0.01em;background:linear-gradient(140deg,#fff 0%,#d4c4ff 45%,var(--teal-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:clamp(14px,2vw,17px);color:var(--muted);line-height:1.75;max-width:560px;margin:0 auto 2.5rem;}
+.scroll-hint{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--dim);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;animation:float 2.5s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+section{padding:4rem 0;}
+.sep{height:1px;background:linear-gradient(90deg,transparent,rgba(123,47,255,0.25) 40%,rgba(0,196,167,0.2) 60%,transparent);}
+.section-eye{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;}
+.section-title{font-size:clamp(20px,3vw,28px);font-weight:800;line-height:1.2;margin-bottom:1.6rem;color:#fff;letter-spacing:-0.01em;}
+.section-title span{background:linear-gradient(90deg,var(--pur-light),var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* CANAL HEADER */
+.canal-header{display:flex;align-items:center;gap:12px;margin-bottom:1.2rem;}
+.canal-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.canal-icon.google{background:linear-gradient(135deg,rgba(66,133,244,0.3),rgba(15,157,88,0.2));border:1px solid rgba(66,133,244,0.3);}
+.canal-icon.meta{background:linear-gradient(135deg,rgba(24,119,242,0.3),rgba(123,47,255,0.2));border:1px solid rgba(24,119,242,0.3);}
+.canal-name{font-size:16px;font-weight:700;color:#fff;}
+.canal-sub{font-size:12px;color:var(--dim);}
+
+/* DESTAQUE BOX */
+.destaque-box{background:linear-gradient(135deg,rgba(123,47,255,0.18),rgba(0,196,167,0.08));border:1px solid rgba(123,47,255,0.35);border-radius:20px;padding:2rem 2.2rem;margin-bottom:1.4rem;box-shadow:0 0 60px rgba(123,47,255,0.1);}
+
+/* KPI GRID */
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+@media(min-width:600px){.kpi-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:800px){.kpi-grid.cols4{grid-template-columns:repeat(4,1fr);}}
+.kpi{border-radius:16px;padding:1.3rem 1.4rem;border:1px solid rgba(123,47,255,0.2);background:rgba(15,10,35,0.7);backdrop-filter:blur(10px);position:relative;overflow:hidden;transition:border-color .3s,transform .3s;}
+.kpi:hover{border-color:rgba(123,47,255,0.4);transform:translateY(-3px);}
+.kpi::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(123,47,255,0.06) 0%,transparent 60%);pointer-events:none;}
+.kpi.pur{border-color:rgba(123,47,255,0.35);background:rgba(40,10,100,0.4);}
+.kpi.teal{border-color:rgba(0,196,167,0.3);background:rgba(0,50,42,0.35);}
+.kpi.green{border-color:rgba(92,255,160,0.25);background:rgba(0,50,20,0.3);}
+.kpi.amber{border-color:rgba(255,192,110,0.25);background:rgba(50,30,0,0.3);}
+.kpi-label{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);margin-bottom:8px;}
+.kpi.pur .kpi-label{color:rgba(196,164,255,0.75);}
+.kpi.teal .kpi-label{color:rgba(77,223,200,0.75);}
+.kpi.green .kpi-label{color:rgba(92,255,160,0.7);}
+.kpi.amber .kpi-label{color:rgba(255,192,110,0.7);}
+.kpi-val{font-size:clamp(18px,2.5vw,26px);font-weight:800;line-height:1;color:var(--text);letter-spacing:-0.01em;}
+.kpi.pur .kpi-val{color:#d8c4ff;}
+.kpi.teal .kpi-val{color:var(--teal-light);}
+.kpi.green .kpi-val{color:var(--green);}
+.kpi.amber .kpi-val{color:var(--amber);}
+.kpi-sub{font-size:11px;color:var(--muted);margin-top:5px;}
+.kpi-badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:7px;background:rgba(0,196,167,0.15);color:var(--teal-light);border:1px solid rgba(0,196,167,0.3);}
+
+/* CRESCIMENTO CARDS */
+.growth-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.4rem;}
+@media(max-width:700px){.growth-grid{grid-template-columns:repeat(2,1fr);}}
+.g-item{background:linear-gradient(135deg,rgba(123,47,255,0.16),rgba(0,196,167,0.08));border:1px solid rgba(123,47,255,0.28);border-radius:14px;padding:1.3rem 1rem;text-align:center;}
+.g-label{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--pur-light);opacity:0.8;margin-bottom:8px;}
+.g-val{font-size:clamp(22px,3.2vw,36px);font-weight:800;line-height:1;}
+.g-val.pos{background:linear-gradient(135deg,#5cffa0,#00C4A7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.g-sub{font-size:11px;color:var(--muted);margin-top:5px;}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid rgba(123,47,255,0.12);}
+table{width:100%;border-collapse:collapse;font-size:12px;min-width:540px;}
+th{text-align:left;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid rgba(123,47,255,0.15);background:rgba(15,10,35,0.9);white-space:nowrap;}
+td{padding:10px 12px;border-bottom:1px solid rgba(123,47,255,0.07);color:var(--muted);vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+tr.total-row td{border-top:1px solid rgba(123,47,255,0.2);color:#fff;font-weight:600;background:rgba(123,47,255,0.08);}
+tr.hi td{background:rgba(0,196,167,0.04);}
+tr:hover td{background:rgba(123,47,255,0.04);}
+td.b{color:var(--text);font-weight:500;}
+td.pu{color:var(--pur-light);font-weight:600;}
+td.gn{color:var(--green);font-weight:600;}
+td.tl{color:var(--teal-light);font-weight:600;}
+td.am{color:var(--amber);font-weight:600;}
+.pill{display:inline-block;font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;white-space:nowrap;}
+.pill-p{background:rgba(123,47,255,0.15);color:var(--pur-light);border:1px solid rgba(123,47,255,0.3);}
+.pill-g{background:rgba(0,196,167,0.1);color:var(--teal-light);border:1px solid rgba(0,196,167,0.25);}
+.pill-a{background:rgba(255,192,110,0.1);color:var(--amber);border:1px solid rgba(255,192,110,0.25);}
+.pill-s{background:rgba(92,255,160,0.1);color:var(--green);border:1px solid rgba(92,255,160,0.2);}
+
+/* CRIATIVO CARDS */
+.criativo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:560px){.criativo-grid{grid-template-columns:1fr;}}
+.criativo-card{background:rgba(15,10,35,0.7);border:1px solid rgba(123,47,255,0.15);border-radius:14px;padding:1.2rem 1.4rem;transition:border-color .3s,transform .3s;}
+.criativo-card:hover{border-color:rgba(123,47,255,0.35);transform:translateY(-2px);}
+.criativo-card.destaque{border-color:rgba(0,196,167,0.3);background:rgba(0,196,167,0.04);}
+.criativo-card.star{border-color:rgba(255,192,110,0.3);background:rgba(255,192,110,0.04);}
+.cc-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;}
+.cc-nome{font-size:13px;font-weight:700;color:var(--text);}
+.cc-roas{font-size:15px;font-weight:800;}
+.criativo-card.destaque .cc-roas{color:var(--teal-light);}
+.criativo-card.star .cc-roas{color:var(--amber);}
+.criativo-card .cc-roas{color:var(--pur-light);}
+.cc-stats{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:8px;}
+.cc-stat{font-size:11px;color:var(--dim);}
+.cc-stat strong{color:var(--muted);}
+.cc-insight{font-size:12px;color:var(--dim);line-height:1.6;font-style:italic;border-left:2px solid rgba(123,47,255,0.25);padding-left:8px;margin-top:6px;}
+.criativo-card.destaque .cc-insight{border-color:rgba(0,196,167,0.3);}
+.criativo-card.star .cc-insight{border-color:rgba(255,192,110,0.3);}
+
+/* INSIGHTS */
+.insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:500px){.insight-grid{grid-template-columns:1fr;}}
+.insight-card{border-radius:14px;padding:1.3rem 1.4rem;backdrop-filter:blur(6px);transition:transform .3s;}
+.insight-card:hover{transform:translateY(-3px);}
+.insight-card.ok{background:rgba(0,196,167,0.07);border:1px solid rgba(0,196,167,0.25);}
+.insight-card.warn{background:rgba(255,192,110,0.05);border:1px solid rgba(255,192,110,0.2);}
+.insight-card.info{background:rgba(123,47,255,0.06);border:1px solid rgba(123,47,255,0.2);}
+.insight-tag{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:7px;}
+.insight-card.ok .insight-tag{color:var(--teal-light);}
+.insight-card.warn .insight-tag{color:var(--amber);}
+.insight-card.info .insight-tag{color:var(--pur-light);}
+.insight-card p{font-size:13px;color:var(--muted);line-height:1.65;}
+
+/* STEPS */
+.steps-list{display:flex;flex-direction:column;gap:12px;}
+.step-item{background:rgba(15,10,35,0.7);border:1px solid rgba(123,47,255,0.2);border-radius:14px;padding:1.2rem 1.4rem;display:flex;align-items:flex-start;gap:14px;backdrop-filter:blur(8px);transition:border-color .3s;}
+.step-item:hover{border-color:rgba(123,47,255,0.4);}
+.step-item.highlight{border-color:rgba(0,196,167,0.3);background:rgba(0,196,167,0.04);}
+.step-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+.step-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.step-desc{font-size:12px;color:var(--muted);line-height:1.65;}
+.step-badge{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;margin-top:6px;background:rgba(0,196,167,0.15);color:var(--teal-light);border:1px solid rgba(0,196,167,0.25);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.1s;}.reveal-delay-2{transition-delay:.2s;}.reveal-delay-3{transition-delay:.3s;}
+.reveal-delay-4{transition-delay:.4s;}.reveal-delay-5{transition-delay:.5s;}.reveal-delay-6{transition-delay:.6s;}
+.hero-title,.hero-sub,.eyebrow,.scroll-hint{opacity:0;transform:translateY(24px);animation:fadeUp .9s cubic-bezier(.22,1,.36,1) forwards;}
+.eyebrow{animation-delay:.1s;}.hero-title{animation-delay:.25s;}.hero-sub{animation-delay:.42s;}.scroll-hint{animation-delay:.6s;}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+footer{background:rgba(5,4,15,0.95);backdrop-filter:blur(12px);padding:1.6rem 2rem;border-top:1px solid rgba(123,47,255,0.15);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-logo{font-size:15px;font-weight:700;color:rgba(255,255,255,0.2);}
+.footer-logo span{color:rgba(123,47,255,0.5);}
+.footer-note{font-size:11px;color:rgba(255,255,255,0.15);}
+</style>
+</head>
+<body>
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
+
+<nav>
+  <a class="logo" href="/"><div class="logo-sq">YAV</div><span class="logo-txt">YAV <span>Digital</span></span></a>
+  <span class="nav-badge">Relatório · Agosto 2026</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow"><span class="eyebrow-dot"></span>Mês completo · Agosto 2026</div>
+  <h1 class="hero-title">Agosto histórico.<br>R$175 mil em receita<br>com dois canais.</h1>
+  <p class="hero-sub">Google Ads com ROAS de 10,61x e Meta Ads com 369 compras — o melhor mês desde o início da gestão YAV Digital.</p>
+  <div class="scroll-hint">
+    <svg width="18" height="28" viewBox="0 0 18 28" fill="none"><rect x="1" y="1" width="16" height="26" rx="8" stroke="white" stroke-width="1.5"/><circle cx="9" cy="8" r="2.5" fill="white"><animate attributeName="cy" values="8;18;8" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/></circle></svg>
+    <span>role para ver</span>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- VISÃO GERAL CONSOLIDADA -->
+<section>
+  <div class="wrap">
+    <p class="section-eye reveal">Visão consolidada · agosto 2026</p>
+    <h2 class="section-title reveal reveal-delay-1">Google Ads + Meta Ads —<br><span>resultado combinado</span></h2>
+    <div class="growth-grid reveal reveal-delay-2">
+      <div class="g-item">
+        <p class="g-label">Receita total</p>
+        <p class="g-val pos">R$175.563</p>
+        <p class="g-sub">Google + Meta</p>
+      </div>
+      <div class="g-item">
+        <p class="g-label">Investimento total</p>
+        <p class="g-val" style="color:var(--amber);font-size:clamp(20px,2.8vw,32px);">R$31.280</p>
+        <p class="g-sub">ambos os canais</p>
+      </div>
+      <div class="g-item">
+        <p class="g-label">Compras totais</p>
+        <p class="g-val pos">601</p>
+        <p class="g-sub">232 Google · 369 Meta</p>
+      </div>
+      <div class="g-item">
+        <p class="g-label">ROAS combinado</p>
+        <p class="g-val pos">5,61x</p>
+        <p class="g-sub">média ponderada</p>
+      </div>
+    </div>
+
+    <div class="table-wrap reveal reveal-delay-3">
+      <table>
+        <thead><tr><th>Canal</th><th>Investimento</th><th>Conversões</th><th>Receita</th><th>ROAS</th><th>CPA</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="b">🔵 Google Ads</td>
+            <td>R$6.719,05</td>
+            <td class="pu">232,32</td>
+            <td class="tl">R$71.269,08</td>
+            <td class="gn">10,61x</td>
+            <td>R$28,92</td>
+          </tr>
+          <tr>
+            <td class="b">🟣 Meta Ads</td>
+            <td>R$24.561,26</td>
+            <td class="pu">369</td>
+            <td class="tl">R$104.294,06</td>
+            <td class="gn">4,25x</td>
+            <td>R$66,56</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total agosto</td>
+            <td>R$31.280,31</td>
+            <td class="pu">601,32</td>
+            <td class="tl">R$175.563,14</td>
+            <td class="gn">5,61x</td>
+            <td>R$52,02</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- GOOGLE ADS -->
+<section>
+  <div class="wrap">
+    <div class="canal-header reveal">
+      <div class="canal-icon google">🔵</div>
+      <div><p class="canal-name">Google Ads</p><p class="canal-sub">Search + Performance Max · agosto 2026</p></div>
+    </div>
+    <p class="section-eye reveal">Performance Google Ads</p>
+    <h2 class="section-title reveal reveal-delay-1">ROAS de 10,61x —<br><span>melhor mês do Google</span></h2>
+
+    <div class="kpi-grid cols4 reveal reveal-delay-2" style="margin-bottom:1.2rem;">
+      <div class="kpi pur">
+        <p class="kpi-label">Receita total</p>
+        <p class="kpi-val">R$71.269</p>
+        <p class="kpi-sub">Google Ads</p>
+      </div>
+      <div class="kpi teal">
+        <p class="kpi-label">Conversões</p>
+        <p class="kpi-val">232,32</p>
+        <p class="kpi-sub">purchase Shopify</p>
+      </div>
+      <div class="kpi green">
+        <p class="kpi-label">ROAS</p>
+        <p class="kpi-val">10,61x</p>
+        <p class="kpi-sub">retorno sobre investimento</p>
+      </div>
+      <div class="kpi">
+        <p class="kpi-label">Custo total</p>
+        <p class="kpi-val">R$6.719</p>
+        <p class="kpi-sub">CPA médio R$28,92</p>
+      </div>
+    </div>
+
+    <div class="table-wrap reveal reveal-delay-3">
+      <table>
+        <thead><tr><th>Campanha</th><th>Tipo</th><th>Cliques</th><th>CTR</th><th>Custo</th><th>Conv.</th><th>Receita</th><th>ROAS</th><th>CPA</th></tr></thead>
+        <tbody>
+          <tr class="hi">
+            <td><span class="pill pill-p">Marca Institucional</span></td>
+            <td style="color:var(--dim);">Search</td>
+            <td class="b">4.048</td>
+            <td class="b">29,95%</td>
+            <td>R$3.040,25</td>
+            <td class="pu">147,56</td>
+            <td class="tl">R$41.845,20</td>
+            <td class="gn">13,76x</td>
+            <td>R$20,60</td>
+          </tr>
+          <tr>
+            <td><span class="pill pill-g">PMAX Geral BR</span></td>
+            <td style="color:var(--dim);">Perf. Max</td>
+            <td>18.088</td>
+            <td>4,58%</td>
+            <td>R$2.281,44</td>
+            <td class="pu">47,44</td>
+            <td class="tl">R$15.743,49</td>
+            <td class="gn">6,90x</td>
+            <td>R$48,10</td>
+          </tr>
+          <tr>
+            <td><span class="pill pill-a">Search Produtos</span></td>
+            <td style="color:var(--dim);">Search</td>
+            <td class="b">1.797</td>
+            <td class="b">10,61%</td>
+            <td>R$1.397,37</td>
+            <td class="pu">37,32</td>
+            <td class="tl">R$13.680,39</td>
+            <td class="gn">9,79x</td>
+            <td>R$37,44</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total Google</td>
+            <td></td>
+            <td>23.933</td>
+            <td>5,63%</td>
+            <td>R$6.719,05</td>
+            <td class="pu">232,32</td>
+            <td class="tl">R$71.269,08</td>
+            <td class="gn">10,61x</td>
+            <td>R$28,92</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- META ADS -->
+<section>
+  <div class="wrap">
+    <div class="canal-header reveal">
+      <div class="canal-icon meta">🟣</div>
+      <div><p class="canal-name">Meta Ads</p><p class="canal-sub">Facebook · Instagram · agosto 2026</p></div>
+    </div>
+    <p class="section-eye reveal">Performance Meta Ads</p>
+    <h2 class="section-title reveal reveal-delay-1">369 compras.<br><span>R$104 mil em receita.</span></h2>
+
+    <div class="kpi-grid cols4 reveal reveal-delay-2" style="margin-bottom:1.2rem;">
+      <div class="kpi pur">
+        <p class="kpi-label">Receita total</p>
+        <p class="kpi-val">R$104.294</p>
+        <p class="kpi-sub">Meta Ads</p>
+      </div>
+      <div class="kpi teal">
+        <p class="kpi-label">Compras</p>
+        <p class="kpi-val">369</p>
+        <p class="kpi-sub">no site</p>
+      </div>
+      <div class="kpi green">
+        <p class="kpi-label">ROAS médio</p>
+        <p class="kpi-val">4,25x</p>
+        <p class="kpi-sub">todas as campanhas</p>
+      </div>
+      <div class="kpi amber">
+        <p class="kpi-label">Impressões</p>
+        <p class="kpi-val">1,2M</p>
+        <p class="kpi-sub">alcance 165.492</p>
+      </div>
+    </div>
+
+    <div class="table-wrap reveal reveal-delay-3" style="margin-bottom:1.4rem;">
+      <table>
+        <thead><tr><th>Campanha</th><th>Orçamento/dia</th><th>Compras</th><th>CPA</th><th>Gasto</th><th>ROAS</th><th>Receita</th></tr></thead>
+        <tbody>
+          <tr class="hi">
+            <td class="b">Interesse RMKT BR</td>
+            <td>R$350</td>
+            <td class="pu">158</td>
+            <td>R$61,91</td>
+            <td>R$9.782,03</td>
+            <td class="gn">4,45x</td>
+            <td class="tl">R$43.495,12</td>
+          </tr>
+          <tr>
+            <td class="b">Interesse Semelhante BR</td>
+            <td>R$200</td>
+            <td class="pu">115</td>
+            <td>R$74,35</td>
+            <td>R$8.550,70</td>
+            <td class="gn">4,09x</td>
+            <td class="tl">R$34.965,35</td>
+          </tr>
+          <tr>
+            <td class="b">Interesse Frio BR</td>
+            <td>R$200</td>
+            <td class="pu">51</td>
+            <td>R$75,25</td>
+            <td>R$3.837,80</td>
+            <td class="tl">3,87x</td>
+            <td class="tl">R$14.844,09</td>
+          </tr>
+          <tr class="hi">
+            <td class="b">Dia dos Pais — Semelhante ⭐</td>
+            <td>R$130</td>
+            <td class="pu">36</td>
+            <td class="gn">R$42,36</td>
+            <td>R$1.524,79</td>
+            <td class="gn">5,16x</td>
+            <td class="tl">R$7.872,72</td>
+          </tr>
+          <tr>
+            <td class="b">CS Conversão Regular</td>
+            <td>R$150</td>
+            <td class="pu">9</td>
+            <td>R$96,22</td>
+            <td>R$865,94</td>
+            <td class="tl">3,60x</td>
+            <td class="tl">R$3.116,78</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total Meta</td>
+            <td>R$1.030</td>
+            <td class="pu">369</td>
+            <td>R$66,56</td>
+            <td>R$24.561,26</td>
+            <td class="gn">4,25x</td>
+            <td class="tl">R$104.294,06</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- CRIATIVOS -->
+<section>
+  <div class="wrap">
+    <p class="section-eye reveal">Análise de criativos · Meta Ads</p>
+    <h2 class="section-title reveal reveal-delay-1">Os criativos que<br><span>mais venderam em agosto</span></h2>
+
+    <div class="criativo-grid reveal reveal-delay-2">
+
+      <div class="criativo-card destaque">
+        <div class="cc-header">
+          <p class="cc-nome">[Estático] Fio de alta retenção</p>
+          <p class="cc-roas">6,49x 🏆</p>
+        </div>
+        <div class="cc-stats">
+          <p class="cc-stat">Compras: <strong>14</strong></p>
+          <p class="cc-stat">Gasto: <strong>R$616</strong></p>
+          <p class="cc-stat">Receita: <strong>R$4.002</strong></p>
+        </div>
+        <p class="cc-insight">Melhor ROAS da conta. Formato estático com foco técnico — "fio de alta retenção" é copy que fala diretamente com quem entende de cutelaria. O conceito técnico-aspiracional que historicamente funciona melhor na conta.</p>
+      </div>
+
+      <div class="criativo-card star">
+        <div class="cc-header">
+          <p class="cc-nome">[Estático] Dia dos pais | Escolha certa</p>
+          <p class="cc-roas">5,57x ⭐</p>
+        </div>
+        <div class="cc-stats">
+          <p class="cc-stat">Compras: <strong>11</strong></p>
+          <p class="cc-stat">Gasto: <strong>R$552</strong></p>
+          <p class="cc-stat">Receita: <strong>R$3.074</strong></p>
+        </div>
+        <p class="cc-insight">Sazonalidade do Dia dos Pais funcionou. Copy de decisão de compra ("escolha certa") converte melhor do que urgência agressiva nesse produto. Replicar para Natal/Dia dos Namorados.</p>
+      </div>
+
+      <div class="criativo-card star">
+        <div class="cc-header">
+          <p class="cc-nome">[Vídeo] Brown Horse</p>
+          <p class="cc-roas">5,48x ⭐</p>
+        </div>
+        <div class="cc-stats">
+          <p class="cc-stat">Compras: <strong>17</strong></p>
+          <p class="cc-stat">Gasto: <strong>R$696</strong></p>
+          <p class="cc-stat">Receita: <strong>R$3.816</strong></p>
+        </div>
+        <p class="cc-insight">Segundo melhor ROAS em vídeo. Confirma a consistência do Brown Horse como produto de alta conversão em vídeo. Ativo que deve ser mantido e testado em novos conjuntos.</p>
+      </div>
+
+      <div class="criativo-card destaque">
+        <div class="cc-header">
+          <p class="cc-nome">[Estático] Dia dos pais | 25% OFF</p>
+          <p class="cc-roas">5,00x</p>
+        </div>
+        <div class="cc-stats">
+          <p class="cc-stat">Compras: <strong>25</strong></p>
+          <p class="cc-stat">Gasto: <strong>R$959</strong></p>
+          <p class="cc-stat">Receita: <strong>R$4.797</strong></p>
+        </div>
+        <p class="cc-insight">Maior receita dentre os criativos de Dia dos Pais. Desconto com percentual explícito (25% OFF) funciona nessa data específica — o público está em modo de compra de presente e o desconto serve como desbloqueador final.</p>
+      </div>
+
+      <div class="criativo-card">
+        <div class="cc-header">
+          <p class="cc-nome">[Vídeo] Brown Horse</p>
+          <p class="cc-roas">4,95x</p>
+        </div>
+        <div class="cc-stats">
+          <p class="cc-stat">Compras: <strong>20</strong></p>
+          <p class="cc-stat">Gasto: <strong>R$1.338</strong></p>
+          <p class="cc-stat">Receita: <strong>R$6.624</strong></p>
+        </div>
+        <p class="cc-insight">Variação do Brown Horse com maior volume e receita absoluta. Maior gasto da lista, mas com ROAS consistente acima de 4,9x. Criativo de escala — funciona com mais budget.</p>
+      </div>
+
+      <div class="criativo-card">
+        <div class="cc-header">
+          <p class="cc-nome">[Estático] Mais funções</p>
+          <p class="cc-roas">4,82x</p>
+        </div>
+        <div class="cc-stats">
+          <p class="cc-stat">Compras: <strong>17</strong></p>
+          <p class="cc-stat">Gasto: <strong>R$1.231</strong></p>
+          <p class="cc-stat">Receita: <strong>R$5.931</strong></p>
+        </div>
+        <p class="cc-insight">Copy focada em versatilidade ("mais funções") performa bem em público de interesse amplo. Bom volume com ROAS acima da média geral da conta.</p>
+      </div>
+
+      <div class="criativo-card">
+        <div class="cc-header">
+          <p class="cc-nome">[Estático] Fio de alta retenção</p>
+          <p class="cc-roas">4,04x</p>
+        </div>
+        <div class="cc-stats">
+          <p class="cc-stat">Compras: <strong>56</strong></p>
+          <p class="cc-stat">Gasto: <strong>R$3.968</strong></p>
+          <p class="cc-stat">Receita: <strong>R$16.051</strong></p>
+        </div>
+        <p class="cc-insight">Maior volume de compras e receita absoluta da conta. ROAS de 4x com 56 compras mostra capacidade de escala. A variação com ROAS 6,49x usa o mesmo conceito com menor budget — testar budget maior na versão mais eficiente.</p>
+      </div>
+
+      <div class="criativo-card">
+        <div class="cc-header">
+          <p class="cc-nome">[Vídeo] Cimo perfeito</p>
+          <p class="cc-roas">4,10x</p>
+        </div>
+        <div class="cc-stats">
+          <p class="cc-stat">Compras: <strong>14</strong></p>
+          <p class="cc-stat">Gasto: <strong>R$785</strong></p>
+          <p class="cc-stat">Receita: <strong>R$3.218</strong></p>
+        </div>
+        <p class="cc-insight">Vídeo de posicionamento da marca como um todo. ROAS de 4x é funcional, mas abaixo dos melhores da conta. Manter para construção de marca, mas não priorizar no budget.</p>
+      </div>
+
+    </div>
+
+    <!-- CRIATIVO ABAIXO DA MÉDIA -->
+    <div style="background:rgba(255,192,110,0.05);border:1px solid rgba(255,192,110,0.18);border-radius:12px;padding:1rem 1.3rem;margin-top:1rem;" class="reveal reveal-delay-4">
+      <p style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:6px;">⚠ Monitorar</p>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6;"><strong style="color:var(--text);">[Estático] Mais funções</strong> — segunda instância com ROAS 2,86x e R$987 gastos. A mesma copy em conjunto diferente não está convertendo. Avaliar se é o público ou a combinação público+criativo que está errada. Pausar se não melhorar.</p>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- INSIGHTS -->
+<section>
+  <div class="wrap">
+    <p class="section-eye reveal">Análise estratégica</p>
+    <h2 class="section-title reveal reveal-delay-1">Destaques e <span>oportunidades</span></h2>
+    <div class="insight-grid">
+      <div class="insight-card ok reveal reveal-delay-1">
+        <p class="insight-tag">Grande destaque</p>
+        <p>Marca Institucional no Google com <strong style="color:var(--teal-light)">ROAS 13,76x</strong> e CTR de 29,95% — o melhor mês dessa campanha desde o início da gestão</p>
+      </div>
+      <div class="insight-card ok reveal reveal-delay-2">
+        <p class="insight-tag">Sazonalidade funcionou</p>
+        <p>Dia dos Pais gerou <strong style="color:var(--teal-light)">R$12.670</strong> em receita no Meta com ROAS de 5,16x — confirma que datas comemorativas são oportunidade de escala</p>
+      </div>
+      <div class="insight-card ok reveal reveal-delay-3">
+        <p class="insight-tag">Criativo revelação</p>
+        <p>"Fio de alta retenção" estático com <strong style="color:var(--teal-light)">ROAS 6,49x</strong> confirma que copy técnica-aspiracional é o melhor caminho para a conta no Meta</p>
+      </div>
+      <div class="insight-card warn reveal reveal-delay-4">
+        <p class="insight-tag">Oportunidade</p>
+        <p>Search Produtos nova campanha com ROAS 9,79x e CTR 10,61% — ampliar words e budget pode aumentar volume sem perder eficiência</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- PRÓXIMOS PASSOS -->
+<section>
+  <div class="wrap">
+    <p class="section-eye reveal">Agenda estratégica</p>
+    <h2 class="section-title reveal reveal-delay-1">Próximos <span>passos</span></h2>
+    <div class="steps-list">
+      <div class="step-item highlight reveal reveal-delay-1">
+        <span class="step-icon">🏆</span>
+        <div>
+          <p class="step-title">Escalar "Fio de alta retenção" — o melhor criativo da conta</p>
+          <p class="step-desc">A variação com ROAS 6,49x tem apenas R$616 gastos. Testar o mesmo criativo com mais budget e em novos conjuntos de público. A versão com 56 compras (ROAS 4,04x) prova que o criativo escala — o objetivo é encontrar o ponto ótimo.</p>
+          <span class="step-badge">🟢 Alta prioridade</span>
+        </div>
+      </div>
+      <div class="step-item highlight reveal reveal-delay-2">
+        <span class="step-icon">🎄</span>
+        <div>
+          <p class="step-title">Replicar estratégia de Dia dos Pais para próximas datas</p>
+          <p class="step-desc">O modelo "data comemorativa + desconto explícito + copy de presente" funcionou. Preparar criativos para Natal, Black Friday e Dia das Crianças com o mesmo playbook — "[Data] | X% OFF" + "[Data] | Escolha certa".</p>
+          <span class="step-badge">🟢 Alta prioridade</span>
+        </div>
+      </div>
+      <div class="step-item reveal reveal-delay-3">
+        <span class="step-icon">🔍</span>
+        <div>
+          <p class="step-title">Ampliar Search Produtos no Google</p>
+          <p class="step-desc">CTR de 10,61% e ROAS 9,79x com apenas 1.797 cliques — a campanha está performando muito bem mas com volume baixo. Ampliar match types e adicionar palavras de produtos específicos (Brown Horse, BH85, Pica Fumo etc.).</p>
+          <span class="step-badge">🟡 Média prioridade</span>
+        </div>
+      </div>
+      <div class="step-item reveal reveal-delay-4">
+        <span class="step-icon">⏸</span>
+        <div>
+          <p class="step-title">Pausar [Estático] Mais funções — segunda instância</p>
+          <p class="step-desc">ROAS 2,86x com R$987 gastos está abaixo da média da conta. A variante com ROAS 4,82x funciona — mas essa instância específica em conjunto diferente não está convertendo. Pausar e redistribuir o budget para o "Fio de alta retenção".</p>
+          <span class="step-badge" style="background:rgba(255,192,110,0.12);color:var(--amber);border-color:rgba(255,192,110,0.25);">🟡 Esta semana</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">YAV <span>Digital</span></span>
+  <span class="footer-note">Google Ads + Meta Ads · Agosto 2026 · Mês completo</span>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
